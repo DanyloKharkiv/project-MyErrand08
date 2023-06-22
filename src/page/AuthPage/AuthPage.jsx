@@ -6,4 +6,4 @@ const AuthPage = () => {
   )
 }
 
-export default Autorization
+export default AuthPage
