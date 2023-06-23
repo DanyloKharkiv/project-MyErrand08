@@ -1,8 +1,12 @@
 import React from 'react'
+import { LoginForm } from '../../components/AuthForm/LoginForm/LoginForm'
 
 const AuthPage = () => {
   return (
-    <div>Autorization</div>
+    <div>
+      sasfgsdg
+      <LoginForm/>
+    </div>
   )
 }
 
