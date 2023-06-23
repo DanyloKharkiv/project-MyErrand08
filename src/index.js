@@ -13,9 +13,7 @@ const root = createRoot(container);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-        <BrowserRouter>
-    <Provider store={store} basename="task-pro-frontend-team-project">
-      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter basename="/task-pro-frontend-team-project">
           <App />
       </PersistGate>
     </Provider>
