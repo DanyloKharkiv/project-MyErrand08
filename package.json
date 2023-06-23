@@ -1,8 +1,8 @@
 {
-  "name": "task-pro-frontend-team-project",
+  "name": "project-myerrand08",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://DanyloKharkiv.github.io/task-pro-frontend-team-project/",
+  "homepage": "https://DanyloKharkiv.github.io/project-MyErrand08/",
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
