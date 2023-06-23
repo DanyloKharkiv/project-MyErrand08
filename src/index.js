@@ -13,7 +13,7 @@ const root = createRoot(container);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-        <BrowserRouter basename="/task-pro-frontend-team-project">
+        <BrowserRouter basename="/project-MyErrand08">
           <App />
         </BrowserRouter>
   </React.StrictMode>
