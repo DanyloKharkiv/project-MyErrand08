@@ -13,10 +13,10 @@ const root = createRoot(container);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-        <BrowserRouter basename="/task-pro-frontend-team-project">
-          <App />
-      </PersistGate>
-    </Provider>
-        </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter basename="/project-MyErrand08">
+        <App />
+      </BrowserRouter>
+      </Provider>
   </React.StrictMode>
 );
