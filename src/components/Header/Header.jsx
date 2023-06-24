@@ -5,7 +5,7 @@ import { HeaderSection } from "./Header.Styled";
 export const Header = () => {
   return (
     <HeaderSection>
-      <ThemeSelect />
+      {/* <ThemeSelect /> */}
       <UserInfo />
     </HeaderSection>
   );
