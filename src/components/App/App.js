@@ -5,12 +5,9 @@ import { Routes, Route } from "react-router-dom";
 import Filter from '../Modals/Filters/Filters';
 import Modal from '../Modals/Modal';
 import { useState } from 'react';
+import WelcomePage from '../../page/WelcomePage/WelcomePage';
 
-const WelcomePage = lazy(() => import('../../page/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../page/AuthPage/AuthPage'));
-
-
-
 
 
 function App() {
