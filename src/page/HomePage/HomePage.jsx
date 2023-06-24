@@ -2,15 +2,16 @@ import React from "react";
 import { Header } from "../../components/Header/Header";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Section } from "./HomePage.Styled";
+import { ScreensPage } from "../ScreensPage/ScreensPage";
 
 const HomePage = () => {
   return (
     <Section>
       <Sidebar />
-      <div>
+      <section>
         <Header />
-        <div>screensPage</div>
-      </div>
+        <ScreensPage />
+      </section>
     </Section>
   );
 };
