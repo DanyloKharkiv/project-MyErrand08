@@ -1,33 +1,119 @@
+import {
+  FormikStyle,
+  FormLogin,
+  FeedbackFormGroup,
+  InputEmail,
+  InputPassword,
+  Btnwrapper,
+  BtnLogIn,
+  PasswordWrapper,
+  ToggleShowPasword,
+  StyleErrorMessage,
+  Error,
+  Link,
+} from './LoginForm.Styled';
 import { useDispatch } from 'react-redux';
+import * as yup from 'yup';
 import { logIn } from '../../../redux/auth/authOperation';
-import css from './LoginForm.Styled';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .email('Invalid email')
+    .test('email-format', 'Invalid email format', (value) => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value);
+    })
+    .required(),
+  password: yup.string().min(10).max(20).required(),
+});
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
+  const handleSubmit = async (values, { resetForm }) => {
+    setIsLoading(true);
+    try {
+      dispatch(logIn(values));
+      navigate('/home');
+      resetForm();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return (
-    <form  onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input  type="password" name="password" />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      {isLoading && <p>Loading...</p>}
+      <FormikStyle
+        initialValues={initialValues}
+        validationSchema={schema}
+        onSubmit={handleSubmit}
+      >
+        <FormLogin>
+          <Link>
+            <NavLink to="/auth/register" style={{ color: '#ffffff4d' }}>
+              Registration
+            </NavLink>
+            <NavLink to="/auth/login" style={{ color: '#ffffff' }}>
+              Log In
+            </NavLink>
+          </Link>
+          <FeedbackFormGroup>
+            <InputEmail
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+            />
+            <StyleErrorMessage name="email">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </FeedbackFormGroup>
+          <FeedbackFormGroup>
+            <PasswordWrapper>
+              <InputPassword
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Confirm a password"
+              />
+              <ToggleShowPasword onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <BsEyeSlash
+                    color="#ffffff4d"
+                    style={{ width: 18, height: 18 }}
+                  />
+                ) : (
+                  <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+                )}
+              </ToggleShowPasword>
+            </PasswordWrapper>
+            <StyleErrorMessage name="password">
+              {(msg) => <Error>{msg}</Error>}
+            </StyleErrorMessage>
+          </FeedbackFormGroup>
+          <Btnwrapper>
+            <BtnLogIn type="submit">Log In Now</BtnLogIn>
+          </Btnwrapper>
+        </FormLogin>
+      </FormikStyle>
+    </>
   );
-};
+}
