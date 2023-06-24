@@ -1,7 +1,11 @@
+
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Box = styled.section`
-    background-image: linear-gradient(to bottom, #C4C4C4 0%, #BEDBB0 100%);
+    background-image:  linear-gradient(180deg,
+        rgba(196, 196, 196, 0) 25%,
+        #bedbb0 92.19%);
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,18 +23,18 @@ export const IMG = styled.img`
     margin-bottom: 24px;
 `
 
-export const Link = styled.button`
+export const Link = styled(NavLink)`
     color: #161616;
     text-align: center;
     height: 49px;
     width: 344px;
     border-radius: 8px;
-    background-color: transparent;
+    
     border-color: transparent;
     font-size: 14px;
     font-weight: 500;
     &: hover{
-    
+        
     background-color: #000;
     color: #FFF}
     `
