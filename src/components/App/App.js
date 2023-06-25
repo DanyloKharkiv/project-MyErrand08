@@ -10,14 +10,7 @@ import { RestrictedRoute } from "../../route/RestrictedRoute";
 
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
 
-  const onShowModal = () => {
-    setShowModal(true);
-  }
-  const onCloseModal = () => {
-    setShowModal(false);
-  }
   return (
     <>
       <Routes>
@@ -34,11 +27,6 @@ function App() {
         <Route path="*" element={<HomePage />} />
 
       </Routes>
-
-      <button type='button' onClick={() => onShowModal()} >Modal</button>
-      {showModal && <Modal onModalClick={onCloseModal} >
-        <Filter />
-      </Modal>}
     </>
   );
 }
