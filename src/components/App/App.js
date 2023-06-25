@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import { refreshUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
 
-const WelcomePage = lazy(() => import('../../page/WelcomePage/WelcomePage'));
-const AuthPage = lazy(() => import('../../page/AuthPage/AuthPage'));
-const HomePage = lazy(() => import('../../page/HomePage/HomePage'));
+const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
+const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
+const HomePage = lazy(() => import("../../page/HomePage/HomePage"));
 
 
 function App() {
@@ -22,7 +22,6 @@ function App() {
     <>
       <Suspense>
       <Routes>
-        
         <Route path="/" element={
           <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
         }/>
