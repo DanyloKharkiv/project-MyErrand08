@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/136.a4bbabed.chunk.js","mappings":"uJAQA,UANiB,WACf,OACEA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,gBAET,C","sources":["page/AuthPage/AuthPage.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst AuthPage = () => {\r\n  return (\r\n    <div>Autorization</div>\r\n  )\r\n}\r\n\r\nexport default AuthPage"],"names":["_jsx","children"],"sourceRoot":""}

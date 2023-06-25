@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkproject_myerrand08=self.webpackChunkproject_myerrand08||[]).push([[136],{136:function(r,e,n){n.r(e);n(791);var t=n(184);e.default=function(){return(0,t.jsx)("div",{children:"Autorization"})}}}]);
-//# sourceMappingURL=136.a4bbabed.chunk.js.map
