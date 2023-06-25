@@ -1,18 +1,18 @@
 import { useDispatch } from 'react-redux';
-import { Item, FrmButton } from './ContactItem.styled';
-import { deleteContact } from 'redux/operations';
+import { Item, FrmButton } from './ColumnItem.styled';
 import Notiflix from 'notiflix';
+import { deleteColumn } from '../../../../redux/column/columnOperation';
 
-function ContactItem({ item }) {
+function ColumnItem({ item }) {
 
     const dispatch = useDispatch();
 
     return (
         <Item key={item.id}>
-            {item.name}: {item.number}
+            {item.name}
             <FrmButton onClick={() => {
-                    dispatch(deleteContact(item.id));
-                    Notiflix.Notify.info(`Контакт ${item.name} видалений з контактів`);
+                    dispatch(deleteColumn(item.id));
+                    Notiflix.Notify.info(`Column ${item.name} succesfully deleted`);
                 }
             }
                 aria-label="Delete">
@@ -22,4 +22,4 @@ function ContactItem({ item }) {
     );
 };
 
-export default ContactItem;
+export default ColumnItem;

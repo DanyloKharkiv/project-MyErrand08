@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchColumns, addColumn, editColumn, deleteColumn } from "./operations";
+import { addColumn, deleteColumn, fetchColumns } from "./columnOperation";
+
 
 const handlePending = state => {
   state.isLoading = true;
