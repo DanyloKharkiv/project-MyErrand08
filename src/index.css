@@ -64,7 +64,7 @@ body[data-theme='dark'] {
   --whiteColor: #ffffff;
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --gefaultScreenColor: #e6e6e6;
+  --defaultScreenColor: #e6e6e6;
   --calendarBackground: #1F1F1F;
 
   
@@ -84,7 +84,7 @@ body[data-theme='violet'] {
   --whiteColor: #ffffff;
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --gefaultScreenColor: #e6e6e6;
+  --defaultScreenColor: #e6e6e6;
 
   
   --opacityWhite: rgba(255, 255, 255, 0.3);

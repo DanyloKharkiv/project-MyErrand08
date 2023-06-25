@@ -1,49 +1,42 @@
-import React, { useState } from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setTheme } from '../../redux/theme/themeSlice';
 
-export function Theme() {
-  const [currentTheme, setCurrentTheme] = useState('light');
+const themes = [
+  { name: 'Light', value: 'light' },
+  { name: 'Dark', value: 'dark' },
+  { name: 'Violet', value: 'violet' },
+];
 
-  const lightTheme = createTheme({
-    palette: {
-        primary: {
-          main: '#D9D9D9',
-        },
-        secondary: {
-          main: '#FFFFFF',
-        },
-        header: {
-          main: '#FCFCFC',
-        },
-        needHelp: {
-            main: 'F6F6F7',
-        },
-        text: {
-          primary: '#161616',
-          secondary: '#6C757D',
-          accent: 'BEDBB0',
-        },
-      },
-  });
+const ThemeSelect = () => {
+  const dispatch = useDispatch();
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [selectedTheme, setSelectedTheme] = useState('violet');
 
-  const darkTheme = createTheme({
-    
-  });
+  useEffect(() => {
+    document.body.setAttribute('data-theme', selectedTheme);
+  }, [selectedTheme]);
 
-  const violetTheme = createTheme({
-    
-  });
-
-  const handleThemeChange = (theme) => {
-    setCurrentTheme(theme);
+  const handleThemeToggle = (theme) => {
+    dispatch(setTheme(theme));
+    setSelectedTheme(theme);
+    setIsSelectOpen(false);
   };
 
   return (
-    <ThemeProvider theme={currentTheme === 'light' ? lightTheme : currentTheme === 'dark' ? darkTheme : violetTheme}>
-      <button onClick={() => handleThemeChange('light')}>Light</button>
-      <button onClick={() => handleThemeChange('dark')}>Dark</button>
-      <button onClick={() => handleThemeChange('violet')}>Violet</button>
-    </ThemeProvider>
+    <div isOpen={isSelectOpen}>
+      <div onClick={() => setIsSelectOpen(!isSelectOpen)}>
+        <p>Theme</p>
+      </div>
+      <ul isOpen={isSelectOpen}>
+        {themes.map(({ value, name }) => (
+          <li key={value} onClick={() => handleThemeToggle(value)}>
+            {name}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+};
 
+export default ThemeSelect;
