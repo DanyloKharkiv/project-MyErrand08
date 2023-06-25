@@ -10,6 +10,7 @@ const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
 const HomePage = lazy(() => import("../../page/HomePage/HomePage"));
 
+
 function App() {
   const dispatch = useDispatch()
 
