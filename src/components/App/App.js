@@ -1,39 +1,39 @@
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Suspense, useEffect, useState } from 'react';
+import { PrivateRoute } from "../../route/PrivateRoute";
+import { RestrictedRoute } from "../../route/RestrictedRoute";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Filter from "../Modals/Filters/Filters";
-import Modal from "../Modals/Modal";
-import { useState } from "react";
 
 const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
 const HomePage = lazy(() => import("../../page/HomePage/HomePage"));
 
 function App() {
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch()
 
-  const onShowModal = () => {
-    setShowModal(true);
-  };
-  const onCloseModal = () => {
-    setShowModal(false);
-  };
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [])
+  
   return (
     <>
+      <Suspense>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/welcome" element={<WelcomePage />} />
-        <Route path="/auth/:id" element={<AuthPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={
+          <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+        }/>
+        <Route path="/welcome" element={
+          <RestrictedRoute redirectTo="/" component={<WelcomePage />} />
+        }/>
+        <Route path="/auth/:id" element={
+          <RestrictedRoute redirectTo="/" component={<AuthPage />} />
+        }/>
+        <Route path="*" element={<HomePage />} />
+
       </Routes>
-      <button type="button" onClick={() => onShowModal()}>
-        Modal
-      </button>
-      {showModal && (
-        <Modal onModalClick={onCloseModal}>
-          <Filter />
-        </Modal>
-      )}
+      </Suspense>
     </>
   );
 }

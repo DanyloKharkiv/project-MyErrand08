@@ -14,9 +14,11 @@ const root = createRoot(container);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/project-MyErrand08">
-        <App />
-      </BrowserRouter>
-      </Provider>
+      <PersistGate persistor={persistor} loading={null}>
+        <BrowserRouter basename="/project-MyErrand08">
+          <App />
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
