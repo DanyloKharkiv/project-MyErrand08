@@ -1,16 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux';
 import filter from './filter.module.css'
-import { useState } from 'react';
+import { selectRadio} from '../../../redux/filter/filterSelectors';
+import { setRadio } from '../../../redux/filter/filterSlice';
 
 const Filter = () => {
 
-    const [radio, setRadio] = useState('');
+    const dispatch = useDispatch();
+    const radio = useSelector(selectRadio)
     
     const handleClick = ({ target }) => {
-        setRadio(target.name)
+        const action = setRadio(target.name);
+        dispatch(action)
     }
     const showClick = () => {
-        setRadio('')
+        const action = setRadio('');
+        dispatch(action);
     }
+    
     
 
     return (<div className={filter.modal}>
