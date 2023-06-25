@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = '!!!!!!!!!!!!!!!!';
+axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 const setAuthToken = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -14,7 +14,7 @@ const clearAuthToken = () => {
 
 export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
   try {
-    const { data } = await axios.post('/users/signup', credentials);
+    const { data } = await axios.post('/users/register', credentials);
     setAuthToken(data.token);
     Notify.success('Registrated succesfully!');
     return data;

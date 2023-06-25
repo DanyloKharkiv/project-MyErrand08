@@ -1,16 +1,23 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Filter from '../Modals/Filters/Filters';
 import Modal from '../Modals/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import WelcomePage from '../../page/WelcomePage/WelcomePage';
 import AuthPage from '../../page/AuthPage/AuthPage';
 import HomePage from '../../page/HomePage/HomePage';
 import { PrivateRoute } from "../../route/PrivateRoute";
 import { RestrictedRoute } from "../../route/RestrictedRoute";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../../redux/auth/authOperation";
 
 
 function App() {
+  const dispatch = useDispatch()
 
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [])
+  
   return (
     <>
       <Routes>
