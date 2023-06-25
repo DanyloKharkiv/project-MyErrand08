@@ -1,8 +1,20 @@
+import { CreateBoardBtn } from "../CreateBoard/CreateBoard";
+import {
+  BoardsElement,
+  BoardsTitle,
+  BoardsList,
+  BoardsItem,
+} from "./Boards.Styled";
+
 export const Boards = () => {
   return (
-    <ul>
-      <li>Board1</li>
-      <li>Board2</li>
-    </ul>
+    <BoardsElement>
+      <BoardsTitle>My boards</BoardsTitle>
+      <CreateBoardBtn />
+      <BoardsList>
+        <BoardsItem>Project office</BoardsItem>
+        <BoardsItem>Neon Light Project</BoardsItem>
+      </BoardsList>
+    </BoardsElement>
   );
 };

@@ -1,12 +1,16 @@
+import { HelpElement, Text, HelpLink } from "./CustomerSupport.Styled";
 export const CustomerSupport = () => {
   return (
-    <div>
+    <HelpElement>
       <img src="" alt="" />
-      <span>
+      <Text>
         If you need help with TaskPro, check out our support resources or reach
         out to our customer support team.
-      </span>
-      <div>Need Help</div>
-    </div>
+      </Text>
+      <HelpLink>
+        {/* <svg>       </svg> */}
+        <a href="">Need Help</a>
+      </HelpLink>
+    </HelpElement>
   );
 };

@@ -1,3 +1,8 @@
+import { LogoutElement, LogoutBtn } from "./LogOut.Styled";
 export const LogOut = () => {
-  return <div>Log out</div>;
+  return (
+    <LogoutElement>
+      <LogoutBtn>Log out</LogoutBtn>
+    </LogoutElement>
+  );
 };
