@@ -1,8 +1,9 @@
+import { LogoElement, LogoTitle } from "./Logo.Styled";
 export const Logo = () => {
   return (
-    <div>
-      <h1>Logo</h1>
+    <LogoElement>
       {/* <svg></svg> */}
-    </div>
+      <LogoTitle>Task Pro</LogoTitle>
+    </LogoElement>
   );
 };
