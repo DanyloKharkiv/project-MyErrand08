@@ -1,20 +1,20 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { setTheme } from '../../redux/theme/themeSlice';
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setTheme } from "../../redux/theme/themeSlice";
 
 const themes = [
-  { name: 'Light', value: 'light' },
-  { name: 'Dark', value: 'dark' },
-  { name: 'Violet', value: 'violet' },
+  { name: "Light", value: "light" },
+  { name: "Dark", value: "dark" },
+  { name: "Violet", value: "violet" },
 ];
 
 const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const [selectedTheme, setSelectedTheme] = useState('violet');
+  const [selectedTheme, setSelectedTheme] = useState("violet");
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', selectedTheme);
+    document.body.setAttribute("data-theme", selectedTheme);
   }, [selectedTheme]);
 
   const handleThemeToggle = (theme) => {
