@@ -15,7 +15,7 @@ const clearAuthToken = () => {
 export const register = createAsyncThunk('auth/register', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/register', credentials);
-    setAuthToken(data.token);
+    setAuthToken(data.accessToken);
     Notify.success('Registrated succesfully!');
     return data;
   } catch (error) {
@@ -27,7 +27,7 @@ export const register = createAsyncThunk('auth/register', async (credentials, th
 export const logIn = createAsyncThunk('auth/login', async (credentials, thunkAPI) => {
   try {
     const { data } = await axios.post('/users/login', credentials);
-    setAuthToken(data.token);
+    setAuthToken(data.accessToken);
     Notify.success('Login sucess!');
     return data;
   } catch (error) {
