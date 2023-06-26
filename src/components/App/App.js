@@ -32,7 +32,6 @@ function App() {
           <RestrictedRoute redirectTo="/" component={<AuthPage />} />
         }/>
         <Route path="*" element={<HomePage />} />
-
       </Routes>
       </Suspense>
     </>

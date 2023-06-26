@@ -24,7 +24,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
-    filter:filterReducer,
+    filter: filterReducer,
     auth: persistReducer(authPersistConfig, authReducer),
 
   },
