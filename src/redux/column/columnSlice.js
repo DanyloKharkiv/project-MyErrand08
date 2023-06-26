@@ -39,7 +39,7 @@ const columnsSlice = createSlice({
     // [editColumn.fulfilled](state, action) {
     //   state.isLoading = false;
     //   state.error = null;
-    //   state.items.push(action.payload);
+    //   state.items.push(action.payload);  // змінити push на replace title by _id
     // },
     // [editColumn.rejected]: handleRejected,
 

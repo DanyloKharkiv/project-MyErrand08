@@ -11,7 +11,7 @@ function ColumnList () {
         <>
             <ul>
                 {columns.map(item => (
-                    <ColumnItem key={item.id} item={item}/>
+                    <ColumnItem key={item._id} item={item}/>
                 ))}
             </ul>
         </>

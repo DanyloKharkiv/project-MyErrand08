@@ -11,7 +11,7 @@ import { addColumn } from '../../../redux/column/columnOperation';
 const nameRegex = /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
 
 const ColumnSchema = Yup.object().shape({
-    name: Yup.string()
+    title: Yup.string()
         .matches(nameRegex, {message: "Invalid name", })
         .required('Required')
 });
@@ -24,15 +24,15 @@ const AddColumn = () => {
     return (
         <Formik
             initialValues={{
-                name: '',
+                title: '',
             }}
             validationSchema={ColumnSchema}
             onSubmit={(data, actions) => {
-                if (columnsItems.find(item => item.name.toLowerCase() === data.name.toLowerCase())) {
-                    return Notiflix.Notify.failure(`Колонка ${data.name} вже існує`);
+                if (columnsItems.find(item => item.title.toLowerCase() === data.title.toLowerCase())) {
+                    return Notiflix.Notify.failure(`Колонка ${data.title} вже існує`);
                 }
                 dispatch(addColumn(data));
-                Notiflix.Notify.success(`Колонка ${data.name} успішно додана`);
+                Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);
                 
                 actions.resetForm();
             }}
@@ -41,8 +41,8 @@ const AddColumn = () => {
             <Form>
                 <FormField>
                     Name
-                    <Field name="name" />
-                    <ErrorMessage name="name" component="span" />
+                    <Field name="title" />
+                    <ErrorMessage name="title" component="span" />
                 </FormField>
                 <FrmButton type="submit">Add Column</FrmButton>
             </Form>

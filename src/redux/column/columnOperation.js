@@ -17,9 +17,9 @@ export const fetchColumns = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-    async ({ name }, thunkAPI) => {
+    async ({ title }, thunkAPI) => {
     try {
-      const response = await axios.post("/columns", { name });
+      const response = await axios.post("/columns", { title });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -29,9 +29,9 @@ export const addColumn = createAsyncThunk(
 
 export const deleteColumn = createAsyncThunk(
   "columns/deleteColumn",
-  async (id, thunkAPI) => {
+  async ({ _id }, thunkAPI) => {
     try {
-      const response = await axios.delete(`/columns/${id}`);
+      const response = await axios.delete(`/columns/${_id}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -39,14 +39,14 @@ export const deleteColumn = createAsyncThunk(
   }
 );
 
-// export const editColumn  = createAsyncThunk(
-//   "columns/editColumn",
-//   async ({ id, name }, thunkAPI) => {
-//     try {
-//       const response = await axios.put(`/columns/${id}`, { name });
-//       return response.data;
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
+export const editColumn  = createAsyncThunk(
+  "columns/editColumn",
+  async ({ _id, title }, thunkAPI) => {
+    try {
+      const response = await axios.put(`/columns/${_id}`, { title });
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
