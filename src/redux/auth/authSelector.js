@@ -6,4 +6,4 @@ export const selectIsRefreshing = state => state.auth.isRefreshing;
 
 export const selectError = state => state.auth.error;
 
-export const selectToken = state => state.auth.token;
+export const selectToken = state => state.auth.accessToken;

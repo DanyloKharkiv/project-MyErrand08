@@ -3,7 +3,7 @@ import { register, logIn, logOut, refreshUser  } from './authOperation';
 
 const initialState = {
   user: { name: null, email: null },
-  token: null,
+  accessToken: null,
   error: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -21,13 +21,13 @@ const fn = type => arrThunks.map(elem => elem[type]);
 
 const handleIsLogIn = (state, { payload }) => {
   // state.user = payload.user;
-  state.token = payload.accessToken;
+  state.accessToken = payload.accessToken;
   state.isLoggedIn = true;
 };
 
 const handleLogout = (state) => {
   state.user = { name: null, email: null };
-  state.token = null;
+  state.accessToken = null;
   state.isLoggedIn = false;
 };
 
@@ -36,7 +36,7 @@ const handleRefreshUserPending = (state) => {
 };
 
 const handleRefreshUserFulfilled = (state, {payload}) => {
-  state.user = payload;
+  state.accessToken = payload.accessToken;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
