@@ -12,24 +12,23 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>My Errand</title>
+    <link rel="shortcut icon" type="image/png" href="./favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    rel="shortcut icon"
-    type="image/png"
-    href="./favicon.ico"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <script type="text/javascript">
       (function (l) {
-        if (l.search[1] === '/') {
+        if (l.search[1] === "/") {
           var decoded = l.search
             .slice(1)
-            .split('&')
+            .split("&")
             .map(function (s) {
-              return s.replace(/~and~/g, '&');
+              return s.replace(/~and~/g, "&");
             })
-            .join('?');
+            .join("?");
           window.history.replaceState(
             null,
             null,
