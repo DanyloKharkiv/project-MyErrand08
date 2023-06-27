@@ -11,6 +11,14 @@ import {
 import sprite from "../../images/sprite.svg";
 
 export const ScreensPage = () => {
+
+  const filterModalRef = useRef(null);
+
+  const openFilterModal = () => {
+    if (filterModalRef.current) {
+      filterModalRef.current.openModal()
+    }
+  }
   return (
     <ScreensPageElement>
       <SectionHeader>
