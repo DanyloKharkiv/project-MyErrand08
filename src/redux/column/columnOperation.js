@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://localhost:3001/api/';
+axios.defaults.baseURL = 'https://6432a773d0127730d2d6e36b.mockapi.io/';
 
 export const fetchColumns = createAsyncThunk(
   "columns/fetchAll",
@@ -29,9 +29,9 @@ export const addColumn = createAsyncThunk(
 
 export const deleteColumn = createAsyncThunk(
   "columns/deleteColumn",
-  async ({ _id }, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/columns/${_id}`);
+      const response = await axios.delete(`/columns/${id}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

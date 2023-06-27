@@ -1,5 +1,6 @@
 import React from 'react';
 import {Box, Wrapper, Link, Title, Text, IMG} from "./WelcomePage.Styled";
+import Columns from '../../components/Container/Column/Columns';
 
 const WelcomePage = () => {
   return (
@@ -13,7 +14,9 @@ const WelcomePage = () => {
   </Wrapper>
     <Text>Supercharge your productivity and take control of your tasks with Task Pro - Don't wait, start achieving your goals now!</Text>
     <Link>Registration</Link>
-    <Link>Log In</Link>
+      <Link>Log In</Link>
+      
+      <Columns />
   </Box>
   )
 }
