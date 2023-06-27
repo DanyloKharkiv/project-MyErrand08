@@ -1,8 +1,13 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser  } from './authOperation';
+import { register, logIn, logOut, refreshUser, currentUser  } from './authOperation';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    name: null,
+    email: null,
+    avatarURL: null,
+    theme: '',
+  },
   accessToken: null,
   error: null,
   isLoggedIn: false,
@@ -15,12 +20,12 @@ const STATUS = {
   REJECTED: "rejected",
 };
 
-const arrThunks = [register, logIn, logOut, refreshUser];
+const arrThunks = [register, logIn, logOut, refreshUser, currentUser];
 
 const fn = type => arrThunks.map(elem => elem[type]);
 
-const handleIsLogIn = (state, { payload }) => {
-  // state.user = payload.user;
+const handleIsLogIn = (state, { payload, meta }) => {
+  state.user = meta.arg;
   state.accessToken = payload.accessToken;
   state.isLoggedIn = true;
 };
@@ -57,6 +62,10 @@ const handleRejected = (state, { payload }) => {
   state.error = payload
 }; 
 
+const handleCurrent = (state, { payload }) => {
+  state.user = payload;
+};
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -68,6 +77,7 @@ export const authSlice = createSlice({
       .addCase(refreshUser.pending, handleRefreshUserPending)
       .addCase(refreshUser.fulfilled, handleRefreshUserFulfilled)
       .addCase(refreshUser.rejected, handleRefreshUserRejected)
+      .addCase(currentUser.fulfilled, handleCurrent)
       .addMatcher(isAnyOf(...fn(PENDING)), handlePending)
       .addMatcher(isAnyOf(...fn(REJECTED)), handleRejected)
       .addMatcher(isAnyOf(...fn(FULFILLED)), handleFulfilled)

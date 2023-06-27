@@ -3,7 +3,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { PrivateRoute } from "../../route/PrivateRoute";
 import { RestrictedRoute } from "../../route/RestrictedRoute";
 import { useDispatch, useSelector } from "react-redux";
-import { refreshUser } from "../../redux/auth/authOperation";
+import { currentUser, refreshUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
 import { selectIsLoggedIn, selectIsRefreshing } from "../../redux/auth/authSelector";
 
@@ -20,6 +20,7 @@ function App() {
 
   useEffect(() => {
     dispatch(refreshUser());
+    dispatch(currentUser());
   }, [])
   
   return (
