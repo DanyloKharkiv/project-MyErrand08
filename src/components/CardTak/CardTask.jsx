@@ -1,20 +1,23 @@
-import { Card, CardHeader, CardContent, CardActions } from "@mui/material";
-import { Button, Box, Grid, Typography } from "@mui/material";
+import { Card, CardContent, CardActions } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
+import sprite from "../../images/sprite.svg";
+import EllipsisText from "react-ellipsis-text";
 
-const line = (
+const line = (color) => (
   <Box
     sx={{
       width: "100%",
       height: "2px",
       mx: "2px",
-      backgroundColor: "rgba(255, 255, 255, 0.1)",
+      backgroundColor: `${color}`,
     }}
   ></Box>
 );
 const bull = (color) => (
   <Box
     sx={{
-      mx: "4px",
+      width: "12px",
+      height: "12px",
       borderRadius: "50%",
       transform: "scale(0.8)",
       backgroundColor: `${color}`,
@@ -28,72 +31,205 @@ export default function CardTask({ card }) {
       sx={{
         maxWidth: 335,
         height: 154,
+        ml: "auto",
+        mr: "auto",
         backgroundColor: "var(--sidebarColor)",
         borderRadius: 2,
         borderLeftWidth: "4px",
-        borderLeftColor: "tomato",
+        borderLeftColor: `${"var(--lowColor)"}`,
       }}
     >
-      <CardContent>
+      <CardContent sx={{ fontFamily: "Poppins" }}>
         <Typography
           variant="h2"
-          sx={{ color: "var(--whiteColor)", fontSize: 14, fontWeight: 700 }}
+          sx={{
+            color: "var(--whiteColor)",
+            fontSize: 14,
+            fontWeight: 700,
+            fontFamily: "inherit",
+          }}
           gutterBottom
         >
           {card.title}
         </Typography>
         <Typography
-          variant="subtitle1"
           sx={{
+            height: "38px",
+            mt: "8px",
+            mb: "14px",
             color: "var(--opacityWhite2)",
             fontSize: 12,
             fontWeight: "400",
+            fontFamily: "Poppins",
           }}
           gutterBottom
         >
-          {card.description}
+          <EllipsisText
+            text={card.description}
+            length={"90"}
+            tooltip={{
+              copyOnClick: true,
+            }}
+          />
         </Typography>
-        {line}
-        <Grid
-          container
-          spacing={2}
+
+        {line("var(--opacityWhite2)")}
+
+        <Box
           sx={{
-            color: "var(--opacityWhite2)",
-            fontSize: 8,
+            fontFamily: "Poppins",
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "center",
+            gap: "20px",
+            mt: "10px",
           }}
         >
-          <Grid item xs={6}>
+          <Typography
+            sx={{
+              color: "var(--opacityWhite2)",
+              fontFamily: "inherit",
+              fontSize: 8,
+              lineHeight: 1.5,
+            }}
+          >
             Priority
-          </Grid>
-          <Grid item xs={6}>
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--opacityWhite2)",
+              fontSize: 8,
+              fontFamily: "inherit",
+              lineHeight: 1.5,
+            }}
+          >
             Dedline
-          </Grid>
-          <Grid
-            item
-            xs={6}
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <Box
             sx={{
-              color: "var(--whiteColor)",
-              fontSize: 10,
+              fontFamily: "Poppins",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              gap: "14px",
             }}
           >
-            {"xs=4"}
-          </Grid>
-          <Grid
-            item
-            xs={6}
+            {" "}
+            <Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between ",
+                  alignItems: "center",
+                  gap: "4px",
+                  mt: "4px",
+                }}
+              >
+                {bull("var(--lowColor)")}
+                <Box
+                  sx={{
+                    color: "var(--whiteColor)",
+                    fontSize: 10,
+                    fontFamily: "inherit",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  Low
+                </Box>
+              </Box>
+            </Box>
+            <Box>
+              <Typography
+                sx={{
+                  color: "var(--whiteColor)",
+                  fontSize: 10,
+                  fontFamily: "inherit",
+                  lineHeight: 1.5,
+                  mt: "4px",
+                }}
+              >
+                12/05/2023
+                {card.dedline}
+              </Typography>
+            </Box>
+          </Box>
+          <Box
             sx={{
-              color: "var(--whiteColor)",
-              fontSize: 10,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            {"xs=8"}
-          </Grid>
-        </Grid>
-        <CardActions>
-          <Button size="small">Icon1</Button>
-          <Button size="small">Icon2</Button>
-          <Button size="small">Icon3</Button>
-        </CardActions>
+            <Box
+              sx={{
+                width: "20px",
+                height: "20px",
+                mr: "8px",
+                borderRadius: "50%",
+                backgroundColor: "var(--gradientFonColor)",
+                boxShadow: " 0 0 5px 3px  #bedbb0",
+                textAlign: "center",
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="var(--opacityWhite2)"
+              >
+                <use href={sprite + `#icon-Icon-bell`}></use>
+              </svg>
+            </Box>
+            <CardActions sx={{ pt: 0, pb: 0, pr: 0 }}>
+              <Button sx={{ minWidth: "18px", borderRadius: "50%" }}>
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="var(--opacityWhite2)"
+                >
+                  <use href={sprite + `#icon-arrow-circle-broken-right`}></use>
+                </svg>
+              </Button>
+              <Button
+                size="small"
+                sx={{ minWidth: "18px", borderRadius: "50%" }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="var(--opacityWhite2)"
+                >
+                  <use href={sprite + `#icon-Icon-pencil`}></use>
+                </svg>
+              </Button>
+              <Button
+                size="small"
+                sx={{ minWidth: "18px", borderRadius: "50%" }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="var(--opacityWhite2)"
+                >
+                  <use href={sprite + `#icon-trash-04`}></use>
+                </svg>
+              </Button>
+            </CardActions>
+          </Box>
+        </Box>
       </CardContent>
     </Card>
   );
