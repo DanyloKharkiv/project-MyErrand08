@@ -3,6 +3,8 @@ import {
   CreateBoardBtnText,
   Btn,
 } from "./CreateBoard.Styled";
+import sprite from "../../../images/sprite.svg";
+
 export const CreateBoardBtn = () => {
   return (
     <CreateBoardBtnElement>
@@ -10,7 +12,11 @@ export const CreateBoardBtn = () => {
         Create a <br />
         new board
       </CreateBoardBtnText>
-      <Btn>+</Btn>
+      <Btn>
+        <svg width="20" height="20" stroke="black">
+          <use href={sprite + `#icon-plus`}></use>
+        </svg>
+      </Btn>
     </CreateBoardBtnElement>
   );
 };

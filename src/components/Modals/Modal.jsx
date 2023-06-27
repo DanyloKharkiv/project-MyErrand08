@@ -1,10 +1,13 @@
 import { Overlay } from "./Modal.styled"
 
-const Modal = ({ children, onModalClick }) => {
+
+
+const Modal = ({ children, close}) => {
     
+
     const handleClose = ({ target, currentTarget}) => {
         if (target === currentTarget) {
-            onModalClick()
+            close()
         }
     }
     return (

@@ -18,13 +18,13 @@ import themeReducer from './theme/themeSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['accessToken'],
 };
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
-    filter:filterReducer,
+    filter: filterReducer,
     auth: persistReducer(authPersistConfig, authReducer),
 
   },
