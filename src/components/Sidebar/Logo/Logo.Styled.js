@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const LogoElement = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 24px;
   margin-top: 24px;
   margin-right: 132px;

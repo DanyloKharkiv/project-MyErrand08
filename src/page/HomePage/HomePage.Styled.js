@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.div`
+  font-family: Poppins;
   display: flex;
   height: 770px;
   max-width: 1440px;
