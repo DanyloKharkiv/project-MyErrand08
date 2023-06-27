@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { register } from '../../../redux/auth/authOperation';
+import { logIn, register } from '../../../redux/auth/authOperation';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import { useState } from 'react';
 import {
@@ -52,7 +52,8 @@ export const RegistrationForm = () => {
     setIsLoading(true);
     try {
       await dispatch(register(values));
-      navigate('/home');
+      const { email, password } = values;
+      await dispatch(logIn({ email, password }));
     } catch (error) {
       console.log(error);
     } finally {
