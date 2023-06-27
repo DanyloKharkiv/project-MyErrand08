@@ -9,6 +9,8 @@ import {
   AddBtn,
 } from "./ScreensPage.Styled";
 import sprite from "../../images/sprite.svg";
+import { useRef } from "react";
+import FilterModal from '../../components/Modals/Filters/FilterModal'
 
 export const ScreensPage = () => {
 
@@ -32,13 +34,14 @@ export const ScreensPage = () => {
           >
             <use href={sprite + `#icon-filter`}></use>
           </svg>
-          <FilterBtn>Filters</FilterBtn>
+          <FilterBtn onClick={openFilterModal}>Filters</FilterBtn>
         </Filter>
       </SectionHeader>
       <AddBtnBox>
         <AddBtn>+</AddBtn>
         <AddBtnText>Add another column</AddBtnText>
       </AddBtnBox>
+      <FilterModal ref={filterModalRef} />
     </ScreensPageElement>
   );
 };
