@@ -13,7 +13,7 @@ export const UserInfo = () => {
     <>
       <Text>{userName}</Text>
       <div>
-        src={avatarURL} alt="user_icon" width={32} height={32}
+        < img src={avatarURL} alt="user_icon" width={32} height={32} />
       </div>
     </>
   );
