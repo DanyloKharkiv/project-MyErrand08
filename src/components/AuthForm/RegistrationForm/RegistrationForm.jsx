@@ -35,7 +35,7 @@ const schema = yup.object().shape({
       return emailRegex.test(value);
     })
     .required(),
-  password: yup.string().min(10).max(20).required(),
+  password: yup.string().min(8).max(64).required(),
 });
 
 export const RegistrationForm = () => {
