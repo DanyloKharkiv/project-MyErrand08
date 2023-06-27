@@ -11,8 +11,8 @@ export const LogoutElement = styled.div`
 export const LogoutBtn = styled.button`
   padding: 0;
   font-family: Poppins;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--sidebarColor);
+  color: var(--logOut);
   border: none;
   font-size: 16px;
   margin-left: 14px;
