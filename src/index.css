@@ -47,10 +47,12 @@ body[data-theme='light'] {
   --mediumColor: #e09cb5;
   --defaultScreenColor: #e6e6e6;
 
-  
-
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+  --themeTitle: rgba(22, 22, 22, 0.8);
+  --themeBgColor: #FCFCFC;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  --themeItem: #161616;
 
   --activeItemBorder: rgba(246, 246, 247, 1);
   --borderBottomColor: rgba(22, 22, 22, 0.1);
@@ -68,9 +70,13 @@ body[data-theme='dark'] {
   --calendarBackground: #1F1F1F;
 
   
-
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+  --themeTitle: rgba(255, 255, 255, 0.8);
+  --themeBgColor: #151515;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  --themeItem: rgba(255, 255, 255, 0.5);
+  
 
   --activeItemBorder: rgba(31, 31, 31, 1);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
@@ -89,6 +95,10 @@ body[data-theme='violet'] {
   
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
+  --themeTitle: rgba(22, 22, 22, 0.8);
+  --themeBgColor: #FCFCFC;
+  --themeBoxShadow: rgba(17, 17, 17, 0.10);
+  --themeItem: #161616;
 
   --activeItemBorder: rgba(255, 255, 255, 0.5);
   --borderBottomColor: rgba(255, 255, 255, 0.1);
