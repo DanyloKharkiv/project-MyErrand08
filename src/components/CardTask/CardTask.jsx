@@ -25,6 +25,9 @@ const bull = (color) => (
   ></Box>
 );
 export default function CardTask({ card }) {
+  console.log("CardTack");
+  console.log(card.title);
+  console.log(card.description);
   return (
     <Card
       variant="outlined"
@@ -33,6 +36,7 @@ export default function CardTask({ card }) {
         height: 154,
         ml: "auto",
         mr: "auto",
+        mb: "5px",
         backgroundColor: "var(--sidebarColor)",
         borderRadius: 2,
         borderLeftWidth: "4px",
@@ -54,7 +58,7 @@ export default function CardTask({ card }) {
         </Typography>
         <Typography
           sx={{
-            height: "38px",
+            // height: "38px",
             mt: "8px",
             mb: "14px",
             color: "var(--opacityWhite2)",
@@ -66,7 +70,7 @@ export default function CardTask({ card }) {
         >
           <EllipsisText
             text={card.description}
-            length={"90"}
+            length={90}
             tooltip={{
               copyOnClick: true,
             }}
@@ -193,8 +197,8 @@ export default function CardTask({ card }) {
             <CardActions sx={{ pt: 0, pb: 0, pr: 0 }}>
               <Button sx={{ minWidth: "18px", borderRadius: "50%" }}>
                 <svg
-                  width="18"
-                  height="18"
+                  width="20"
+                  height="20"
                   fill="none"
                   stroke="var(--opacityWhite2)"
                 >
@@ -206,8 +210,8 @@ export default function CardTask({ card }) {
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
               >
                 <svg
-                  width="18"
-                  height="18"
+                  width="20"
+                  height="20"
                   fill="none"
                   stroke="var(--opacityWhite2)"
                 >
@@ -219,8 +223,8 @@ export default function CardTask({ card }) {
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
               >
                 <svg
-                  width="18"
-                  height="18"
+                  width="20"
+                  height="20"
                   fill="none"
                   stroke="var(--opacityWhite2)"
                 >
