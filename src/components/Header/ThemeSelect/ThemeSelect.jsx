@@ -4,11 +4,13 @@ import { setTheme } from "../../../redux/theme/themeSlice";
 import {Container, Title, Wrapper, List, Item} from "./ThemeSelect.Styled";
 import { IoIosArrowDown } from "react-icons/io";
 
+
 const themes = [
   { name: "Light", value: "light" },
   { name: "Dark", value: "dark" },
   { name: "Violet", value: "violet" },
 ];
+
 
 export const ThemeSelect = () => {
   const dispatch = useDispatch();
@@ -16,14 +18,18 @@ export const ThemeSelect = () => {
   const [selectedTheme, setSelectedTheme] = useState("dark");
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", selectedTheme);
+    document.body.classList.remove('light-theme', 'dark-theme', 'violet-theme');
+    document.body.classList.add(selectedTheme + '-theme');
   }, [selectedTheme]);
 
   const handleThemeToggle = (theme) => {
     dispatch(setTheme(theme));
-    setSelectedTheme(theme);
+    setTimeout(() => {
+      setSelectedTheme(theme);
+    }, 10);
     setIsSelectOpen(false);
   };
+
 
   return (
     <Container isOpen={isSelectOpen}>
@@ -41,3 +47,4 @@ export const ThemeSelect = () => {
     </Container>
   );
 };
+

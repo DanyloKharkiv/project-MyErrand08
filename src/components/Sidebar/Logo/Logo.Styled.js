@@ -14,8 +14,14 @@ export const LogoElement = styled.div`
 `;
 
 export const LogoTitle = styled.h1`
-  color: white;
+  color: var(--contrastColor);
   font-size: 16px;
   font-weight: 600;
   /* text-align: center; */
 `;
+
+export const LogoSVG = styled.svg`
+path {
+  fill: var(--logo); 
+}
+`
