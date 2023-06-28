@@ -62,3 +62,12 @@ export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI) 
     return thunkAPI.rejectWithValue(error);
   }
 });
+
+export const updateTheme = createAsyncThunk('user/setTheme', async (newTheme) => {
+  try {
+    const { data } = await axios.patch('/users', { theme: newTheme });
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+});

@@ -22,8 +22,8 @@ export const Boards = () => {
             <ProjectSVG
               width="18"
               height="18"
-              fill="rgba(31, 31, 31, 0.2)"
-              stroke="rgba(255,255,255)"
+              fill="var(--prOfBg)"
+              stroke="var(--contrastColor)"
             >
               <use href={sprite + `#icon-Project`}></use>
             </ProjectSVG>
@@ -35,8 +35,8 @@ export const Boards = () => {
               <svg
                 width="16"
                 height="16"
-                fill="rgba(31, 31, 31, 0.2)"
-                stroke="rgba(255,255,255,0.5)"
+                fill="var(--prOfBg)"
+                stroke="var(--myBoards)"
               >
                 <use href={sprite + `#icon-Icon-pencil`}></use>
               </svg>
@@ -45,8 +45,8 @@ export const Boards = () => {
               <svg
                 width="16"
                 height="16"
-                fill="rgba(31, 31, 31, 0.2)"
-                stroke="rgba(255,255,255,0.5)"
+                fill="var(--prOfBg)"
+                stroke="var(--myBoards)"
               >
                 <use href={sprite + `#icon-trash-04`}></use>
               </svg>

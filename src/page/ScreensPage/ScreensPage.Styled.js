@@ -46,6 +46,7 @@ export const FilterBtn = styled.button`
   border: none;
   padding: 0;
   margin-left: 8px;
+  cursor:pointer;
 `;
 
 export const AddBtnText = styled.p`
