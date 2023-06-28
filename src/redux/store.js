@@ -19,7 +19,7 @@ import { columnsReducer } from './column/columnSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken'],
+  whitelist: ['accessToken', 'refreshToken'],
 };
 
 export const store = configureStore({

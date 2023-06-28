@@ -5,7 +5,7 @@ import { RestrictedRoute } from "../../route/RestrictedRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { currentUser, refreshUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
-import { selectIsLoggedIn, selectIsRefreshing } from "../../redux/auth/authSelector";
+import { selectIsLoggedIn, selectIsRefreshing, selectToken } from "../../redux/auth/authSelector";
 
 
 const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
@@ -15,13 +15,14 @@ const HomePage = lazy(() => import("../../page/HomePage/HomePage"));
 
 function App() {
   const dispatch = useDispatch()
-
+  const accessToken = useSelector(selectToken);
   const isRefreshing = useSelector(selectIsRefreshing);
   const isLoading = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
-    dispatch(refreshUser());
-    dispatch(currentUser());
+    if (accessToken) {
+      dispatch(currentUser());
+    }
   }, [])
   
   return (

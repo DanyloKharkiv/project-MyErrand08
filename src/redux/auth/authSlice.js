@@ -7,8 +7,10 @@ const initialState = {
     email: null,
     avatarURL: null,
     theme: '',
+    id: null,
   },
   accessToken: null,
+  refreshToken: null,
   error: null,
   isLoggedIn: false,
   isRefreshing: false,
@@ -28,6 +30,7 @@ const fn = type => arrThunks.map(elem => elem[type]);
 const handleIsLogIn = (state, { payload, meta }) => {
   state.user = meta.arg;
   state.accessToken = payload.accessToken;
+  state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
   state.user.theme = payload.theme;
 };
