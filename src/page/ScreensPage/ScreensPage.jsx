@@ -29,8 +29,8 @@ export const ScreensPage = () => {
           <svg
             width="16"
             height="16"
-            stroke="rgba(255,255,255, 0.8)"
-            fill="#1F1F1F"
+            stroke="var(--filterTxt)"
+            fill="var(--primaryBoardBg)"
           >
             <use href={sprite + `#icon-filter`}></use>
           </svg>

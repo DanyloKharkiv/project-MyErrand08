@@ -7,6 +7,7 @@ import { currentUser, refreshUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
 import { selectIsLoggedIn, selectIsRefreshing } from "../../redux/auth/authSelector";
 
+
 const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
 const HomePage = lazy(() => import("../../page/HomePage/HomePage"));

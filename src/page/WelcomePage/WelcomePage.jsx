@@ -1,7 +1,8 @@
 import React from 'react';
 import {Box, Wrapper, Link, Title, Text, IMG} from "./WelcomePage.Styled";
 import img from "../../images/Image.png"
-import sprite from "../../images/sprite.svg"
+import sprite from "../../images/sprite.svg";
+
 
 const WelcomePage = () => {
   return (
@@ -17,6 +18,7 @@ const WelcomePage = () => {
     <Link to="/auth/register">Registration</Link>
     <Link to="/auth/login">Log In</Link>
   </Box>
+  
   )
 }
 

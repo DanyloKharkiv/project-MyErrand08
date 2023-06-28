@@ -2,26 +2,26 @@ import styled from "styled-components";
 
 export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
-  background-color: #1f1f1f;
+  background-color: var(--primaryBoardBg);
   height: 709px;
 `;
 export const SectionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  color: var(--contrastColor);
 `;
 
 export const AddBtnBox = styled.div`
   display: flex;
   align-items: center;
   margin-top: 10px;
-  color: white;
+  color: var(--addBtnText);
   display: flex;
   justify-content: center;
   width: 334px;
   text-align: center;
-  background-color: #121212;
+  background-color: var(--addBtnBox);
   padding-top: 14px;
   padding-bottom: 14px;
   border-radius: 8px;
@@ -39,13 +39,14 @@ export const Filter = styled.div`
 `;
 
 export const FilterBtn = styled.button`
-  color: #ffffff;
+  color: var(--filterTxt);
   opacity: 0.8;
   font-family: Poppins;
-  background-color: #1f1f1f;
+  background-color: var(--primaryBoardBg);
   border: none;
   padding: 0;
   margin-left: 8px;
+  cursor:pointer;
 `;
 
 export const AddBtnText = styled.p`

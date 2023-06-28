@@ -5,7 +5,7 @@ export const HelpElement = styled.div`
   margin-left: 24px;
   margin-right: 24px;
   padding: 20px;
-  background-color: #1f1f1f;
+  background-color: var(--needHelpBg);
   border-radius: 8px;
 `;
 export const IMG = styled.img`
@@ -18,7 +18,7 @@ export const Text = styled.p`
 `;
 
 export const TextSpan = styled.span`
-  color: #bedbb0;
+  color: var(--accentColor);
 `;
 
 export const HelpBtn = styled.button`
@@ -27,7 +27,7 @@ export const HelpBtn = styled.button`
   padding: 0;
   margin-top: 18px;
   font-size: 12px;
-  background-color: #1f1f1f;
+  background-color: var(--needHelpBg);
   border: none;
 `;
 
@@ -35,6 +35,6 @@ export const HelpText = styled.p`
   font-family: Poppins;
   margin-left: 8px;
   font-size: 12px;
-  color: white;
-  font-weight: 500;
+  color: var(--contrastColor);
+  font-weight: var(--fontWeight500);
 `;
