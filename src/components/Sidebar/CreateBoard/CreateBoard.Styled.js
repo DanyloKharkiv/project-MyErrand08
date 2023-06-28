@@ -28,7 +28,7 @@ export const Btn = styled.button`
   align-items: center;
   width: 40px;
   height: 36px;
-  background-color: #bedbb0;
+  background-color: var(--plusBg);
   border: none;
   border-radius: 5px;
 `;

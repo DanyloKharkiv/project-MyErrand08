@@ -8,6 +8,6 @@ export const HeaderSection = styled.header`
   /* border: 1px solid red; */
   /* max-width: 100%; */
   /* height: 68px; */
-  background-color: #161616;
-  color: white;
+  background-color: var(--headerColor);
+  
 `;
