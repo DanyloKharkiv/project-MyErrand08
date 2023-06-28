@@ -18,7 +18,7 @@ export const CustomerSupport = () => {
         support resources or reach out to our customer support team.
       </Text>
       <HelpBtn>
-        <svg width="20" height="20" stroke="rgba(255,255,255)" fill="#1F1F1F">
+        <svg width="20" height="20" stroke="var(--contrastColor)" fill="var(--needHelpBg)">
           <use href={sprite + `#icon-help-circle`}></use>
         </svg>
         <HelpText>Need Help?</HelpText>

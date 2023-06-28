@@ -51,14 +51,14 @@ export const ProjectsBox = styled.div`
 export const ProjectSVG = styled.svg`
   margin-right: 8px;
 `;
+
 export const BtnsSVGBox = styled.div`
   display: flex;
 `;
 
-
 export const BtnsSVG = styled.button`
   margin-left: 8px;
-  background-color: rgba(31, 31, 31, 0.1);
+  background-color: var(--prOfBg);
   border: none;
   padding: 0;
 `;
