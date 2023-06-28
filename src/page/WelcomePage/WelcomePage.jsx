@@ -2,10 +2,12 @@ import React from "react";
 import { Box, Wrapper, Link, Title, Text, IMG } from "./WelcomePage.Styled";
 import img from "../../images/Image.png";
 import sprite from "../../images/sprite.svg";
+import AddCard from "../../components/Modals/AddCard/AddCard";
 
 const WelcomePage = () => {
   return (
     <Box>
+      <AddCard />
       <IMG src={img} alt="photo" height="162" width="162" />
       <Wrapper>
         <svg width="48" height="48">

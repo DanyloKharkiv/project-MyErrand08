@@ -64,6 +64,8 @@ body {
 
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
+  --highColor: #bedbb0;
+  --withoutColor: rgba(255, 255, 255, 0.3);
   --defaultScreenColor: #e6e6e6;
   --calendarBackground: #1f1f1f;
 
@@ -102,6 +104,8 @@ body {
 
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
+  --highColor: #bedbb0;
+  --withoutColor: rgba(22, 22, 22, 0.3);
   --defaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
@@ -139,6 +143,8 @@ body {
 
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
+  --highColor: #bedbb0;
+  --withoutColor: rgba(22, 22, 22, 0.3);
   --defaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
