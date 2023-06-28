@@ -39,9 +39,9 @@ function App() {
         <Route path="*" element={
           <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
         }/>
-
       </Routes>
-      </Suspense>
+        </Suspense>
+
     </>
       )
   );
