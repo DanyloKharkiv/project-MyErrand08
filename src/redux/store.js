@@ -13,12 +13,13 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import themeReducer from './theme/themeSlice';
+import { columnsReducer } from './column/columnSlice';
 
 
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken'],
+  whitelist: ['accessToken', 'refreshToken'],
 };
 
 export const store = configureStore({
@@ -26,7 +27,7 @@ export const store = configureStore({
     theme: themeReducer,
     filter: filterReducer,
     auth: persistReducer(authPersistConfig, authReducer),
-
+    columns: columnsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
