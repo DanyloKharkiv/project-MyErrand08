@@ -33,6 +33,8 @@ const handleIsLogIn = (state, { payload, meta }) => {
   state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
   state.user.theme = payload.theme;
+  state.user.name = payload.name;
+  state.user.avatarURL = payload.avatarURL;
 };
 
 const handleLogout = (state) => {
