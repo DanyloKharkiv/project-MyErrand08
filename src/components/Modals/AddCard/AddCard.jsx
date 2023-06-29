@@ -9,6 +9,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
+import { useState } from "react";
+
 import {
   Wrapper,
   Form,
@@ -22,22 +24,29 @@ import {
   FieldRadio,
 } from "./AddCard.Styled";
 
-const controlProps = (item) => ({
-  // checked: selectedValue === item,
-  // onChange: handleChange,
-  value: item,
-  name: "color-radio-button-demo",
-  inputProps: { "aria-label": item },
-});
-
 const CardSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
-  description: Yup.string().required("Required"),
-  priority: Yup.boolean(),
-  dedline: Yup.string(),
+  description: Yup.string(),
+  priority: Yup.string(),
+  //   // dedline: Yup.string(),
 });
 
 export default function AddCard() {
+  const [selectedValue, setSelectedValue] = useState("without");
+
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setSelectedValue(event.target.value);
+  };
+
+  const controlProps = (item) => ({
+    checked: selectedValue === item,
+    onChange: handleChange,
+    value: item,
+    name: "priority",
+    inputProps: { "aria-label": item },
+  });
+
   return (
     <Wrapper>
       <Typography
@@ -61,48 +70,54 @@ export default function AddCard() {
         initialValues={{
           title: "",
           description: "",
-          priority: null,
-          dedline: null,
+          priority: "",
+          // dedline: null,
         }}
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
+          values.priority = selectedValue;
           console.log(values);
+          console.log(selectedValue);
           actions.resetForm();
         }}
       >
         <Form>
-          <Field
-            type="text"
-            name="name"
-            placeholder="Tille"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          />
-          <ErrorMessage name="name" component="div" />
+          <Field type="text" name="title" placeholder="Tille" />
+          <ErrorMessage name="title" component="div" />
           <Textarea
             name="description"
             component="textarea"
             placeholder="Desctiption"
           />
           <ErrorMessage name="description" component="div" />
-          {/* <label>
-            Label color
-            <FieldRadio type="radio" name="picked" value="One" />
-            <FieldRadio type="radio" name="picked" value="One" />
-          </label> */}
           {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-          <FormLabel id="demo-row-radio-buttons-group-label">
-            Label color
+          <FormLabel id="radio-buttons-group-label">
+            {" "}
+            <Typography
+              sx={{
+                marginBottom: "4px",
+                textAlign: "start",
+                fontWeight: "400",
+                fontSize: "12px",
+                lineHeight: 1.5,
+                color: "var(--opacityWhite2)",
+                fontFamily: "var(--poppinsFont)",
+              }}
+            >
+              Label color
+            </Typography>
           </FormLabel>
           <RadioGroup
             row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
+            aria-labelledby="row-radio-buttons-group-label"
+            name="priority-color-radio-button"
+            sx={{ marginLeft: "10px", marginBottom: "14px" }}
           >
             <FormControlLabel
-              value="female"
+              value="low"
               control={
                 <Radio
-                  {...controlProps("e")}
+                  {...controlProps("low")}
                   sx={{
                     color: "var(--lowColor)",
                     padding: 0,
@@ -119,10 +134,10 @@ export default function AddCard() {
               }
             />
             <FormControlLabel
-              value="male"
+              value="medium"
               control={
                 <Radio
-                  {...controlProps("a")}
+                  {...controlProps("medium")}
                   sx={{
                     color: "var(--mediumColor)",
                     padding: 0,
@@ -139,10 +154,10 @@ export default function AddCard() {
               }
             />
             <FormControlLabel
-              value="other"
+              value="high"
               control={
                 <Radio
-                  {...controlProps("b")}
+                  {...controlProps("high")}
                   sx={{
                     color: "var(--highColor)",
                     padding: 0,
@@ -160,10 +175,10 @@ export default function AddCard() {
             />
 
             <FormControlLabel
-              value="disabled"
+              value="without"
               control={
                 <Radio
-                  {...controlProps("c")}
+                  {...controlProps("without")}
                   sx={{
                     color: "var(--withoutColor)",
                     padding: 0,
@@ -181,25 +196,20 @@ export default function AddCard() {
             />
           </RadioGroup>
 
-          {/* <Radio
-            {...controlProps("e")}
-            sx={{
-              color: "tomato",
-              padding: 0,
-              backgroundColor: "tomato",
-              "&.Mui-checked": {
-                color: "green",
-                backgroundColor: "tomato",
-              },
-              "&:hover": {
-                color: "tomato",
-                backgroundColor: "tomato",
-              },
-            }}
-          /> */}
           {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-
-          <label htmlFor="start">Start date:</label>
+          <Typography
+            sx={{
+              marginBottom: "4px",
+              textAlign: "start",
+              fontWeight: "400",
+              fontSize: "12px",
+              lineHeight: 1.5,
+              color: "var(--opacityWhite2)",
+              fontFamily: "var(--poppinsFont)",
+            }}
+          >
+            Deadline
+          </Typography>
 
           <Field
             type="date"

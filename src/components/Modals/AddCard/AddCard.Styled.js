@@ -29,6 +29,7 @@ export const Form = styled(FormikForm)`
 `;
 
 export const Field = styled(FormikField)`
+  position: relative;
   padding: 14px 18px;
   margin-bottom: 14px;
   width: 100%;
@@ -127,6 +128,7 @@ export const Button = styled.button`
 `;
 
 export const ErrorMessage = styled(FormikError)`
+  position: absolute;
   color: red;
   font-size: 10px;
   margin-top: 1px;
