@@ -21,6 +21,7 @@ export const ScreensPage = () => {
       filterModalRef.current.openModal()
     }
   }
+
   return (
     <ScreensPageElement>
       <SectionHeader>
