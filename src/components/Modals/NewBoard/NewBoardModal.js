@@ -15,7 +15,7 @@ const NewBoardModal = (_,ref) => {
     return (
         <>
             {showModal&&<Modal close={closeModal}>
-            <NewBoard/>
+                <NewBoard close={closeModal} />
                 </Modal>}
         </>
     )

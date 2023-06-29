@@ -98,10 +98,19 @@
 .imgOn{
     outline: 1px solid var(--filterModalTitle);
     border-radius: 8px;
-    cursor: pointer;
+        cursor: pointer;
 }
 .imgOff{
     outline: 1px solid var(--themeBgColor);
     border-radius: 8px;
-    cursor: pointer;
+        cursor: pointer;
+}
+.backgroundListItem{
+    height: 28px;
+}
+.closeBtn{
+    top: 14px;
+        right: 14px;
+        position: absolute;
+        cursor: pointer;
 }

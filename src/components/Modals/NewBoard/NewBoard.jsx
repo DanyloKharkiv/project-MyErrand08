@@ -1,12 +1,10 @@
 import css from '../NewBoard/css.module.css'
 import sprite from '../../../images/sprite.svg'
 import { useState } from 'react'
-// import img_1 from   '../../../images/image-icons/img_1.svg'
-// import img_2 from '../../../images/image-icons/img_2.svg';
 import backimg from '../../../json/icon.json';
 
 
-const NewBoard = () => {
+const NewBoard = ({close}) => {
 
     const [icons, setIcons] = useState('');
     const [backImg, setBackImg] = useState('id-0');
@@ -17,9 +15,15 @@ const NewBoard = () => {
     const handleClickImg = ({ target }) => {
         setBackImg(target.id);
     }
+    const handleClose = () => {
+        close()
+    }
 
     return (
         <div className={css.modal}>
+            <svg onClick={handleClose} className={css.closeBtn} width="18" height="18">
+        <use  href = {sprite + '#icon-x'}></use>
+        </svg>
             <h3 className={css.title}>New Board</h3>
             <form>
                 <input className={css.inputText} type="text" name="title" id="title" placeholder='Title' />
@@ -93,10 +97,10 @@ const NewBoard = () => {
                 </ul>
                 <h3 className={css.iconsTitle}>Background</h3>
                 <ul className={css.backgroundList}>
-                    {backimg.map(({url,id})=>(<li key={id}>
+                    {backimg.map(({url,id})=>(<li className={css.backgroundListItem} key={id}>
                         <label htmlFor={id}>
                     <img className={(backImg===`${id}`)?css.imgOn:css.imgOff} src={url} alt='img' width='28'></img>
-                    <input onClick={handleClickImg} className={css.realRadio} type="radio" id={id} />
+                    <input onClick={handleClickImg} className={css.realRadio} type="radio" name='backgrounds' id={id} />
                         </label>
                     </li>))}
                 </ul>
