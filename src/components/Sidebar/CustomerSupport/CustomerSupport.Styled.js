@@ -36,6 +36,5 @@ export const HelpText = styled.p`
   margin-left: 8px;
   font-size: 12px;
   color: var(--contrastColor);
-  background-color: var(--needHelpBg);
-  font-weight: 500;
+  font-weight: var(--fontWeight500);
 `;

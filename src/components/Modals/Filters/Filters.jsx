@@ -50,7 +50,8 @@ const Filter = () => {
         <div>
             <ul className={filter.labelColor}>
                 <li><h3 className={filter.labelColorTitle}>Label color</h3></li>
-                <li><h3 className={filter.show} onClick={showClick}>Show all</h3></li>
+                {/* <li><h3 className={filter.show} onClick={showClick}>Show all</h3></li> */}
+                <li><button className={(radio==='')?filter.btnShowOn:filter.btnShow} onClick={showClick}>Show all</button></li>
             </ul>
             
         </div>

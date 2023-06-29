@@ -2,7 +2,7 @@ import axios from "axios";
 import { Notify } from "notiflix";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = 'https://tasks-backed.onrender.com/api/';
+axios.defaults.baseURL = "https://tasks-backed.onrender.com/api/";
 
 const setAuthToken = (token) => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -57,17 +57,50 @@ export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.accessToken;
-    if (persistedToken === null) {
+    const refreshToken = state.auth.refreshToken;
+    if (refreshToken === null) {
       return thunkAPI.rejectWithValue("Unable to fetch user");
     }
 
     try {
-      setAuthToken(persistedToken);
+      setAuthToken(refreshToken);
       const { data } = await axios.get("/users/refresh");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const currentUser = createAsyncThunk(
+  "auth/current",
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.accessToken;
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue("Unable to fetch user");
+    }
+    try {
+      setAuthToken(persistedToken);
+      const { data } = await axios.get("/users/current");
+      return data;
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        refreshUser();
+      }
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateTheme = createAsyncThunk(
+  "user/setTheme",
+  async (newTheme) => {
+    try {
+      const { data } = await axios.patch("/users", { theme: newTheme });
+      return data;
+    } catch (error) {
+      console.log(error);
     }
   }
 );
