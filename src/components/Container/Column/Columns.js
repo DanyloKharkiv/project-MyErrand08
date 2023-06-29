@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import AddColumn from '../../Modals/AddColumn/AddColumn';
 import { selectColumnsError, selectColumnsIsLoading, selectColumnsItems } from '../../../redux/column/columnSlice';
 import { fetchColumns } from '../../../redux/column/columnOperation';
 import ColumnList from './ColumnList/ColumnList';
+import { AddBtn, AddBtnBox, AddBtnText } from './Columns.Styled';
+import Modal from '../../Modals/Modal';
 // import { Layout } from 'components/Layout';
 
 
@@ -16,6 +18,17 @@ export const Columns = () => {
   const error = useSelector(selectColumnsError);
   const columns = useSelector(selectColumnsItems);
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+
   useEffect(() => {
     dispatch(fetchColumns());
   }, [dispatch]);
@@ -25,15 +38,23 @@ export const Columns = () => {
     <>
       {isLoading && !error && <b>Loading...</b>}
 
-      <AddColumn />
-      
-      <h2>Columns</h2>
+      {modalIsOpen &&
+        <Modal close={closeModal}>
+          <AddColumn />
+        </Modal>
+      }
+
       {columns.length !== 0 ? (
         <>
           <ColumnList />
         </>
         ) : ( <h3>There are no Columns!</h3> )
       }
+
+      <AddBtnBox>
+        <AddBtn onClick={openModal}>+</AddBtn>
+        <AddBtnText>Add another column</AddBtnText>
+      </AddBtnBox>
     </>
     // </Layout>
   );
