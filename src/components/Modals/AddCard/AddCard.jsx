@@ -6,9 +6,9 @@ import sprite from "../../../images/sprite.svg";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 
+import Calendar from "../Calendar/Calendar";
 import { useState } from "react";
 
 import {
@@ -21,23 +21,22 @@ import {
   Span,
   Div,
   SpanClose,
-  FieldRadio,
 } from "./AddCard.Styled";
 
 const CardSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
   description: Yup.string(),
   priority: Yup.string(),
-  //   // dedline: Yup.string(),
+  dedline: Yup.string(),
 });
 
 export default function AddCard() {
   const [selectedValue, setSelectedValue] = useState("without");
+  const [dedlineValue, setDedlineValue] = useState(null);
 
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    setSelectedValue(event.target.value);
-  };
+  const handleChange = (event) => setSelectedValue(event.target.value);
+
+  const onChangeDedline = (newValue) => setDedlineValue(newValue);
 
   const controlProps = (item) => ({
     checked: selectedValue === item,
@@ -71,13 +70,13 @@ export default function AddCard() {
           title: "",
           description: "",
           priority: "",
-          // dedline: null,
+          dedline: "",
         }}
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
+          values.dedline = dedlineValue.$d;
           console.log(values);
-          console.log(selectedValue);
           actions.resetForm();
         }}
       >
@@ -195,7 +194,6 @@ export default function AddCard() {
               }
             />
           </RadioGroup>
-
           {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
           <Typography
             sx={{
@@ -211,14 +209,7 @@ export default function AddCard() {
             Deadline
           </Typography>
 
-          <Field
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
-          />
+          <Calendar value={dedlineValue} onChange={onChangeDedline} />
 
           <Button type="submit">
             <Div>
