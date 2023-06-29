@@ -11,11 +11,10 @@ export const UserInfo = () => {
 
   return (
     <>
-      <UserInfo>
-        const userName = useSelector(getName);
+      <UserInfoBox>
         <UserName>{userName}</UserName>
         <UserAvatar src={avatarURL} alt="user_icon" width={32} height={32} />
-      </UserInfo>
+      </UserInfoBox>
     </>
   );
 };
