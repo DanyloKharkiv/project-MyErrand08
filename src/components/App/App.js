@@ -1,9 +1,9 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { Suspense, useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
+import { Suspense, useEffect } from 'react';
 import { PrivateRoute } from "../../route/PrivateRoute";
 import { RestrictedRoute } from "../../route/RestrictedRoute";
 import { useDispatch, useSelector } from "react-redux";
-import { currentUser, refreshUser } from "../../redux/auth/authOperation";
+import { currentUser } from "../../redux/auth/authOperation";
 import { lazy } from "react";
 import { selectIsLoggedIn, selectIsRefreshing, selectToken } from "../../redux/auth/authSelector";
 
