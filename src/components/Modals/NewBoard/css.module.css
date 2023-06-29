@@ -21,14 +21,16 @@
     margin-bottom: 24px;
 }
 .inputText{
-    background-color: gray;
+    padding-left: 18px;
+    background-color: var(--backgroundInput);
     border: 1px solid rgba(190, 219, 176, 0.5);
     border-radius: 8px;
     width: 100%;
     height: 49px;
+    outline: none;
+    color: var(--filterModalTitle);
 }
 .inputText::placeholder{
-    padding-left:18px;
     font-family: Poppins;
         font-size: 14px;
         font-weight: 400;
@@ -36,6 +38,12 @@
         letter-spacing: -0.02em;
         text-align: left;
         color: var(--filterModalTitle);
+}
+.inputText:-ms-input-placeholder{
+    color: var(--filterModalText);
+}
+.inputText:focus{
+    border: 1px solid rgba(190, 219, 176, 1);
 }
 .iconsTitle{
     font-family: Poppins;
@@ -81,7 +89,19 @@
 }
 .svgOff{
     fill: var(--filterModalText);
+    cursor: pointer;
 }
 .svgOn{
     fill: var(--filterModalTitle);
+    cursor: pointer;
+}
+.imgOn{
+    outline: 1px solid var(--filterModalTitle);
+    border-radius: 8px;
+    cursor: pointer;
+}
+.imgOff{
+    outline: 1px solid var(--themeBgColor);
+    border-radius: 8px;
+    cursor: pointer;
 }

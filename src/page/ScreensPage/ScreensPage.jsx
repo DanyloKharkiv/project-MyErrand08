@@ -11,23 +11,17 @@ import {
 import sprite from "../../images/sprite.svg";
 import { useRef } from "react";
 import FilterModal from '../../components/Modals/Filters/FilterModal'
-import NewBoardModal from "../../components/Modals/NewBoard/NewBoardModal";
 
 export const ScreensPage = () => {
 
   const filterModalRef = useRef(null);
-  const newBoardModalRef = useRef(null);
 
   const openFilterModal = () => {
     if (filterModalRef.current) {
       filterModalRef.current.openModal()
     }
   }
-  const openNewBoardModal = () => {
-    if (newBoardModalRef.current) {
-      newBoardModalRef.current.openModal()
-    }
-  }
+
   return (
     <ScreensPageElement>
       <SectionHeader>
@@ -45,11 +39,10 @@ export const ScreensPage = () => {
         </Filter>
       </SectionHeader>
       <AddBtnBox>
-        <AddBtn onClick={openNewBoardModal}>+</AddBtn>
+        <AddBtn>+</AddBtn>
         <AddBtnText>Add another column</AddBtnText>
       </AddBtnBox>
       <FilterModal ref={filterModalRef} />
-      <NewBoardModal ref={newBoardModalRef} />
     </ScreensPageElement>
   );
 };

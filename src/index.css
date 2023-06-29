@@ -74,6 +74,7 @@ body {
   --filterModalTitle: rgba(255, 255, 255, 1);
   --filterLines: rgba(255, 255, 255, 0.1);
   --filterModalText:rgba(255, 255, 255, 0.5);
+  --backgroundInput: rgba(22, 22, 22, 0.08);
   --withoutColor: rgba(255, 255, 255, 0.3);
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
@@ -126,6 +127,7 @@ body {
   --filterLines: rgba(22, 22, 22, 0.1);
   --filterModalText:rgba(22, 22, 22, 0.5);
   --withoutColor:rgba(22, 22, 22, 0.3);
+  --backgroundInput: rgba(22, 22, 22, 0.08);
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --highColor: rgba(190, 219, 176, 1);
@@ -174,6 +176,7 @@ body {
   --filterLines:rgba(22, 22, 22, 0.1);
   --filterModalText:rgba(22, 22, 22, 0.5);
   --withoutColor: rgba(22, 22, 22, 0.3);
+  --backgroundInput:rgba(22, 22, 22, 0.08);
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
   --highColor: rgba(190, 219, 176, 1);
