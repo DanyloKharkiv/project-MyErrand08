@@ -1,4 +1,4 @@
-import { Text } from "./UserInfo.Styled";
+import { UserInfoBox, UserName, UserAvatar } from "./UserInfo.Styled";
 
 import { useSelector } from "react-redux";
 import { getName, getAvatar } from "../../../redux/auth/authSelector";
@@ -11,10 +11,10 @@ export const UserInfo = () => {
 
   return (
     <>
-      <Text>{userName}</Text>
-      <div>
-        < img src={avatarURL} alt="user_icon" width={32} height={32} />
-      </div>
+      <UserInfoBox>
+        <UserName>{userName}</UserName>
+        <UserAvatar src={avatarURL} alt="user_icon" width={32} height={32} />
+      </UserInfoBox>
     </>
   );
 };

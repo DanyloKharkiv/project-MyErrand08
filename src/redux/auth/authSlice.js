@@ -1,12 +1,20 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser  } from './authOperation';
+import { register, logIn, logOut, refreshUser, updateTheme, currentUser  } from './authOperation';
 
 const initialState = {
-  user: { name: null, email: null },
+  user: {
+    name: null,
+    email: null,
+    avatarURL: null,
+    theme: '',
+    id: null,
+  },
   accessToken: null,
+  refreshToken: null,
   error: null,
   isLoggedIn: false,
   isRefreshing: false,
+  theme: '',
 };
 
 const STATUS = {
@@ -15,20 +23,25 @@ const STATUS = {
   REJECTED: "rejected",
 };
 
-const arrThunks = [register, logIn, logOut, refreshUser];
+const arrThunks = [register, logIn, logOut, refreshUser, currentUser];
 
 const fn = type => arrThunks.map(elem => elem[type]);
 
-const handleIsLogIn = (state, { payload }) => {
-  // state.user = payload.user;
+const handleIsLogIn = (state, { payload, meta }) => {
+  state.user = meta.arg;
   state.accessToken = payload.accessToken;
+  state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
+  state.user.theme = payload.theme;
+  state.user.name = payload.name;
+  state.user.avatarURL = payload.avatarURL;
 };
 
 const handleLogout = (state) => {
   state.user = { name: null, email: null };
   state.accessToken = null;
   state.isLoggedIn = false;
+  state.theme = '';
 };
 
 const handleRefreshUserPending = (state) => {
@@ -56,6 +69,14 @@ const handleRejected = (state, { payload }) => {
   state.isLoggedIn = false;
   state.error = payload
 }; 
+const handleUpdateTheme = (state, { payload }) => {
+  state.user.theme = payload.theme;
+  state.token = payload.token;
+};
+
+const handleCurrent = (state, { payload }) => {
+  state.user = payload;
+};
 
 export const authSlice = createSlice({
   name: 'auth',
@@ -68,6 +89,8 @@ export const authSlice = createSlice({
       .addCase(refreshUser.pending, handleRefreshUserPending)
       .addCase(refreshUser.fulfilled, handleRefreshUserFulfilled)
       .addCase(refreshUser.rejected, handleRefreshUserRejected)
+      .addCase(currentUser.fulfilled, handleCurrent)
+      .addCase(updateTheme.fulfilled, handleUpdateTheme)
       .addMatcher(isAnyOf(...fn(PENDING)), handlePending)
       .addMatcher(isAnyOf(...fn(REJECTED)), handleRejected)
       .addMatcher(isAnyOf(...fn(FULFILLED)), handleFulfilled)
