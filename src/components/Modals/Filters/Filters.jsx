@@ -3,6 +3,7 @@ import filter from './filter.module.css'
 import { selectRadio} from '../../../redux/filter/filterSelectors';
 import { setRadio } from '../../../redux/filter/filterSlice';
 import sprite from '../../../images/sprite.svg';
+import icons from "../../../json/icon.json"
 
 
 const Filter = () => {
@@ -23,28 +24,14 @@ const Filter = () => {
 
     return (<div className={filter.modal}>
         <svg className={filter.closeBtn} width="18" height="18">
-        <use href = {sprite + '#icon-x-clos'}></use>
+        <use  href = {sprite + '#icon-x'}></use>
         </svg>
         <h3 className={filter.title}>Filter</h3>
         <div className={filter.background}>
             <h3 className={filter.titleBackground}>Backgrounds</h3>
             <ul className={filter.list}>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
-                <li className={filter.item}></li>
+                {icons.map(({url, id})=>(<li key={id} className={filter.item}><img src={url} alt = "icon" width = "28"></img></li>))}
+                
             </ul>
         </div>
         <div>
