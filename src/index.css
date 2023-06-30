@@ -43,6 +43,7 @@ body {
 .dark-theme {
   --accentColor: #bedbb0;
   --headerColor: #161616;
+  --userNameColor: #ffffff;
 
   /*Sidebar*/
   --sidebarColor: #121212;
@@ -88,6 +89,8 @@ body {
 .light-theme {
   --accentColor: #bedbb0;
   --headerColor: #fcfcfc;
+  --userNameColor: #161616;
+
 
   /*Sidebar*/
   --sidebarColor: #ffffff;
@@ -132,6 +135,9 @@ body {
 .violet-theme {
   --accentColor: #5255bc;
   --headerColor: #ffffff;
+  --userNameColor: #161616;
+
+
 
   /*Sidebar*/
   --sidebarColor: #5255bc;
