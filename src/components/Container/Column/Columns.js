@@ -29,8 +29,10 @@ export const Columns = () => {
   };
 
 
+  const idDesk = "6499131312314f7fc9af9c64";
+
   useEffect(() => {
-    dispatch(fetchColumns());
+    dispatch(fetchColumns(idDesk));
   }, [dispatch]);
 
   return (

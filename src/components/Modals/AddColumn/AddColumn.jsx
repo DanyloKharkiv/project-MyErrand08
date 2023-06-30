@@ -38,7 +38,7 @@ const AddColumn = ({ close }) => {
                     return Notiflix.Notify.failure(`Колонка ${data.title} вже існує`);
                 }
 
-                const newData = { title: data.title, ownerUser:1, ownerDesk:1 };
+                const newData = { title: data.title, ownerUser:"6499ddcf3888df7fc9af9c64", ownerDesk:"6499131312314f7fc9af9c64" };
                 
                 dispatch(addColumn(newData));
                 Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);

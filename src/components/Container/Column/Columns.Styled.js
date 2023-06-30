@@ -36,4 +36,5 @@ export const ColumnsUl = styled.ul`
 
 export const ColumnsLi = styled.li`
   width: 350px;
+  display: block;
 `
