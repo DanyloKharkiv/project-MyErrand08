@@ -37,9 +37,11 @@ const AddColumn = ({ close }) => {
                 if (columnsItems.find(item => item.title.toLowerCase() === data.title.toLowerCase())) {
                     return Notiflix.Notify.failure(`Колонка ${data.title} вже існує`);
                 }
-                console.log("Дані=", data);
+
+                const newData = { title: data.title, ownerUser:1, ownerDesk:1 };
+                console.log("Дані=", newData);
                 
-                dispatch(addColumn(data));
+                dispatch(addColumn(newData));
                 Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);
                 
                 actions.resetForm();
