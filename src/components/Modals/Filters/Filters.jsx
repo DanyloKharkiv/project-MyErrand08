@@ -4,13 +4,10 @@ import { selectBackImg, selectRadio} from '../../../redux/filter/filterSelectors
 import { setBackImg, setRadio } from '../../../redux/filter/filterSlice';
 import sprite from '../../../images/sprite.svg';
 import icons from "../../../json/icon.json"
-// import { useState } from 'react';
 
 
 const Filter = ({ close }) => {
     
-    // const [backImg, setBackImg] = useState('id-0');
-
     const dispatch = useDispatch();
     const radio = useSelector(selectRadio)
     const backImg = useSelector(selectBackImg);
