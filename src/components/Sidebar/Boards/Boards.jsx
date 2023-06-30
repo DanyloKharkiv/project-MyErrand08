@@ -2,7 +2,7 @@ import { CreateBoardBtn } from "../CreateBoard/CreateBoard";
 import {
   BoardsElement,
   BoardsTitle,
-  BoardsList,
+  // BoardsList,
   BoardsItem,
   ProjectsBox,
   ProjectSVG,
@@ -10,13 +10,15 @@ import {
   BtnsSVG,
 } from "./Boards.Styled";
 import sprite from "../../../images/sprite.svg";
+import BoardsList from "./BoardList";
 
 export const Boards = () => {
   return (
     <BoardsElement>
       <BoardsTitle>My boards</BoardsTitle>
       <CreateBoardBtn />
-      <BoardsList>
+      <BoardsList/>
+      {/* <BoardsList>
         <BoardsItem>
           <ProjectsBox>
             <ProjectSVG
@@ -54,7 +56,7 @@ export const Boards = () => {
           </BtnsSVGBox>
         </BoardsItem>
         <BoardsItem>Neon Light Project</BoardsItem>
-      </BoardsList>
+      </BoardsList> */}
     </BoardsElement>
   );
 };
