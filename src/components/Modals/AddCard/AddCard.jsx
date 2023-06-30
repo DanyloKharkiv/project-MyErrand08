@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Typography } from "@mui/material";
+
 import sprite from "../../../images/sprite.svg";
 
 import Radio from "@mui/material/Radio";
@@ -9,6 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 import Calendar from "../Calendar/Calendar";
+
 import { useState } from "react";
 
 import {
@@ -30,7 +32,7 @@ const CardSchema = Yup.object().shape({
   dedline: Yup.string(),
 });
 
-export default function AddCard() {
+export default function AddCard({ closeForm }) {
   const [selectedValue, setSelectedValue] = useState("without");
   const [dedlineValue, setDedlineValue] = useState(null);
 
@@ -60,7 +62,7 @@ export default function AddCard() {
       >
         Add card
       </Typography>
-      <SpanClose>
+      <SpanClose onClick={closeForm}>
         <svg width="18" height="18" stroke="var(--addBtnText)">
           <use href={sprite + `#icon-x-close`}></use>
         </svg>

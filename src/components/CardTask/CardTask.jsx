@@ -2,6 +2,9 @@ import { Card, CardContent, CardActions } from "@mui/material";
 import { Button, Box, Typography } from "@mui/material";
 import sprite from "../../images/sprite.svg";
 import EllipsisText from "react-ellipsis-text";
+import { useState } from "react";
+import Modal from "../Modals/Modal";
+import EditCard from "../Modals/EditCard/EditCard";
 
 const line = (color) => (
   <Box
@@ -24,10 +27,22 @@ const bull = (color) => (
     }}
   ></Box>
 );
+
 export default function CardTask({ card }) {
-  console.log("CardTack");
-  console.log(card.title);
-  console.log(card.description);
+  const { title, description, dedline } = card;
+  console.log(title);
+  console.log(description);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <Card
       variant="outlined"
@@ -47,18 +62,17 @@ export default function CardTask({ card }) {
         <Typography
           variant="h2"
           sx={{
-            color: "var(--whiteColor)",
+            color: "var(--filterModalTitle)",
             fontSize: 14,
             fontWeight: 700,
             fontFamily: "inherit",
           }}
           gutterBottom
         >
-          {card.title}
+          {title}
         </Typography>
         <Typography
           sx={{
-            // height: "38px",
             mt: "8px",
             mb: "14px",
             color: "var(--opacityWhite2)",
@@ -69,7 +83,7 @@ export default function CardTask({ card }) {
           gutterBottom
         >
           <EllipsisText
-            text={card.description}
+            text={description}
             length={90}
             tooltip={{
               copyOnClick: true,
@@ -128,7 +142,6 @@ export default function CardTask({ card }) {
               gap: "14px",
             }}
           >
-            {" "}
             <Box>
               <Box
                 sx={{
@@ -142,7 +155,7 @@ export default function CardTask({ card }) {
                 {bull("var(--lowColor)")}
                 <Box
                   sx={{
-                    color: "var(--whiteColor)",
+                    color: "var(--filterModalText)",
                     fontSize: 10,
                     fontFamily: "inherit",
                     lineHeight: 1.5,
@@ -155,7 +168,7 @@ export default function CardTask({ card }) {
             <Box>
               <Typography
                 sx={{
-                  color: "var(--whiteColor)",
+                  color: "var(--filterModalText)",
                   fontSize: 10,
                   fontFamily: "inherit",
                   lineHeight: 1.5,
@@ -163,7 +176,7 @@ export default function CardTask({ card }) {
                 }}
               >
                 12/05/2023
-                {card.dedline}
+                {dedline}
               </Typography>
             </Box>
           </Box>
@@ -208,6 +221,7 @@ export default function CardTask({ card }) {
               <Button
                 size="small"
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
+                onClick={openModal}
               >
                 <svg
                   width="20"
@@ -218,6 +232,16 @@ export default function CardTask({ card }) {
                   <use href={sprite + `#icon-Icon-pencil`}></use>
                 </svg>
               </Button>
+
+              {showModal && (
+                <Modal close={closeModal}>
+                  <EditCard
+                    title={title}
+                    description={description}
+                    closeForm={closeModal}
+                  />
+                </Modal>
+              )}
               <Button
                 size="small"
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
