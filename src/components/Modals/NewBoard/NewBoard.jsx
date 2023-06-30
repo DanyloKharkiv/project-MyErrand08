@@ -1,28 +1,62 @@
 import css from '../NewBoard/css.module.css'
 import sprite from '../../../images/sprite.svg'
 import { useState } from 'react'
-// import img_1 from   '../../../images/image-icons/img_1.svg'
-// import img_2 from '../../../images/image-icons/img_2.svg';
 import backimg from '../../../json/icon.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { addDesk } from '../../../redux/desk/deskOperations';
+import { getUserId } from '../../../redux/auth/authSelector';
 
 
-const NewBoard = () => {
+const NewBoard = ({ close }) => {
 
+    const dispatch = useDispatch();
+    
+    const [title, setTitle] = useState('')
     const [icons, setIcons] = useState('');
     const [backImg, setBackImg] = useState('id-0');
 
-    const handleClickIcons = ({ target }) => {
-      setIcons(target.id);
+    const ownerUser = useSelector(getUserId);
+    console.log(ownerUser)
+
+    const handleClose = () => {
+        close()
     }
-    const handleClickImg = ({ target }) => {
-        setBackImg(target.id);
+    const onFormChange = e => {
+    const { name, value, id } = e.target;
+    switch (name) {
+      case 'title':
+        setTitle(value);
+        break;
+      case 'icons':
+        setIcons(id);
+            break;
+      case 'backgrounds':
+        setBackImg(id);
+        break;
+      default:
+        throw new Error('There has been a mistake. Try again, please.');
     }
+    };
+    const onFormSubmit = e => {
+        e.preventDefault();
+        const newDesk = { title: title, ownerUser:ownerUser, icon:icons, background: backImg };
+        dispatch(addDesk(newDesk));
+
+        setTitle('');
+        setIcons('');
+        setBackImg('id-0');    
+    }
+
+    
 
     return (
         <div className={css.modal}>
+            <svg onClick={handleClose} className={css.closeBtn} width="18" height="18">
+        <use  href = {sprite + '#icon-x'}></use>
+        </svg>
             <h3 className={css.title}>New Board</h3>
-            <form>
-                <input className={css.inputText} type="text" name="title" id="title" placeholder='Title' />
+            <form onSubmit={onFormSubmit}>
+                <input onChange={onFormChange} className={css.inputText} value={title} type="text" name="title" id="title" placeholder='Title' />
                 <h3 className={css.iconsTitle}>Icons</h3>
                 <ul className={css.inputList}>
                     
@@ -31,7 +65,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_1')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-loading-03'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_1" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_1" />
                 </label>
                     </li>
                     <li>
@@ -39,7 +73,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_2')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-star-04'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_2" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_2" />
                 </label>
                     </li>
                     <li>
@@ -47,7 +81,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_3')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-help-circle'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_3" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_3" />
                 </label>
                     </li>
                     <li>
@@ -55,7 +89,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_4')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-hexagon-01'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_4" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_4" />
                 </label>
                     </li>
                     <li>
@@ -63,7 +97,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_5')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-star-04'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_5" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_5" />
                 </label>
                     </li>
                     <li>
@@ -71,7 +105,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_6')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-lightning-02'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_6" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_6" />
                 </label>
                     </li>
                     <li>
@@ -79,7 +113,7 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_7')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-colors'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_7" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_7" />
                 </label>
                     </li>
                     <li>
@@ -87,16 +121,16 @@ const NewBoard = () => {
                     <svg className={(icons==='icon_8')?css.svgOn:css.svgOff} width='18' height='18'>
                         <use href={sprite + '#icon-container'}></use>
                     </svg>
-                    <input onClick={handleClickIcons} className={css.realRadio} type="radio" name="icons" id="icon_8" />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_8" />
                 </label>
                     </li>
                 </ul>
                 <h3 className={css.iconsTitle}>Background</h3>
                 <ul className={css.backgroundList}>
-                    {backimg.map(({url,id})=>(<li key={id}>
+                    {backimg.map(({url,id})=>(<li className={css.backgroundListItem} key={id}>
                         <label htmlFor={id}>
                     <img className={(backImg===`${id}`)?css.imgOn:css.imgOff} src={url} alt='img' width='28'></img>
-                    <input onClick={handleClickImg} className={css.realRadio} type="radio" id={id} />
+                    <input onChange={onFormChange} className={css.realRadio} type="radio" name='backgrounds' id={id} />
                         </label>
                     </li>))}
                 </ul>

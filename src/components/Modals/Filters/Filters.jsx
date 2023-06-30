@@ -1,44 +1,55 @@
 import { useDispatch, useSelector } from 'react-redux';
 import filter from './filter.module.css'
-import { selectRadio} from '../../../redux/filter/filterSelectors';
-import { setRadio } from '../../../redux/filter/filterSlice';
+import { selectBackImg, selectRadio} from '../../../redux/filter/filterSelectors';
+import { setBackImg, setRadio } from '../../../redux/filter/filterSlice';
 import sprite from '../../../images/sprite.svg';
 import icons from "../../../json/icon.json"
 
 
-const Filter = () => {
-
+const Filter = ({ close }) => {
+    
     const dispatch = useDispatch();
     const radio = useSelector(selectRadio)
+    const backImg = useSelector(selectBackImg);
     
     const handleClick = ({ target }) => {
         const action = setRadio(target.name);
         dispatch(action)
     }
     const showClick = () => {
-        const action = setRadio('');
+        dispatch(setRadio(''));
+        dispatch(setBackImg(''));
+    }
+    const handleClose = () => {
+        close()
+    }
+    const handleClickImg = ({target}) => {
+        const action = setBackImg(target.id);
         dispatch(action);
     }
     
-    
 
     return (<div className={filter.modal}>
-        <svg className={filter.closeBtn} width="18" height="18">
+        <svg onClick={handleClose} className={filter.closeBtn} width="18" height="18">
         <use  href = {sprite + '#icon-x'}></use>
         </svg>
         <h3 className={filter.title}>Filter</h3>
         <div className={filter.background}>
             <h3 className={filter.titleBackground}>Backgrounds</h3>
             <ul className={filter.list}>
-                {icons.map(({url, id})=>(<li key={id} className={filter.item}><img src={url} alt = "icon" width = "28"></img></li>))}
+                {icons.map(({url,id})=>(<li className={filter.backgroundListItem} key={id}>
+                        <label htmlFor={id}>
+                    <img className={(backImg===`${id}`)?filter.imgOn:filter.imgOff} src={url} alt='img' width='28'></img>
+                    <input onClick={handleClickImg} className={filter.realRadio} type="radio" name='backgrounds' id={id} />
+                        </label>
+                    </li>))}
                 
             </ul>
         </div>
         <div>
             <ul className={filter.labelColor}>
                 <li><h3 className={filter.labelColorTitle}>Label color</h3></li>
-                {/* <li><h3 className={filter.show} onClick={showClick}>Show all</h3></li> */}
-                <li><button className={(radio==='')?filter.btnShowOn:filter.btnShow} onClick={showClick}>Show all</button></li>
+                <li><button className={(radio==='' && backImg==='')?filter.btnShowOn:filter.btnShow} onClick={showClick}>Show all</button></li>
             </ul>
             
         </div>
