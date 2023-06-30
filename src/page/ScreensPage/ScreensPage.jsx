@@ -11,6 +11,7 @@ import {
 import sprite from "../../images/sprite.svg";
 import { useRef } from "react";
 import FilterModal from '../../components/Modals/Filters/FilterModal'
+import Columns from "../../components/Container/Column/Columns";
 
 export const ScreensPage = () => {
 
@@ -21,6 +22,7 @@ export const ScreensPage = () => {
       filterModalRef.current.openModal()
     }
   }
+
   return (
     <ScreensPageElement>
       <SectionHeader>
@@ -37,10 +39,7 @@ export const ScreensPage = () => {
           <FilterBtn onClick={openFilterModal}>Filters</FilterBtn>
         </Filter>
       </SectionHeader>
-      <AddBtnBox>
-        <AddBtn>+</AddBtn>
-        <AddBtnText>Add another column</AddBtnText>
-      </AddBtnBox>
+      <Columns />
       <FilterModal ref={filterModalRef} />
     </ScreensPageElement>
   );
