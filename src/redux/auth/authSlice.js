@@ -14,7 +14,6 @@ const initialState = {
   error: null,
   isLoggedIn: false,
   isRefreshing: false,
-  theme: '',
 };
 
 const STATUS = {
@@ -32,6 +31,7 @@ const handleIsLogIn = (state, { payload }) => {
   state.accessToken = payload.accessToken;
   state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
+  state.user.theme = payload.theme;
 };
 
 const handleLogout = (state) => {
