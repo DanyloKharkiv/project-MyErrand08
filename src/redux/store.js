@@ -14,6 +14,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import themeReducer from './theme/themeSlice';
 import { columnsReducer } from './column/columnSlice';
+import { desksReducer } from './desk/deskSlice';
 
 
 const authPersistConfig = {
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     theme: themeReducer,
     filter: filterReducer,
+    desks: desksReducer,
     auth: persistReducer(authPersistConfig, authReducer),
     columns: columnsReducer,
   },
