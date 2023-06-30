@@ -147,102 +147,19 @@ body {
   --logOutIcon: #fff;
 
   /*Board*/
-  --primaryBoardBg: #d9d9d9;
-  --addBtnBox: #fff;
-  --addBtnText: #161616;
-  --filterTxt: rgba(22, 22, 22, 0.8);
-
-  --filterModalTitle: rgba(22, 22, 22, 1);
-  --filterLines: rgba(22, 22, 22, 0.1);
-  --filterModalText: rgba(22, 22, 22, 0.5);
-  --withoutColor: rgba(22, 22, 22, 0.3);
-  --backgroundInput: rgba(22, 22, 22, 0.08);
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --highColor: rgba(190, 219, 176, 1);
-  --defaultScreenColor: #e6e6e6;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-  --themeTitle: rgba(22, 22, 22, 0.8);
-  --themeBgColor: #fcfcfc;
-  --themeBoxShadow: rgba(17, 17, 17, 0.1);
-  --themeItem: #161616;
-
-  --activeItemBorder: rgba(246, 246, 247, 1);
-  --borderBottomColor: rgba(22, 22, 22, 0.1);
-}
-
-.violet-theme {
-  --accentColor: #5255bc;
-  --headerColor: #ffffff;
-
-  /*Sidebar*/
-  --sidebarColor: #5255bc;
-  --logo: #ecedfd;
-  --flash: #5255bc;
-  --needHelpBg: rgba(236, 237, 253, 0.4);
-  --contrastColor: #ffffff;
-  --plusBg: #b8bcfd;
-  --myBoards: rgba(255, 255, 255, 0.5);
-  --boarder: rgba(255, 255, 255, 0.1);
-  --prOfBg: rgba(255, 255, 255, 0.2);
-  --logOut: #fff;
-  --logOutIcon: #fff;
-
-  /*Board*/
-  --primaryBoardBg: #d9d9d9;
-  --addBtnBox: #fff;
-  --addBtnText: #161616;
-  --filterTxt: rgba(22, 22, 22, 0.8);
-
-  --filterModalTitle: rgba(22, 22, 22, 1);
-  --filterLines: rgba(22, 22, 22, 0.1);
-  --filterModalText: rgba(22, 22, 22, 0.5);
-  --withoutColor: rgba(22, 22, 22, 0.3);
-  --backgroundInput: rgba(22, 22, 22, 0.08);
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --highColor: rgba(190, 219, 176, 1);
-  --defaultScreenColor: #e6e6e6;
-
-  --opacityWhite: rgba(255, 255, 255, 0.3);
-  --opacityWhite2: rgba(255, 255, 255, 0.5);
-  --themeTitle: rgba(22, 22, 22, 0.8);
-  --themeBgColor: #fcfcfc;
-  --themeBoxShadow: rgba(17, 17, 17, 0.1);
-  --themeItem: #161616;
-
-  --activeItemBorder: rgba(246, 246, 247, 1);
-  --borderBottomColor: rgba(22, 22, 22, 0.1);
-}
-
-.violet-theme {
-  --accentColor: #5255bc;
-  --headerColor: #ffffff;
-
-  /*Sidebar*/
-  --sidebarColor: #5255bc;
-  --logo: #ecedfd;
-  --needHelpBg: rgba(236, 237, 253, 0.4);
-  --contrastColor: #ffffff;
-  --plusBg: #b8bcfd;
-  --myBoards: rgba(255, 255, 255, 0.5);
-  --boarder: rgba(255, 255, 255, 0.1);
-  --prOfBg: rgba(255, 255, 255, 0.5);
-  --logOut: #fff;
-  --logOutIcon: #fff;
-
-  /*Board*/
   --primaryBoardBg: #b8bcfd;
   --addBtnBox: #fff;
   --addBtnText: #161616;
   --filterTxt: rgba(22, 22, 22, 0.8);
 
+  --filterModalTitle: rgba(22, 22, 22, 1);
+  --filterLines: rgba(22, 22, 22, 0.1);
+  --filterModalText: rgba(22, 22, 22, 0.5);
+  --withoutColor: rgba(22, 22, 22, 0.3);
+  --backgroundInput: rgba(22, 22, 22, 0.08);
   --lowColor: #8fa1d0;
   --mediumColor: #e09cb5;
-  --highColor: #bedbb0;
-  --withoutColor: rgba(22, 22, 22, 0.3);
+  --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
