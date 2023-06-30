@@ -39,7 +39,6 @@ const AddColumn = ({ close }) => {
                 }
 
                 const newData = { title: data.title, ownerUser:1, ownerDesk:1 };
-                console.log("Дані=", newData);
                 
                 dispatch(addColumn(newData));
                 Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);
