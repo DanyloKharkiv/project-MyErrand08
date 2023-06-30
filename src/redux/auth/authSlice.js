@@ -27,14 +27,11 @@ const arrThunks = [register, logIn, logOut, refreshUser, currentUser];
 
 const fn = type => arrThunks.map(elem => elem[type]);
 
-const handleIsLogIn = (state, { payload, meta }) => {
-  state.user = meta.arg;
+const handleIsLogIn = (state, { payload }) => {
+  state.user = payload.user;
   state.accessToken = payload.accessToken;
   state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
-  state.user.theme = payload.theme;
-  state.user.name = payload.name;
-  state.user.avatarURL = payload.avatarURL;
 };
 
 const handleLogout = (state) => {
