@@ -29,3 +29,11 @@ export const AddBtn = styled.button`
   margin-right: 8px;
   cursor: pointer;
 `;
+
+export const ColumnsUl = styled.ul`
+  display: flex;
+`
+
+export const ColumnsLi = styled.li`
+  width: 350px;
+`

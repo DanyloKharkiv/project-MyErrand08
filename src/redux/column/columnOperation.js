@@ -17,9 +17,10 @@ export const fetchColumns = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-  async ({ ownerDesk, title }, thunkAPI) => {
+  async ({ title }, thunkAPI) => {
     try {
-      const response = await axios.post("/columns", { ownerDesk, title });
+      console.log("data=", { title });
+      const response = await axios.post("/columns", { title });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

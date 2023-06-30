@@ -3,9 +3,11 @@ import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Formik, Field } from 'formik';
-import { Form, FormField, ErrorMessage, FieldInput, FrmButton } from './AddColumn.Styled';
+import { Form, FormField, ErrorMessage, FieldInput, FrmButton, CloseBtn } from './AddColumn.Styled';
 import { selectColumnsItems } from '../../../redux/column/columnSlice';
 import { addColumn } from '../../../redux/column/columnOperation';
+
+import sprite from '../../../images/sprite.svg';
 
 
 const nameRegex = /^[a-zA-Zа-яА-Я 0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
@@ -17,9 +19,13 @@ const ColumnSchema = Yup.object().shape({
 });
 
 
-const AddColumn = () => {
+const AddColumn = ({ close }) => {
     const dispatch = useDispatch();
     const columnsItems = useSelector(selectColumnsItems);
+
+    const handleClose = () => {
+        close();
+    }
 
     return (
         <Formik
@@ -31,14 +37,21 @@ const AddColumn = () => {
                 if (columnsItems.find(item => item.title.toLowerCase() === data.title.toLowerCase())) {
                     return Notiflix.Notify.failure(`Колонка ${data.title} вже існує`);
                 }
+                console.log("Дані=", data);
+                
                 dispatch(addColumn(data));
                 Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);
                 
                 actions.resetForm();
+                handleClose();
             }}
         >
 
             <Form>
+                <CloseBtn onClick={handleClose}>
+                    <use href = {sprite + '#icon-x'}></use>
+                </CloseBtn>
+
                 <FormField>
                     Add column
                     <Field name="title">

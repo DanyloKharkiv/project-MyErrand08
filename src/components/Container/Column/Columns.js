@@ -5,7 +5,7 @@ import AddColumn from '../../Modals/AddColumn/AddColumn';
 import { selectColumnsError, selectColumnsIsLoading, selectColumnsItems } from '../../../redux/column/columnSlice';
 import { fetchColumns } from '../../../redux/column/columnOperation';
 import ColumnList from './ColumnList/ColumnList';
-import { AddBtn, AddBtnBox, AddBtnText } from './Columns.Styled';
+import { AddBtn, AddBtnBox, AddBtnText, ColumnsUl, ColumnsLi } from './Columns.Styled';
 import Modal from '../../Modals/Modal';
 // import { Layout } from 'components/Layout';
 
@@ -40,21 +40,25 @@ export const Columns = () => {
 
       {modalIsOpen &&
         <Modal close={closeModal}>
-          <AddColumn />
+          <AddColumn close={closeModal}/>
         </Modal>
       }
 
-      {columns.length !== 0 ? (
-        <>
-          <ColumnList />
-        </>
-        ) : ( <h3>There are no Columns!</h3> )
-      }
+      <ColumnsUl>
+        {columns.length !== 0 &&
+          <ColumnsLi>
+            <ColumnList />
+          </ColumnsLi>            
+        }
+      
 
-      <AddBtnBox>
-        <AddBtn onClick={openModal}>+</AddBtn>
-        <AddBtnText>Add another column</AddBtnText>
-      </AddBtnBox>
+        <ColumnsLi>
+          <AddBtnBox>
+            <AddBtn onClick={openModal}>+</AddBtn>
+            <AddBtnText>Add another column</AddBtnText>
+          </AddBtnBox>
+        </ColumnsLi>
+      </ColumnsUl>
     </>
     // </Layout>
   );

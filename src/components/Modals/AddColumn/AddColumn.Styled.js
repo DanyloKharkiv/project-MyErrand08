@@ -62,3 +62,14 @@ font-weight: 500;
 line-height: normal;
 letter-spacing: -0.28px; 
 `;
+
+export const CloseBtn = styled.svg`
+    top: 14px;
+    right: 14px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    fill: red;
+    z-index: 9999;
+    cursor: pointer;
+`
