@@ -94,7 +94,7 @@ export const currentUser = createAsyncThunk(
 );
 
 export const updateTheme = createAsyncThunk(
-  "user/setTheme",
+  "user/theme",
   async (newTheme) => {
     try {
       const { data } = await axios.patch("/users", { theme: newTheme });
@@ -104,3 +104,4 @@ export const updateTheme = createAsyncThunk(
     }
   }
 );
+
