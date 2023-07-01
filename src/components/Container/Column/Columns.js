@@ -40,26 +40,22 @@ export const Columns = () => {
     <>
       {isLoading && !error && <b>Loading...</b>}
 
-      {modalIsOpen &&
+      {/* {modalIsOpen &&
         <Modal close={closeModal}>
           <AddColumn close={closeModal}/>
         </Modal>
-      }
+      } */}
 
       <ColumnsUl>
-        {columns.length !== 0 &&
-          <ColumnsLi>
             <ColumnList />
-          </ColumnsLi>            
-        }
       
 
-        <ColumnsLi>
+        {/* <ColumnsLi>
           <AddBtnBox>
             <AddBtn onClick={openModal}>+</AddBtn>
             <AddBtnText>Add another column</AddBtnText>
           </AddBtnBox>
-        </ColumnsLi>
+        </ColumnsLi> */}
       </ColumnsUl>
     </>
     // </Layout>

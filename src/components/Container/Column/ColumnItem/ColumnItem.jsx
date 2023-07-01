@@ -9,7 +9,7 @@ function ColumnItem({ item }) {
 
     return (
         <Item key={item._id}>
-            {item.title}
+            {item._id} {item.title}
             <FrmButton onClick={() => {
                     dispatch(deleteColumn(item._id));
                     Notiflix.Notify.info(`Column ${item._id} ${item.title} succesfully deleted`);
