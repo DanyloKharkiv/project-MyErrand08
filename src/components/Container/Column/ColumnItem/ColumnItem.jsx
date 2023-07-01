@@ -8,15 +8,15 @@ function ColumnItem({ item }) {
     const dispatch = useDispatch();
 
     return (
-        <Item key={item.id}>
+        <Item key={item._id}>
             {item.title}
             <FrmButton onClick={() => {
-                    dispatch(deleteColumn(item.id));
-                    Notiflix.Notify.info(`Column ${item.id} ${item.title} succesfully deleted`);
+                    dispatch(deleteColumn(item._id));
+                    Notiflix.Notify.info(`Column ${item._id} ${item.title} succesfully deleted`);
                 }
             }
                 aria-label="Delete">
-                Delete
+                -
             </FrmButton>
         </Item>
     );

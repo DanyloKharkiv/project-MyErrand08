@@ -5,7 +5,7 @@ import AddColumn from '../../Modals/AddColumn/AddColumn';
 import { selectColumnsError, selectColumnsIsLoading, selectColumnsItems } from '../../../redux/column/columnSlice';
 import { fetchColumns } from '../../../redux/column/columnOperation';
 import ColumnList from './ColumnList/ColumnList';
-import { AddBtn, AddBtnBox, AddBtnText } from './Columns.Styled';
+import { AddBtn, AddBtnBox, AddBtnText, ColumnsUl, ColumnsLi } from './Columns.Styled';
 import Modal from '../../Modals/Modal';
 // import { Layout } from 'components/Layout';
 
@@ -29,8 +29,10 @@ export const Columns = () => {
   };
 
 
+  const idDesk = "6499131312314f7fc9af9c64";
+
   useEffect(() => {
-    dispatch(fetchColumns());
+    dispatch(fetchColumns(idDesk));
   }, [dispatch]);
 
   return (
@@ -38,23 +40,23 @@ export const Columns = () => {
     <>
       {isLoading && !error && <b>Loading...</b>}
 
-      {modalIsOpen &&
+      {/* {modalIsOpen &&
         <Modal close={closeModal}>
-          <AddColumn />
+          <AddColumn close={closeModal}/>
         </Modal>
-      }
+      } */}
 
-      {columns.length !== 0 ? (
-        <>
-          <ColumnList />
-        </>
-        ) : ( <h3>There are no Columns!</h3> )
-      }
+      <ColumnsUl>
+            <ColumnList />
+      
 
-      <AddBtnBox>
-        <AddBtn onClick={openModal}>+</AddBtn>
-        <AddBtnText>Add another column</AddBtnText>
-      </AddBtnBox>
+        {/* <ColumnsLi>
+          <AddBtnBox>
+            <AddBtn onClick={openModal}>+</AddBtn>
+            <AddBtnText>Add another column</AddBtnText>
+          </AddBtnBox>
+        </ColumnsLi> */}
+      </ColumnsUl>
     </>
     // </Layout>
   );
