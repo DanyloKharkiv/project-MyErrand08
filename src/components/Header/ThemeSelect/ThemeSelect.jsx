@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setTheme } from "../../../redux/theme/themeSlice";
+import { updateTheme } from "../../../redux/auth/authOperation";
 import {Container, Title, Wrapper, List, Item} from "./ThemeSelect.Styled";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -24,6 +25,7 @@ export const ThemeSelect = () => {
 
   const handleThemeToggle = (theme) => {
     dispatch(setTheme(theme));
+    dispatch(updateTheme(theme));
     setTimeout(() => {
       setSelectedTheme(theme);
     }, 10);

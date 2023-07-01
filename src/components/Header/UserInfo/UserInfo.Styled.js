@@ -16,7 +16,7 @@ export const UserName = styled.p`
   font-size: var(--fontSize14);
   margin-left: 14px;
   cursor: pointer;
-  color: var(--primaryItemsColor);
+  color: var(--userNameColor);
   &:hover {
     color: var(--accentColor);
   }
