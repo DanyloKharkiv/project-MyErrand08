@@ -30,8 +30,6 @@ const bull = (color) => (
 
 export default function CardTask({ card }) {
   const { title, description, dedline } = card;
-  console.log(title);
-  console.log(description);
 
   const [showModal, setShowModal] = useState(false);
 

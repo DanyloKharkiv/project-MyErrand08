@@ -76,8 +76,15 @@ export default function EditCard({ closeForm, ...props }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.dedline = dedlineValue.$d;
+
           console.log(values);
-          actions.resetForm();
+
+          actions.resetForm({
+            title: "", //
+            description: "", // не працює так
+            priority: "", //
+            dedline: "", //
+          });
         }}
       >
         <Form>

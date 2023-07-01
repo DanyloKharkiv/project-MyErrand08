@@ -32,7 +32,7 @@ const CardSchema = Yup.object().shape({
   dedline: Yup.string(),
 });
 
-export default function AddCard({ closeForm }) {
+export default function AddCard({ onSave, closeForm }) {
   const [selectedValue, setSelectedValue] = useState("without");
   const [dedlineValue, setDedlineValue] = useState(null);
 
@@ -79,6 +79,7 @@ export default function AddCard({ closeForm }) {
           values.priority = selectedValue;
           values.dedline = dedlineValue.$d;
           console.log(values);
+          onSave(values);
           actions.resetForm();
         }}
       >
