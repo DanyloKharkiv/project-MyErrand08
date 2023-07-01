@@ -16,7 +16,6 @@ const NewBoard = ({ close }) => {
     const [backImg, setBackImg] = useState('id-0');
 
     const ownerUser = useSelector(getUserId);
-    console.log(ownerUser)
 
     const handleClose = () => {
         close()

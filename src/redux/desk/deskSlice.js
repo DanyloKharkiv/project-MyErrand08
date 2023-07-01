@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addDesk, fetchDesks } from "./deskOperations";
+import { addDesk, deleteDesk, fetchDesks } from "./deskOperations";
 
 const initialState = {
   desks: {
@@ -23,26 +23,39 @@ const desksSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
+        
+      
+      
+      
 
-      .addCase(fetchDesks.pending, handlePending)
+          .addCase(fetchDesks.pending, handlePending)
 
-      .addCase(fetchDesks.fulfilled, (state, action) => {
-        state.desks.items = action.payload;
+          .addCase(fetchDesks.fulfilled, (state, action) => {
+              state.desks.items = action.payload;
+              state.desks.isLoading = false;
+              state.error = null;
+          })
+    
+          .addCase(fetchDesks.rejected, handleRejected)
+
+          .addCase(addDesk.rejected, handleRejected)
+
+          .addCase(addDesk.pending, handlePending)
+
+          .addCase(addDesk.fulfilled, (state, action) => {
+              state.desks.isLoading = false;
+              state.desks.error = null;
+              state.desks.items.push(action.payload);
+          })
+          .addCase(deleteDesk.fulfilled, (state, action) => {
         state.desks.isLoading = false;
-        state.error = null;
+            state.desks.error = null;
+            state.desks.items = state.desks.items.filter(({ _id }) => _id !== action.payload);
       })
-
-      .addCase(fetchDesks.rejected, handleRejected)
-
-      .addCase(addDesk.rejected, handleRejected)
-
-      .addCase(addDesk.pending, handlePending)
-
-      .addCase(addDesk.fulfilled, (state, action) => {
-        state.desks.isLoading = false;
-        state.desks.error = null;
-        state.desks.items.push(action.payload);
-      })
+          .addCase(deleteDesk.pending, handlePending)
+          .addCase(deleteDesk.rejected, handleRejected)
+          
+      
   },
 });
 

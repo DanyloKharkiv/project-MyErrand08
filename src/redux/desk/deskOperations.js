@@ -8,7 +8,8 @@ export const fetchDesks = createAsyncThunk(
 
   async thunkApi => {
     try {
-      const response = await axios.get('/desk');
+        const response = await axios.get('/desk');
+        console.log(response.data)
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -23,6 +24,19 @@ export const addDesk = createAsyncThunk(
     try {
       const response = await axios.post('/desk', desk);
       return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteDesk = createAsyncThunk(
+  'contacts/deleteContact',
+
+  async (deskId, thunkApi) => {
+    try {
+      await axios.delete(`/desk/${deskId}`);
+      return deskId;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
