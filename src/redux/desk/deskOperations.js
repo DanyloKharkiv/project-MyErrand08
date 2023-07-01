@@ -35,8 +35,8 @@ export const deleteDesk = createAsyncThunk(
 
   async (deskId, thunkApi) => {
     try {
-      const response = await axios.delete(`/desk/${deskId}`);
-      return response.data;
+      await axios.delete(`/desk/${deskId}`);
+      return deskId;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

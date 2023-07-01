@@ -22,7 +22,11 @@ const desksSlice = createSlice({
   name: 'desks',
   initialState,
   extraReducers: builder => {
-      builder
+    builder
+        
+      
+      
+      
 
           .addCase(fetchDesks.pending, handlePending)
 
@@ -45,11 +49,8 @@ const desksSlice = createSlice({
           })
           .addCase(deleteDesk.fulfilled, (state, action) => {
         state.desks.isLoading = false;
-        state.desks.error = null;
-        const index = state.desks.items.findIndex(
-          desk => desk.id === action.payload.id
-        );
-        state.desks.items.splice(index, 1);
+            state.desks.error = null;
+            state.desks.items = state.desks.items.filter(({ _id }) => _id !== action.payload);
       })
           .addCase(deleteDesk.pending, handlePending)
           .addCase(deleteDesk.rejected, handleRejected)

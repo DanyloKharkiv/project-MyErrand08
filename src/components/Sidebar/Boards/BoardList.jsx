@@ -16,15 +16,17 @@ const DesksList = () => {
     useEffect(() => {
         dispatch(fetchDesks())
     }, [dispatch]);
+  
+  
 
     return (
         <BoardsList>
             {visibleDesks.length > 0 ? (
         visibleDesks.map(desk => (
-          <DesksListItem key={desk._id} {...desk} />
+          <DesksListItem key={desk._id} {...desk}/>
         ))
       ) : filterValue && desks ? (
-        <div>Couldn't find any matches.</div>
+        <div></div>
       ) : (
         <div></div>
       )}
