@@ -9,14 +9,14 @@ function ColumnItem({ item }) {
 
     return (
         <Item key={item._id}>
-            {item._id} {item.title}
+            {item.title}
             <FrmButton onClick={() => {
                     dispatch(deleteColumn(item._id));
                     Notiflix.Notify.info(`Column ${item._id} ${item.title} succesfully deleted`);
                 }
             }
                 aria-label="Delete">
-                Delete
+                -
             </FrmButton>
         </Item>
     );
