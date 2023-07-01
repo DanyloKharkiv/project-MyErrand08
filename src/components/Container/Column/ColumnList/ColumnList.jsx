@@ -6,7 +6,8 @@ import { useState } from 'react';
 import Modal from '../../../Modals/Modal';
 import AddColumn from '../../../Modals/AddColumn/AddColumn';
 import sprite from '../../../../images/sprite.svg';
-import Filter from '../../../Modals/Filters/Filters';
+import AddCard from '../../../Modals/AddCard/AddCard';
+import CardTaskList from '../../../CardTaskList/CardTaskList';
 
 function ColumnList () {
 
@@ -33,7 +34,7 @@ function ColumnList () {
             
         {modalIsOpenAddCard &&
             <Modal close={closeModalAddCard}>
-                <Filter close={closeModalAddCard}/>
+                <AddCard close={closeModalAddCard}/>
             </Modal>
         }
 
@@ -43,7 +44,7 @@ function ColumnList () {
                             <ColumnItem key={item._id} item={item}/>
                     </ColumnInfo>
                     
-                    <Filter />
+                    <CardTaskList />
 
                     <ColumnInfo>
                         <ButtonAddCard onClick={openModalAddCard}>
