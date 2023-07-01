@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../../../redux/theme/themeSlice";
 import { updateTheme } from "../../../redux/auth/authOperation";
 import {Container, Title, Wrapper, List, Item} from "./ThemeSelect.Styled";
 import { IoIosArrowDown } from "react-icons/io";
+import { selectGetTheme } from "../../../redux/auth/authSelector";
 
 
 const themes = [
@@ -17,6 +18,7 @@ export const ThemeSelect = () => {
   const dispatch = useDispatch();
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState("dark");
+  const localTheme = useSelector(selectGetTheme);
 
   useEffect(() => {
     document.body.classList.remove('light-theme', 'dark-theme', 'violet-theme');
@@ -31,6 +33,18 @@ export const ThemeSelect = () => {
     }, 10);
     setIsSelectOpen(false);
   };
+
+  useEffect(() => {
+    if (!localTheme) {
+      return
+    }
+  
+    setSelectedTheme(
+      localTheme
+    )
+
+  }, [])
+  
 
 
   return (
