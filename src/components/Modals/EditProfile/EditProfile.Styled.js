@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 
 export const EditProfileForm = styled.form`
-    position: relative;
+    position: absolute;
+    top: 20px;
+    right: 20px;
     padding: 24px;
     height: 440px;
     border-width: 1px;
     border-color: #BEDBB080;
     border-style: solid;
     border-radius: 8px;
+    background-color: #151515;
+    z-index: 1;
     box-shadow: 0px 4px 16px 0px #1616160D;
 
     @media screen and (min-width: 375px) {
