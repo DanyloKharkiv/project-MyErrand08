@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const CreateBoardBtnElement = styled.div`
   margin-left: 24px;
   margin-right: 24px;
-  margin-bottom: 40px;
   padding-top: 14px;
   padding-bottom: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -11,7 +10,7 @@ export const CreateBoardBtnElement = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* height: 70px; */
+  // height: 70px; 
 `;
 
 export const CreateBoardBtnText = styled.p`

@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const BoardsElement = styled.div`
   /* padding-top: 24px; */
   padding-right: 0px;
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
 `;
 
 
@@ -21,23 +21,30 @@ export const BoardsTitle = styled.h2`
 export const BoardsList = styled.ul`
   margin-top: 4px;
   /* border: 1px solid var(--boarder); */
+  padding-top:40px;
+  padding-bottom:40px;
+  height:206px;
+  overflow-block: scroll;
 `;
 
 
 export const BoardsItem = styled.li`
   display: flex;
+  height:61px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4px;
   color: var(--contrastColor);
   /* border: 1px solid white; */
   padding: 20px 24px 20px 24px;
   /* opacity: 0.5; */
   font-size: 14px;
   font-weight: 500;
-  &:first-child {
-    background-color: var(--prOfBg);
-  }
+  &:focus{
+    background-color: var(--prOfBg)
+  };
+  // &:first-child {
+  //   background-color: var(--prOfBg);
+  // }
 `;
 
 

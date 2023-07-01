@@ -11,7 +11,7 @@ const DesksList = () => {
     const visibleDesks = useSelector(selectVisibleDesks);
     const desks = useSelector(selectDesks);
     const filterValue = useSelector(selectBackImg);
-    
+  
 
     useEffect(() => {
         dispatch(fetchDesks())
@@ -26,7 +26,7 @@ const DesksList = () => {
       ) : filterValue && desks ? (
         <div>Couldn't find any matches.</div>
       ) : (
-        <div>You don't have any desks yet.</div>
+        <div></div>
       )}
         </BoardsList>
     )

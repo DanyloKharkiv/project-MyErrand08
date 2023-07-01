@@ -1,18 +1,19 @@
 import { useDispatch } from "react-redux"
-import { deleteDesk } from "../../../redux/desk/deskOperations";
+import { deleteDesk, fetchDesks } from "../../../redux/desk/deskOperations";
 import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from "./Boards.Styled";
 import sprite from '../../../images/sprite.svg'
+import { useEffect } from "react";
+export const DesksListItem = ({ _id, icon, title }) => {
 
-
-export const DesksListItem = ({_id,icon, title}) => {
-    const dispatch = useDispatch();
-
-    
+  const dispatch = useDispatch();
     const handleDeleteDesk = deskId => {
             dispatch(deleteDesk(deskId));
-    }
-    
-    return(
+  }
+  useEffect(() => {
+    dispatch(fetchDesks())
+  },[dispatch]) 
+  return (
+      
         <BoardsItem>
             <ProjectsBox>
                 <ProjectSVG
