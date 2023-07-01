@@ -15,3 +15,5 @@ export const getName = (state) => state.auth?.user?.name;
 export const getTheme = state => state.auth?.user?.theme;
 
 export const getUserId = state => state.auth?.user?.id;
+
+export const getUserEmail = state => state.auth?.user?.email;
