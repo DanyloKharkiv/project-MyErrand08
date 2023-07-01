@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const EditProfileForm = styled.form`
+    position: relative;
     padding: 24px;
     height: 440px;
     border-width: 1px;
@@ -31,6 +32,31 @@ export const EditProfileImg = styled.img`
     margin-bottom: 25px;
 `;
 
+export const EditBtn = styled.button`
+    position: absolute;
+    left: 50%;
+    top: 130px;
+    transform: translate(-50%, 0);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-color: #BEDBB0;
+    border-style: none;
+    border-radius: 8px;
+    `;
+
+export const EditCloseBtn = styled.button`
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    `;
+
     export const EditProfileInput = styled.input`
     padding: 14px 18px;
     margin-bottom: 14px;
@@ -38,7 +64,7 @@ export const EditProfileImg = styled.img`
     height: 49px;
     border: 1px solid #bedbb0;
     border-radius: 8px;
-    background-color: var(--blackColor);
+    background-color: rgba(0,0,0,0);
     color: #ffffff;
     font-family: var(--poppinsFont);
     font-size: var(--fontSize14);
