@@ -28,18 +28,20 @@ const initialValues = {
   comment: '',
 };
 
-const NeedHelp = () => {
+const NeedHelp = ({close}) => {
   const handleSubmit = (values, { resetForm }) => {
     resetForm();
-    
+    close();
     
   };
-  
+  const handleClose = () => {
+    close();
+}
   
 
   return (
     <ModalField >
-    <CloseModal type="button">
+    <CloseModal onClick={handleClose}>
      <use href={sprite + '#icon-x'} width={18} height={18} />
     </CloseModal>
     <Section>

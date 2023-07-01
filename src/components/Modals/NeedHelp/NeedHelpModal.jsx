@@ -17,7 +17,7 @@ const HelpModal = (_,ref) => {
     return (
         <>
             {showModal&&<Modal close={closeModal}>
-            <NeedHelp/>
+            <NeedHelp close={closeModal}/>
                 </Modal>}
         </>
     )
