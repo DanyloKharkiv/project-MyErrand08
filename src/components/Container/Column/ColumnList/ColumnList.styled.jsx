@@ -54,3 +54,45 @@ export const AddColumnIcon = styled.span`
   background-color: var(--contrastColor);
   border-radius: var(--borderRadius8);
 `;
+
+export const AddCardIcon = styled.span`
+  margin-right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:var(--addBtnText);
+  stroke: var(--headerColor);
+  background-color: var(--headerColor);
+  border-radius: var(--borderRadius8);
+`
+
+export const ColumnWrap = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
+export const ButtonAddCard = styled.button`
+  display: flex;
+  min-width: 100%;
+  margin: 48px 0;
+  padding: 10px 0px 11px 0px;
+  justify-content: center;
+  align-items: center; 
+  border-radius: 8px;
+  background: #BEDBB0; 
+  cursor: pointer;
+  color: #161616;
+  font-size: 14px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+`;
+
+export const ColumnInfo = styled.li`
+  color: #fff
+`
+

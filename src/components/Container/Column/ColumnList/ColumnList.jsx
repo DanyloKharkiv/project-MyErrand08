@@ -1,41 +1,62 @@
 import { useSelector } from 'react-redux';
 import { selectColumnsItems } from '../../../../redux/column/columnSlice';
 import ColumnItem from '../ColumnItem/ColumnItem';
-import { ColumnsListli, AddBtn, AddBtnBox, AddBtnText, AddColumnIcon, } from './ColumnList.styled';
+import { ColumnsListli, AddBtnBox, AddColumnIcon, ColumnInfo, ColumnWrap, ButtonAddCard, AddCardIcon, } from './ColumnList.styled';
 import { useState } from 'react';
 import Modal from '../../../Modals/Modal';
 import AddColumn from '../../../Modals/AddColumn/AddColumn';
 import sprite from '../../../../images/sprite.svg';
+import Filter from '../../../Modals/Filters/Filters';
 
 function ColumnList () {
 
-  const columns = useSelector(selectColumnsItems);
+    const columns = useSelector(selectColumnsItems);
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [modalIsOpenAddColumn, setModalIsOpenAddColumn] = useState(false);
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+    const openModalAddColumn = () => { setModalIsOpenAddColumn(true); };
+    const closeModalAddColumn = () => { setModalIsOpenAddColumn(false); };
+    
+    const [modalIsOpenAddCard, setModalIsOpenAddCard] = useState(false);
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
-  
+    const openModalAddCard = () => { setModalIsOpenAddCard(true); };
+    const closeModalAddCard = () => { setModalIsOpenAddCard(false); };
+
     return (
         <>
             
-        {modalIsOpen &&
-            <Modal close={closeModal}>
-                <AddColumn close={closeModal}/>
+        {modalIsOpenAddColumn &&
+            <Modal close={closeModalAddColumn}>
+                <AddColumn close={closeModalAddColumn}/>
             </Modal>
             }
             
-        {columns.map(item => (
-            <ColumnItem key={item._id} item={item}/>
-        ))}
+        {modalIsOpenAddCard &&
+            <Modal close={closeModalAddCard}>
+                <Filter close={closeModalAddCard}/>
+            </Modal>
+        }
+
+            {columns.map(item => (
+                <ColumnWrap>
+                        <ColumnInfo>
+                            <ColumnItem key={item._id} item={item}/>
+                    </ColumnInfo>
+                    
+                    <Filter />
+
+                    <ColumnInfo>
+                        <ButtonAddCard onClick={openModalAddCard}>
+                            <AddCardIcon> + </AddCardIcon>Add another card
+                        </ButtonAddCard>
+                        </ColumnInfo>
+                </ColumnWrap>
+            ))}
             
+                
+
         <ColumnsListli>
-            <AddBtnBox onClick={openModal}>
+            <AddBtnBox onClick={openModalAddColumn}>
                 <AddColumnIcon>
                   {/* <svg width="18" height="18">
                     <use href={`${sprite}#icon-plus`}></use>

@@ -47,8 +47,9 @@ export const ErrorMessage = styled(FormikError)`
 
 export const FrmButton = styled.button`
   display: flex;
-margin-top: 24px;
+  margin-top: 24px;
   padding: 10px 0px 11px 0px;
+  width: 100%;
   justify-content: center;
   align-items: center; 
   border-radius: 8px;
