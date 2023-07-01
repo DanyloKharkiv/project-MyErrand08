@@ -5,9 +5,9 @@ axios.defaults.baseURL = 'https://tasks-backed.onrender.com/api/';
 
 export const fetchColumns = createAsyncThunk(
   "columns/fetchAll",
-  async (_, thunkAPI) => {
+  async (idDesk, thunkAPI) => {
     try {
-      const response = await axios.get("/columns");
+      const response = await axios.get(`/columns?ownerDesk=${idDesk}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -17,9 +17,9 @@ export const fetchColumns = createAsyncThunk(
 
 export const addColumn = createAsyncThunk(
   "columns/addColumn",
-  async ({ ownerDesk, title }, thunkAPI) => {
+  async ({ title, ownerDesk, ownerUser }, thunkAPI) => {
     try {
-      const response = await axios.post("/columns", { ownerDesk, title });
+      const response = await axios.post("/columns", {title, ownerDesk, ownerUser});
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -29,9 +29,10 @@ export const addColumn = createAsyncThunk(
 
 export const deleteColumn = createAsyncThunk(
   "columns/deleteColumn",
-  async (id, thunkAPI) => {
+  async (_id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/columns/${id}`);
+      console.log("Deleting... id=",{ _id });
+      const response = await axios.delete(`/columns/${_id}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -41,9 +42,9 @@ export const deleteColumn = createAsyncThunk(
 
 export const editColumn  = createAsyncThunk(
   "columns/editColumn",
-  async ({ _id, title }, thunkAPI) => {
+  async ({ idColumn, title }, thunkAPI) => {
     try {
-      const response = await axios.put(`/columns/${_id}`, { title });
+      const response = await axios.put(`/columns/${idColumn}`, { title });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

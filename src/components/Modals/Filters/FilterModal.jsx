@@ -18,7 +18,7 @@ const FilterModal = (_, ref) => {
     
     return <>
         {showModal&&<Modal close={closeModal}>
-            <Filter/>
+            <Filter close={closeModal} />
                 </Modal>}
             </>
     

@@ -47,8 +47,9 @@ export const ErrorMessage = styled(FormikError)`
 
 export const FrmButton = styled.button`
   display: flex;
-margin-top: 24px;
+  margin-top: 24px;
   padding: 10px 0px 11px 0px;
+  width: 100%;
   justify-content: center;
   align-items: center; 
   border-radius: 8px;
@@ -62,3 +63,14 @@ font-weight: 500;
 line-height: normal;
 letter-spacing: -0.28px; 
 `;
+
+export const CloseBtn = styled.svg`
+    top: 14px;
+    right: 14px;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    fill: red;
+    z-index: 9999;
+    cursor: pointer;
+`

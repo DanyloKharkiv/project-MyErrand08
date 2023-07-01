@@ -17,6 +17,7 @@
     position: absolute;
     fill: red;
     z-index: 9999;
+    cursor: pointer;
 }
 .title {
     font-family: Poppins;
@@ -239,4 +240,19 @@
     position: absolute;
     opacity: 0;
 
+}
+.imgOn {
+    outline: 1px solid var(--filterModalTitle);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.imgOff {
+    outline: 1px solid var(--themeBgColor);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.backgroundListItem {
+    height: 28px;
 }

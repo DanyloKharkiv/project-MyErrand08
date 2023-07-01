@@ -4,13 +4,26 @@ export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
-  height: 30px;
-  padding: 5px;
-  font-size: 16px;
+  width: 334px;
+
+
+
+padding: 18px 20px 17px 20px;
+
+  border-radius: 8px;
+  background: #121212; 
+
+    height: 56px;
+color: #FFF;
+font-size: 14px;
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
 `;
 
 export const FrmButton = styled.button`
-  width: 70px;
+  
   cursor: pointer;
 `;
