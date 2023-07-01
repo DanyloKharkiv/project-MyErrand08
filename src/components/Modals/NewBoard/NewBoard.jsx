@@ -44,7 +44,7 @@ const NewBoard = ({ close }) => {
 
         setTitle('');
         setIcons('');
-        setBackImg('id-0');    
+        setBackImg('id-0');
     }
 
     
@@ -144,3 +144,4 @@ const NewBoard = ({ close }) => {
 }
 
 export default NewBoard;
+

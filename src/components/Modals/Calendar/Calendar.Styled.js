@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import css from './theme.Styled.jsx';
 
- const styledDateDeadline = ({ theme }) => css`
+ const styledLocalizationProvider = ({ theme }) => css`
   position: absolute;
   top: 0;
   left: 0;
@@ -11,17 +11,17 @@ import css from './theme.Styled.jsx';
   letter-spacing: -0.28px;
 `;
 
-export const StyledInput = styled.div`
+export const DatePicker = styled.div`
   position: relative;
   opacity: 0;
   z-index: 20;
 `;
 
-export const Container = styled.div`
+export const DemoContainer = styled.div`
   position: relative;
   margin-bottom: 20px;
 `;
 
-export const DateDeadline = styled.p`
-  ${styledDateDeadline}
+export const LocalizationProvider = styled.p`
+  ${styledLocalizationProvider}
 `;

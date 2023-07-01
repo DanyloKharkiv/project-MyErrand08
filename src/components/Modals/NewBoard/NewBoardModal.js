@@ -16,6 +16,7 @@ const NewBoardModal = (_,ref) => {
         <>
             {showModal&&<Modal close={closeModal}>
                 <NewBoard close={closeModal} />
+
                 </Modal>}
         </>
     )
