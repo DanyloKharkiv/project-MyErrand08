@@ -1,32 +1,32 @@
-//import { selectSearchContacts } from "redux/contacts/selectors";
-//import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { selectCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
+import { fetchCards } from "../../redux/cards/operations";
 
-export default function CardTaskList() {
-  //const list = useSelector(selectSearchContacts);
-  const list = [
-    {
-      id: 1,
-      title: "MyCard",
-      description:
-        "Generate engaging and persuasive content for various project deliverables, such as presentations, reports, website copy, social media posts, and other communication channel",
-    },
-    {
-      id: 2,
-      title: "MyCard2",
-      description:
-        "Generate engaging social media posts, and other communication channel",
-    },
-  ];
+export default function CardTaskList({ ownerColumn }) {
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchCards(ownerColumn));
+  // }, [dispatch]);
+
+  const list = useSelector(selectCards);
+
   return (
     <>
       {list.length === 0 ? (
         <Typography>There are no cards in the column</Typography>
       ) : (
         <List>
-          {list.map((card) => {
-            return <CardTask key={card.id} card={card} />;
+          {list.map(({ _id: id, title, taskValue, priority, deadline }) => {
+            return (
+              <CardTask
+                key={id}
+                card={{ title, taskValue, priority, deadline }}
+              />
+            );
           })}
         </List>
       )}

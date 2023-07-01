@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://tasks-backed.onrender.com/api/";
+//axios.defaults.baseURL = "https://tasks-backed.onrender.com/api/";
 
 export const addCard = createAsyncThunk(
   "cards/addCard",
@@ -10,6 +10,8 @@ export const addCard = createAsyncThunk(
       const response = await axios.post("/tasks", card);
       return response.data;
     } catch (e) {
+      console.log("ERROR addCard");
+      console.log(e.message);
       return thunkAPI.rejectWithValue(e.message);
     }
   }

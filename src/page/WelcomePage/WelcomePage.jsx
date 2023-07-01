@@ -3,11 +3,13 @@ import { Box, Wrapper, Link, Title, Text, IMG } from "./WelcomePage.Styled";
 import img from "../../images/Image.png";
 import sprite from "../../images/sprite.svg";
 
-import ContainerCards from "../../components/ContainerCards/ContainerCards";
+//import ColumnList from "../../components/Container/Column/ColumnList/ColumnList";
+
 const WelcomePage = () => {
   return (
     <Box>
-      <ContainerCards />
+      //
+      {/* <ColumnList /> */}
       <IMG src={img} alt="photo" height="162" width="162" />
       <Wrapper>
         <svg width="48" height="48">
