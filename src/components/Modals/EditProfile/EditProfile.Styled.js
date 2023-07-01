@@ -36,17 +36,31 @@ export const EditProfileImg = styled.img`
     margin-bottom: 25px;
 `;
 
-export const EditBtn = styled.button`
+export const FileWrapper = styled.div`
     position: absolute;
     left: 50%;
     top: 130px;
     transform: translate(-50%, 0);
+    background-color: #BEDBB0;
+    width: 24px;
+    height:24px;
+    border-radius: 8px;
+`;
+
+export const Foto = styled.input`
     width: 24px;
     height: 24px;
-    cursor: pointer;
     background-color: #BEDBB0;
     border-style: none;
     border-radius: 8px;
+    opacity: 0;
+    `;
+
+export const EditFoto = styled.svg`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     `;
 
 export const EditCloseBtn = styled.button`
@@ -78,6 +92,17 @@ export const EditCloseBtn = styled.button`
     &::placeholder {
         font-size: var(--fontSize14);
     }
+    `;
+
+    export const PasswordWrapper = styled.div`
+    position: relative;
+    `;
+
+    export const ToggleShowPasword = styled.span`
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    height: 18px;
     `;
 
     export const BtnEditProfile = styled.button`
