@@ -29,6 +29,7 @@ export const HelpBtn = styled.button`
   font-size: 12px;
   background-color: var(--needHelpBg);
   border: none;
+  cursor:pointer;
 `;
 
 export const HelpText = styled.p`
