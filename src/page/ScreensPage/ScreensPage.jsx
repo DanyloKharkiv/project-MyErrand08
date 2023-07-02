@@ -10,7 +10,8 @@ import { useRef } from "react";
 import FilterModal from '../../components/Modals/Filters/FilterModal'
 import Columns from "../../components/Container/Column/Columns";
 import { selectActiveDeskId } from "../../redux/desk/deskSelectors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getDeskById } from "../../redux/desk/deskOperations";
 
 export const ScreensPage = () => {
 
@@ -22,12 +23,17 @@ export const ScreensPage = () => {
     }
   }
 
+  const dispatch = useDispatch();
   const idDesk = useSelector(selectActiveDeskId);
+
+  const deskInfo = dispatch(getDeskById(idDesk));
+
+  console.log("Desk title", deskInfo.title);
 
   return (
     <ScreensPageElement>
       <SectionHeader>
-        <Title>Project office { idDesk}</Title>
+        <Title>ownerDesk={ idDesk}</Title>
         <Filter>
           <svg
             width="16"
@@ -42,8 +48,6 @@ export const ScreensPage = () => {
       </SectionHeader>
 
       
-{/* {dashboards && dashboards.length > 0 ? <ProjectOffice /> : <DefaultScreen />}  */}
-
       <Columns idDesk={ idDesk } />
 
       <FilterModal ref={filterModalRef} />
