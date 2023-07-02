@@ -7,6 +7,7 @@ import Modal from "../Modals/Modal";
 import EditCard from "../Modals/EditCard/EditCard";
 import { useDispatch } from "react-redux";
 import { deleteCard } from "../../redux/cards/operations";
+import dayjs from "dayjs";
 
 const line = (color) => (
   <Box
@@ -29,6 +30,19 @@ const bull = (color) => (
     }}
   ></Box>
 );
+
+const priorityColor = (priority) => {
+  switch (priority) {
+    case "low":
+      return "var(--lowColor)";
+    case "medium":
+      return "var(--mediumColor)";
+    case "high":
+      return "var(--highColor)";
+    case "without":
+      return "var(--withoutColor)";
+  }
+};
 
 export default function CardTask({ card }) {
   const { id, title, taskValue: description, priority, deadline } = card;
@@ -59,7 +73,7 @@ export default function CardTask({ card }) {
         backgroundColor: "var(--sidebarColor)",
         borderRadius: 2,
         borderLeftWidth: "4px",
-        borderLeftColor: `${"var(--lowColor)"}`,
+        borderLeftColor: priorityColor(priority),
       }}
     >
       <CardContent sx={{ fontFamily: "Poppins" }}>
@@ -156,7 +170,7 @@ export default function CardTask({ card }) {
                   mt: "4px",
                 }}
               >
-                {bull("var(--lowColor)")}
+                {bull(priorityColor(priority))}
                 <Box
                   sx={{
                     color: "var(--filterModalText)",
@@ -179,7 +193,7 @@ export default function CardTask({ card }) {
                   mt: "4px",
                 }}
               >
-                {deadline}
+                {`${dayjs(deadline).format("MM-DD-YYYY")}`}
               </Typography>
             </Box>
           </Box>

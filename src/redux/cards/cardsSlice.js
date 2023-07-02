@@ -47,7 +47,7 @@ const cardsSlice = createSlice({
         state.error = null;
         //Immer!
         state.listCards = state.listCards.filter(
-          (card) => card.id !== action.payload.id
+          (card) => card._id !== action.payload
         );
       })
       .addCase(deleteCard.pending, handlePending)

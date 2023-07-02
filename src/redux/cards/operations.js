@@ -31,10 +31,8 @@ export const deleteCard = createAsyncThunk(
   "card/deleteCard",
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/tasks/${id}`);
-      return response.data;
-      //  await axios.delete(`/tasks/${id}`);
-      //  return id;
+      await axios.delete(`/tasks/${id}`);
+      return id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
