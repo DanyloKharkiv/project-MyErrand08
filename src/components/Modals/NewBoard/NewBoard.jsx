@@ -61,64 +61,64 @@ const NewBoard = ({ close }) => {
                     
                     <li>
                         <label htmlFor="icon_1">
-                    <svg className={(icons==='icon_1')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-loading-03'}></use>
+                    <svg className={(icons==='icon_1')?css.svgOn:css.svgOff} width='18' height='18' fill="none" stroke="var(--filterModalText)">
+                        <use href={sprite + '#icon_1'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_1" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_2">
-                    <svg className={(icons==='icon_2')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-star-04'}></use>
+                    <svg className={(icons==='icon_2')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)">
+                        <use href={sprite + '#icon_2'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_2" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_3">
-                    <svg className={(icons==='icon_3')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-help-circle'}></use>
+                    <svg className={(icons==='icon_3')?css.svgOn:css.svgOff} width='18' height='18'  stroke="var(--filterModalText)">
+                        <use href={sprite + '#icon_3'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_3" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_4">
-                    <svg className={(icons==='icon_4')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-hexagon-01'}></use>
+                    <svg className={(icons==='icon_4')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)">
+                        <use href={sprite + '#icon_4'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_4" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_5">
-                    <svg className={(icons==='icon_5')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-star-04'}></use>
+                    <svg className={(icons==='icon_5')?css.svgOn:css.svgOff} width='18' height='18'  stroke="var(--filterModalText)">
+                        <use href={sprite + '#icon_5'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_5" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_6">
-                    <svg className={(icons==='icon_6')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-lightning-02'}></use>
+                    <svg className={(icons==='icon_6')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)" >
+                        <use href={sprite + '#icon_6'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_6" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_7">
-                    <svg className={(icons==='icon_7')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-colors'}></use>
+                    <svg className={(icons==='icon_7')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)" >
+                        <use href={sprite + '#icon_7'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_7" />
                 </label>
                     </li>
                     <li>
                         <label htmlFor="icon_8">
-                    <svg className={(icons==='icon_8')?css.svgOn:css.svgOff} width='18' height='18'>
-                        <use href={sprite + '#icon-container'}></use>
+                    <svg className={(icons==='icon_8')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)" >
+                        <use href={sprite + '#icon_8'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_8" />
                 </label>

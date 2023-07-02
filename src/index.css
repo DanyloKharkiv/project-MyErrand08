@@ -65,6 +65,11 @@ body {
   --addBtnIcon: #fff;
   --filterTxt: rgba(255, 255, 255, 0.8);
 
+
+  /*Modal*/
+  --modalBg: #151515;
+
+
   --filterModalTitle: rgba(255, 255, 255, 1);
   --filterLines: rgba(255, 255, 255, 0.1);
   --filterModalText: rgba(255, 255, 255, 0.5);
@@ -120,6 +125,11 @@ body {
   --addBtnIcon: #161616;
   --filterTxt: rgba(22, 22, 22, 0.8);
 
+
+    /*Modal*/
+    --modalBg: #FCFCFC;
+
+
   --filterModalTitle: rgba(22, 22, 22, 1);
   --filterLines: rgba(22, 22, 22, 0.1);
   --filterModalText: rgba(22, 22, 22, 0.5);
@@ -174,6 +184,10 @@ body {
   --addBtnText: #161616;
   --addBtnIcon: #5255bc;
   --filterTxt: rgba(22, 22, 22, 0.8);
+
+
+    /*Modal*/
+    --modalBg: #FCFCFC;
 
   --filterModalTitle: rgba(22, 22, 22, 1);
   --filterLines: rgba(22, 22, 22, 0.1);
