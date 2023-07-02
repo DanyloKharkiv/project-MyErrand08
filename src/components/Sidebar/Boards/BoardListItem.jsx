@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux"
-import { deleteDesk } from "../../../redux/desk/deskOperations";
+import { deleteDesk, setActiveDeskId } from "../../../redux/desk/deskOperations";
 import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from "./Boards.Styled";
 import sprite from '../../../images/sprite.svg'
+
 export const DesksListItem = ({ _id, icon, title }) => {
 
   const dispatch = useDispatch();
@@ -10,10 +11,15 @@ export const DesksListItem = ({ _id, icon, title }) => {
   }
   
 
+  
+  const handleClickActiveDeskId = (deskId) => {
+    dispatch(setActiveDeskId(deskId));
+  };
+
   return (
       
         <BoardsItem>
-            <ProjectsBox>
+            <ProjectsBox onClick={()=>handleClickActiveDeskId(_id)}>
                 <ProjectSVG
                 width="18"
                 height="18"

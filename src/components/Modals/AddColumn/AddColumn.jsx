@@ -8,6 +8,8 @@ import { selectColumnsItems } from '../../../redux/column/columnSlice';
 import { addColumn } from '../../../redux/column/columnOperation';
 
 import sprite from '../../../images/sprite.svg';
+import { getUserId } from '../../../redux/auth/authSelector';
+import { selectActiveDeskId } from '../../../redux/desk/deskSelectors';
 
 
 const nameRegex = /^[a-zA-Zа-яА-Я 0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
@@ -27,6 +29,9 @@ const AddColumn = ({ close }) => {
         close();
     }
 
+    const ownerUser = useSelector(getUserId); //sveta code
+    const ownerDesk = useSelector(selectActiveDeskId);
+
     return (
         <Formik
             initialValues={{
@@ -38,7 +43,7 @@ const AddColumn = ({ close }) => {
                     return Notiflix.Notify.failure(`Колонка ${data.title} вже існує`);
                 }
 
-                const newData = { title: data.title, ownerUser:"6499ddcf3888df7fc9af9c64", ownerDesk:"6499131312314f7fc9af9c64" };
+                const newData = { title: data.title, ownerUser, ownerDesk };
                 
                 dispatch(addColumn(newData));
                 Notiflix.Notify.success(`Колонка ${data.title} успішно додана`);
