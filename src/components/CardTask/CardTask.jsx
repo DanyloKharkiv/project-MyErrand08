@@ -25,9 +25,9 @@ const bull = (color) => (
   ></Box>
 );
 export default function CardTask({ card }) {
-  console.log("CardTack");
-  console.log(card.title);
-  console.log(card.description);
+  // console.log("CardTack");
+  // console.log(card.title);
+  // console.log(card.description);
   return (
     <Card
       variant="outlined"

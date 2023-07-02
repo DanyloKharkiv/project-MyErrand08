@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addColumn, deleteColumn, fetchColumns } from "./columnOperation";
+import { addColumn, deleteColumn, editColumn, fetchColumns } from "./columnOperation";
 
 
 const handlePending = state => {
@@ -35,13 +35,19 @@ const columnsSlice = createSlice({
     },
     [addColumn.rejected]: handleRejected,
     
-    // [editColumn.pending]: handlePending,
-    // [editColumn.fulfilled](state, action) {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.items.push(action.payload);  // змінити push на replace title by _id
-    // },
-    // [editColumn.rejected]: handleRejected,
+    [editColumn.pending]: handlePending,
+    [editColumn.fulfilled](state, action) {
+      state.isLoading = false;
+      state.error = null;
+      const editColumn = action.payload;
+      
+      console.log(editColumn);
+        const index = state.items.findIndex(column => column._id === editColumn._id);
+        if (index !== -1) { 
+          state.items[index] = editColumn;
+        }
+    },
+    [editColumn.rejected]: handleRejected,
 
     [deleteColumn.pending]: handlePending,
     [deleteColumn.fulfilled](state, action) {
