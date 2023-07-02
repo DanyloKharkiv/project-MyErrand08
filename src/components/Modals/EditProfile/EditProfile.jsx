@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { getAvatar, getName, getUserEmail, selectToken } from "../../../redux/auth/authSelector";
+import { useDispatch, useSelector } from "react-redux";
+import { getAvatar, getName, getUserEmail } from "../../../redux/auth/authSelector";
 import userTemp from "../../../images/temp_avatar.png";
 import {
     EditProfileForm,
@@ -19,6 +19,7 @@ import { useState } from "react";
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import axios from "axios";
 import { Notify } from "notiflix";
+import { updateAvatar, updateEmail, updateName } from "../../../redux/auth/authOperation";
 
 const EditProfile = ({modalClose}) => {
     const userAvatar = useSelector(getAvatar);
@@ -26,11 +27,7 @@ const EditProfile = ({modalClose}) => {
     const userEmail = useSelector(getUserEmail);
     const [showPassword, setShowPassword] = useState(false);
     const [selectedAvatar, setSelectedAvatar] = useState(null);
-    const avatarURL = userAvatar ? userAvatar : userTemp;
-    const token = useSelector(selectToken);
-
-    axios.defaults.baseURL = 'https://tasks-backed.onrender.com/api/';
-    axios.defaults.headers.common.token = `Bearer ${token}`
+    const dispatch = useDispatch();
 
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -45,25 +42,41 @@ const EditProfile = ({modalClose}) => {
         e.preventDefault();
 
         if (e.target.name.value.trim()) {
-            await axios.patch("/users/name", { name: e.target.name.value.trim() });
-            Notify.success("Name changed");
+            try {
+                await dispatch(updateName(e.target.name.value.trim()));
+                Notify.success("Name changed");
+            } catch (error) {
+                console.log(error);
+            }
         }
 
         if (e.target.email.value.trim()) {
-            await axios.patch("/users/email", { email: e.target.email.value.trim() });
-            Notify.success("Email changed");
+            try {
+                await dispatch(updateEmail(e.target.email.value.trim()));
+                Notify.success("Email changed");
+            } catch (error) {
+                console.log(error);
+            }
         }
 
         if (e.target.password.value.trim()) {
-            await axios.patch("/users/password", { password: e.target.password.value.trim() });
-            Notify.success("Password changed");
+            try {
+                const { data } = await axios.patch("/users/password", { password: e.target.password.value.trim() });
+                Notify.success(data.message);
+            } catch (error) {
+                console.log(error);
+            }
         }
 
         if (selectedAvatar) { 
-            const formData = new FormData();
-            formData.append("avatar", selectedAvatar);
-            await axios.patch("/users/avatars", formData);
-            Notify.success("Avatar changed");
+            try {
+                const formData = new FormData();
+                formData.append("avatar", selectedAvatar);
+                await dispatch(updateAvatar(formData));
+                Notify.success("Avatar changed");
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
     
@@ -75,7 +88,7 @@ const EditProfile = ({modalClose}) => {
                     <use href = {sprite+'#icon-x'}></use>
                 </svg>
             </EditCloseBtn>
-            <EditProfileImg src={avatarURL} alt="user_icon" width={68} height={68} />
+            <EditProfileImg src={userAvatar ? userAvatar : userTemp} alt="user_icon" width={68} height={68} />
             <FileWrapper>
                 <Foto type="file" name="avatar" accept="image/*,.png,.jpg,.gif,.web" onChange={handleAvatarChange}>
                 </Foto>
@@ -84,7 +97,8 @@ const EditProfile = ({modalClose}) => {
                 </EditFoto>
             </FileWrapper>
             <EditProfileInput type="text" name="name" placeholder={userName}></EditProfileInput>
-            <EditProfileInput type="email" name="email" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" placeholder={userEmail}></EditProfileInput> 
+            <EditProfileInput type="email" name="email" placeholder={userEmail}></EditProfileInput> 
+            {/* pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" */}
             <PasswordWrapper>
                 <EditProfileInput type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" minLength="8" maxLength="64"></EditProfileInput>
                 <ToggleShowPasword onClick={togglePasswordVisibility}>
