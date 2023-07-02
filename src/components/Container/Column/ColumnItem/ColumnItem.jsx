@@ -9,6 +9,8 @@ import EditColumn from "../../../Modals/EditColumn/EditColumn";
 
 import { useEffect } from "react";
 import { changeOwner } from "../../../../redux/cards/cardsSlice";
+import { fetchCards } from "../../../../redux/cards/operations";
+
 function ColumnItem({ item }) {
   const dispatch = useDispatch();
 
@@ -16,8 +18,14 @@ function ColumnItem({ item }) {
 
   useEffect(() => {
     dispatch(changeOwner(id));
+    dispatch(fetchCards(id));
   }, [dispatch, id]);
 
+  // ================================================
+  // useEffect(() => {
+  //   dispatch(fetchCards(id));
+  // }, [dispatch, id]);
+  // ================================================
   const [modalIsOpenEditColumn, setModalIsOpenEditColumn] = useState(false);
 
   const openModalEditColumn = () => {
