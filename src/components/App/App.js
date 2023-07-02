@@ -10,6 +10,7 @@ import {
   selectIsRefreshing,
   selectToken,
 } from "../../redux/auth/authSelector";
+import { ScreensPage } from "../../page/ScreensPage/ScreensPage";
 
 const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
@@ -39,6 +40,7 @@ function App() {
                 <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
               }
             />
+            <Route path=":boardId/:title" element={<ScreensPage />} />
             <Route
               path="/welcome"
               element={

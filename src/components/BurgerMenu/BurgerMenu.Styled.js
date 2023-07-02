@@ -14,7 +14,7 @@ export const Button = styled.button`
   }
 `;
 export const Svg = styled.svg`
-  stroke: var(--themeTitle);
+  stroke: var(--userNameColor);
 
   &:hover {
     stroke: var(--accentColor);
