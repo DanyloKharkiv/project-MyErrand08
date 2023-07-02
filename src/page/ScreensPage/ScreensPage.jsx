@@ -12,6 +12,7 @@ import Columns from "../../components/Container/Column/Columns";
 import { selectActiveDeskId } from "../../redux/desk/deskSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getDeskById } from "../../redux/desk/deskOperations";
+import { useEffect } from "react";
 
 export const ScreensPage = () => {
 
@@ -26,14 +27,17 @@ export const ScreensPage = () => {
   const dispatch = useDispatch();
   const idDesk = useSelector(selectActiveDeskId);
 
-  const deskInfo = dispatch(getDeskById(idDesk));
+    
+    // const deskInfo = dispatch(getDeskById(idDesk));
+    // console.log("Desk title", deskInfo);
 
-  console.log("Desk title", deskInfo.title);
+
+  
 
   return (
     <ScreensPageElement>
       <SectionHeader>
-        <Title>ownerDesk={ idDesk}</Title>
+        <Title>ownerDesk={idDesk} </Title>
         <Filter>
           <svg
             width="16"

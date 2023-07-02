@@ -8,8 +8,7 @@ export const fetchDesks = createAsyncThunk(
 
   async thunkApi => {
     try {
-        const response = await axios.get('/desk');
-        console.log(response.data)
+      const response = await axios.get('/desk');
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
