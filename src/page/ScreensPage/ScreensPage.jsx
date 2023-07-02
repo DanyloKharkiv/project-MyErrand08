@@ -9,6 +9,8 @@ import sprite from "../../images/sprite.svg";
 import { useRef } from "react";
 import FilterModal from '../../components/Modals/Filters/FilterModal'
 import Columns from "../../components/Container/Column/Columns";
+import { selectActiveDeskId } from "../../redux/desk/deskSelectors";
+import { useSelector } from "react-redux";
 
 export const ScreensPage = () => {
 
@@ -20,10 +22,12 @@ export const ScreensPage = () => {
     }
   }
 
+  const idDesk = useSelector(selectActiveDeskId);
+
   return (
     <ScreensPageElement>
       <SectionHeader>
-        <Title>Project office</Title>
+        <Title>Project office { idDesk}</Title>
         <Filter>
           <svg
             width="16"
@@ -37,7 +41,10 @@ export const ScreensPage = () => {
         </Filter>
       </SectionHeader>
 
-      <Columns idDesk={ "6499131312314f7fc9af9c64" } />
+      
+{/* {dashboards && dashboards.length > 0 ? <ProjectOffice /> : <DefaultScreen />}  */}
+
+      <Columns idDesk={ idDesk } />
 
       <FilterModal ref={filterModalRef} />
     </ScreensPageElement>

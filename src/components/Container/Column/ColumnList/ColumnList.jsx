@@ -28,8 +28,8 @@ function ColumnList({ idDesk }) {
 
   useEffect(() => {
     dispatch (fetchColumns(idDesk));
-  }, [dispatch]);
-
+  }, [idDesk]);
+  
     return (
         <>
             

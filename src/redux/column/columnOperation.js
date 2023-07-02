@@ -31,7 +31,6 @@ export const deleteColumn = createAsyncThunk(
   "columns/deleteColumn",
   async (_id, thunkAPI) => {
     try {
-      console.log("Deleting... id=",{ _id });
       await axios.delete(`/columns/${_id}`);
       return _id;
     } catch (e) {

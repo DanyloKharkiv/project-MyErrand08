@@ -14,12 +14,9 @@ export const Columns = ({ idDesk }) => {
   const isLoading = useSelector(selectColumnsIsLoading);
   const error = useSelector(selectColumnsError);
 
-
-  // const idDesk = "6499131312314f7fc9af9c64";
-
   useEffect(() => {
     dispatch(fetchColumns(idDesk));
-  }, [dispatch]);
+  }, [idDesk]);
   
 
   return (
