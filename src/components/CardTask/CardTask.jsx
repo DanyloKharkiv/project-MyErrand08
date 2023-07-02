@@ -5,6 +5,8 @@ import EllipsisText from "react-ellipsis-text";
 import { useState } from "react";
 import Modal from "../Modals/Modal";
 import EditCard from "../Modals/EditCard/EditCard";
+import { useDispatch } from "react-redux";
+import { deleteCard } from "../../redux/cards/operations";
 
 const line = (color) => (
   <Box
@@ -29,9 +31,11 @@ const bull = (color) => (
 );
 
 export default function CardTask({ card }) {
-  const { title, taskValue: description, priority, deadline } = card;
+  const { id, title, taskValue: description, priority, deadline } = card;
 
   const [showModal, setShowModal] = useState(false);
+
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setShowModal(true);
@@ -40,6 +44,8 @@ export default function CardTask({ card }) {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const handleDeleteCard = () => dispatch(deleteCard(id));
 
   return (
     <Card
@@ -242,6 +248,7 @@ export default function CardTask({ card }) {
               <Button
                 size="small"
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
+                onClick={handleDeleteCard}
               >
                 <svg
                   width="20"
