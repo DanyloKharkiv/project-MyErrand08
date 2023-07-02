@@ -7,7 +7,7 @@ export const SectionTitle = styled.h2`
   font-weight: 500;
   letter-spacing: -0.36px;
   margin-bottom: 24px;
-  color: #FFF;
+  color: var(--filterModalTitle);
   
 `;
 
@@ -61,7 +61,7 @@ export const TitleInput = styled(Field)`
   font-family: 'Poppins';
   letter-spacing: -0.28px;
   color: var(--filterModalTitle);
-  background-color: #161616;
+  background-color: var(--backgroundInput);
   border: 1px solid rgba(190, 219, 176, 0.5);
   border-radius: 8px;
   outline: none;
@@ -90,7 +90,7 @@ export const Textarea = styled(Field)`
   line-height: normal;
   letter-spacing: -0.28px;
   
-  background-color: #161616;
+  background-color: var(--backgroundInput);
   border: 1px solid rgba(190, 219, 176, 0.5);
   outline: none;
   border-radius: 8px;
@@ -139,8 +139,9 @@ export const ModalField = styled.div`
   width: 400px;
   height: 355px;
   border: 1px solid rgba(190, 219, 176, 0.5);
-  background-color: #161616;
-
+  background-color: var(--themeBgColor);
+  margin-left: auto;
+  margin-right: auto;
 
   
 `;
