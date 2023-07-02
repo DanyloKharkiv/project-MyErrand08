@@ -1,16 +1,19 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectColumnsItems } from '../../../../redux/column/columnSlice';
 import ColumnItem from '../ColumnItem/ColumnItem';
 import { ColumnsListli, AddBtnBox, AddColumnIcon, ColumnInfo, ColumnWrap, ButtonAddCard, AddCardIcon, } from './ColumnList.styled';
 import { useState } from 'react';
 import Modal from '../../../Modals/Modal';
 import AddColumn from '../../../Modals/AddColumn/AddColumn';
-import sprite from '../../../../images/sprite.svg';
+import sprite from "../../../../images/sprite.svg";
 import AddCard from '../../../Modals/AddCard/AddCard';
 import CardTaskList from '../../../CardTaskList/CardTaskList';
+import { useEffect } from 'react';
+import { fetchColumns } from '../../../../redux/column/columnOperation';
 
-function ColumnList () {
+function ColumnList({ idDesk }) {
 
+    const dispatch = useDispatch();
     const columns = useSelector(selectColumnsItems);
 
     const [modalIsOpenAddColumn, setModalIsOpenAddColumn] = useState(false);
@@ -23,6 +26,10 @@ function ColumnList () {
     const openModalAddCard = () => { setModalIsOpenAddCard(true); };
     const closeModalAddCard = () => { setModalIsOpenAddCard(false); };
 
+  useEffect(() => {
+    dispatch (fetchColumns(idDesk));
+  }, [dispatch]);
+
     return (
         <>
             
@@ -30,7 +37,7 @@ function ColumnList () {
             <Modal close={closeModalAddColumn}>
                 <AddColumn close={closeModalAddColumn}/>
             </Modal>
-            }
+        }
             
         {modalIsOpenAddCard &&
             <Modal close={closeModalAddCard}>
@@ -40,21 +47,20 @@ function ColumnList () {
 
             {columns.map(item => (
                 <ColumnWrap>
+                    <div>
                         <ColumnInfo>
                             <ColumnItem key={item._id} item={item}/>
-                    </ColumnInfo>
-                    
-                    <CardTaskList />
-
-                    <ColumnInfo>
-                        <ButtonAddCard onClick={openModalAddCard}>
-                            <AddCardIcon> 
-                            <svg width="20" height="20" stroke="var(--plusOnBtn)">
-                                <use href={sprite + `#icon-plus`}></use>
-                                </svg>
-                                 </AddCardIcon>Add another card
-                        </ButtonAddCard>
                         </ColumnInfo>
+                    
+                        <CardTaskList />
+                    </div>
+                    <div>
+                        <ColumnInfo>
+                            <ButtonAddCard onClick={openModalAddCard}>
+                                <AddCardIcon> + </AddCardIcon>Add another card
+                            </ButtonAddCard>
+                        </ColumnInfo>
+                    </div>
                 </ColumnWrap>
             ))}
             
@@ -63,10 +69,10 @@ function ColumnList () {
         <ColumnsListli>
             <AddBtnBox onClick={openModalAddColumn}>
                 <AddColumnIcon>
-                  {/* <svg width="18" height="18">
-                    <use href={`${sprite}#icon-plus`}></use>
-                  </svg> */}
-                        +
+                    <svg width="18" height="18" stroke="var(--sidebarColor)" fill='none'>
+                        <use href={sprite + `#icon-plus`}></use>
+                    </svg>
+                        
                 </AddColumnIcon>
                     Add another column
                 </AddBtnBox>

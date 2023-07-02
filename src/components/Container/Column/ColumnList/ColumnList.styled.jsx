@@ -12,6 +12,7 @@ export const ColumnsListli = styled.li`
   height: 30px;
   padding: 5px;
   font-size: 16px;
+  margin-top: 13px;
 `;
 
 export const AddBtnBox = styled.div`
@@ -31,14 +32,14 @@ export const AddBtnBox = styled.div`
 
     min-width: 100%;
     height: 56px;
-    padding: 14px 70px 14px 75px;
+    padding: 14px 0px 14px 0px;
 
     /* margin-left: 34px; */
   }
   @media screen and (min-width: 375px) {
     min-width: 334px;
 
-    padding: 14px 78px 14px 79px;
+    padding: 14px 0px 14px 0px;
   }
 `;
 

@@ -1,12 +1,9 @@
 import {
   ScreensPageElement,
   SectionHeader,
-  AddBtnBox,
   Title,
   Filter,
   FilterBtn,
-  AddBtnText,
-  AddBtn,
 } from "./ScreensPage.Styled";
 import sprite from "../../images/sprite.svg";
 import { useRef } from "react";
@@ -39,7 +36,9 @@ export const ScreensPage = () => {
           <FilterBtn onClick={openFilterModal}>Filters</FilterBtn>
         </Filter>
       </SectionHeader>
-      <Columns />
+
+      <Columns idDesk={ "6499131312314f7fc9af9c64" } />
+
       <FilterModal ref={filterModalRef} />
     </ScreensPageElement>
   );
