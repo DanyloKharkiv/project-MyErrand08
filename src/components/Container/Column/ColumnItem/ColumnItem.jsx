@@ -2,17 +2,13 @@ import { useDispatch } from "react-redux";
 import { Item, FrmButton } from "./ColumnItem.styled";
 import Notiflix from "notiflix";
 import { deleteColumn } from "../../../../redux/column/columnOperation";
-import { useEffect } from "react";
-import { changeOwner } from "../../../../redux/cards/cardsSlice";
-import { useDispatch } from "react-redux";
-import { Item, FrmButton } from "./ColumnItem.styled";
-import Notiflix from "notiflix";
-import { deleteColumn } from "../../../../redux/column/columnOperation";
 import sprite from "../../../../images/sprite.svg";
 import { useState } from "react";
 import Modal from "../../../Modals/Modal";
 import EditColumn from "../../../Modals/EditColumn/EditColumn";
 
+import { useEffect } from "react";
+import { changeOwner } from "../../../../redux/cards/cardsSlice";
 function ColumnItem({ item }) {
   const dispatch = useDispatch();
 
