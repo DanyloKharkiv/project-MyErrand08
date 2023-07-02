@@ -1,5 +1,5 @@
 import { UserInfoBox, UserName, UserAvatar } from "./UserInfo.Styled";
-
+//import sprite from "../../../images/sprite.svg"
 import { useSelector } from "react-redux";
 import { getName, getAvatar } from "../../../redux/auth/authSelector";
 import userTemp from "../../../images/temp_avatar.png";
@@ -30,3 +30,21 @@ export const UserInfo = () => {
     </>
   );
 };
+
+/**  return (
+    <>
+      <UserInfoBox>
+        <UserName>{userName}</UserName>
+        {!userAvatar && 
+                <UserAvatar>
+                  <svg width="32" height="32" onClick={modalOpen}>
+                    <use href={sprite + `#icon-user`}></use>
+                    </svg>
+                    </UserAvatar>}
+        {userAvatar &&
+        <UserAvatar src={userAvatar} alt="user_icon" width={32} height={32} onClick={modalOpen}/>}
+      </UserInfoBox>
+      {isModalOpen && <EditProfile modalClose={modalClose} />}
+    </>
+  );
+}; */

@@ -23,7 +23,6 @@ export const DesksListItem = ({ _id, icon, title }) => {
                 <ProjectSVG
                 width="18"
                 height="18"
-                fill="var(--prOfBg)"
                 stroke="var(--contrastColor)">
                 <use href={sprite + `#${icon}`}></use>
                 </ProjectSVG>
@@ -34,7 +33,6 @@ export const DesksListItem = ({ _id, icon, title }) => {
                     <svg
                 width="16"
                 height="16"
-                fill="var(--prOfBg)"
                 stroke="var(--myBoards)"
               >
                 <use href={sprite + `#icon-Icon-pencil`}></use>
