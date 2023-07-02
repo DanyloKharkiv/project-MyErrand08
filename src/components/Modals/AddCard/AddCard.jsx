@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Typography } from "@mui/material";
+
 import sprite from "../../../images/sprite.svg";
 
 import Radio from "@mui/material/Radio";
@@ -9,6 +10,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 import Calendar from "../Calendar/Calendar";
+
 import { useState } from "react";
 
 import {
@@ -25,18 +27,18 @@ import {
 
 const CardSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
-  description: Yup.string(),
+  taskValue: Yup.string(),
   priority: Yup.string(),
-  dedline: Yup.string(),
+  deadline: Yup.string(),
 });
 
-export default function AddCard() {
+export default function AddCard({ onSave, close }) {
   const [selectedValue, setSelectedValue] = useState("without");
-  const [dedlineValue, setDedlineValue] = useState(null);
+  const [deadlineValue, setDeadlineValue] = useState(null);
 
   const handleChange = (event) => setSelectedValue(event.target.value);
 
-  const onChangeDedline = (newValue) => setDedlineValue(newValue);
+  const onChangeDedline = (newValue) => setDeadlineValue(newValue);
 
   const controlProps = (item) => ({
     checked: selectedValue === item,
@@ -60,7 +62,7 @@ export default function AddCard() {
       >
         Add card
       </Typography>
-      <SpanClose>
+      <SpanClose onClick={close}>
         <svg width="18" height="18" stroke="var(--addBtnText)">
           <use href={sprite + `#icon-x-close`}></use>
         </svg>
@@ -68,15 +70,19 @@ export default function AddCard() {
       <Formik
         initialValues={{
           title: "",
-          description: "",
+          taskValue: "",
           priority: "",
-          dedline: "",
+          deadline: "",
         }}
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
-          values.dedline = dedlineValue.$d;
-          console.log(values);
+          // values.deadline = `${deadlineValue.$D}-${deadlineValue.$M + 1}-${
+          //   deadlineValue.$y
+          // }`;
+          //values.deadline = `${deadlineValue.$d}`;
+          values.deadline = "12-12-1212";
+          onSave(values);
           actions.resetForm();
         }}
       >
@@ -84,11 +90,11 @@ export default function AddCard() {
           <Field type="text" name="title" placeholder="Tille" />
           <ErrorMessage name="title" component="div" />
           <Textarea
-            name="description"
+            name="taskValue"
             component="textarea"
             placeholder="Desctiption"
           />
-          <ErrorMessage name="description" component="div" />
+          <ErrorMessage name="taskValue" component="div" />
           {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
           <FormLabel id="radio-buttons-group-label">
             {" "}
@@ -209,8 +215,7 @@ export default function AddCard() {
             Deadline
           </Typography>
 
-          <Calendar value={dedlineValue} onChange={onChangeDedline} />
-
+          <Calendar value={deadlineValue} onChange={onChangeDedline} />
           <Button type="submit">
             <Div>
               <Span>

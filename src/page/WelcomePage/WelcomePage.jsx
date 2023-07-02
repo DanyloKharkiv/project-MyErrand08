@@ -3,9 +3,6 @@ import { Box, Wrapper, Link, Title, Text, IMG } from "./WelcomePage.Styled";
 import img from "../../images/Image.png";
 import sprite from "../../images/sprite.svg";
 
-const title = "My card 2";
-const description = "Description my card 2";
-
 const WelcomePage = () => {
   return (
     <Box>

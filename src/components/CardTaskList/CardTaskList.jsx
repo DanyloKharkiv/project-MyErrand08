@@ -1,33 +1,38 @@
-//import { selectSearchContacts } from "redux/contacts/selectors";
-//import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { selectCards } from "../../redux/cards/selectors";
+import { selectOwnerCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
 
 export default function CardTaskList() {
-  //const list = useSelector(selectSearchContacts);
-  const list = [
-    {
-      id: 1,
-      title: "MyCard",
-      description:
-        "Generate engaging and persuasive content for various project deliverables, such as presentations, reports, website copy, social media posts, and other communication channel",
-    },
-    {
-      id: 2,
-      title: "MyCard2",
-      description:
-        "Generate engaging social media posts, and other communication channel",
-    },
-  ];
+  const currentOwnerColumn = useSelector(selectOwnerCards);
+
+  //console.log("CardTaskList");
+  //console.log(currentOwnerColumn);
+
+  const list = useSelector(selectCards);
+  // console.log("List from selector", list);
+
+  const listCardsColumn = list.filter(
+    ({ ownerColumn }) => ownerColumn === currentOwnerColumn
+  );
+
   return (
     <>
-      {list.length === 0 ? (
+      {listCardsColumn.length === 0 ? (
         <Typography>There are no cards in the column</Typography>
       ) : (
         <List>
-          {list.map((card) => {
-            return <CardTask key={card.id} card={card} />;
-          })}
+          {listCardsColumn.map(
+            ({ _id: id, title, taskValue, priority, deadline }) => {
+              return (
+                <CardTask
+                  key={id}
+                  card={{ title, taskValue, priority, deadline }}
+                />
+              );
+            }
+          )}
         </List>
       )}
     </>
