@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { getAvatar, getName, getUserEmail } from "../../../redux/auth/authSelector";
+import { getAvatar, getName, getUserEmail, selectToken } from "../../../redux/auth/authSelector";
 import userTemp from "../../../images/temp_avatar.png";
 import {
     EditProfileForm,
@@ -17,20 +17,58 @@ import {
 import sprite from '../../../images/sprite.svg';
 import { useState } from "react";
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import axios from "axios";
+import { Notify } from "notiflix";
 
 const EditProfile = ({modalClose}) => {
     const userAvatar = useSelector(getAvatar);
     const userName = useSelector(getName);
     const userEmail = useSelector(getUserEmail);
     const [showPassword, setShowPassword] = useState(false);
+    const [selectedAvatar, setSelectedAvatar] = useState(null);
     const avatarURL = userAvatar ? userAvatar : userTemp;
+    const token = useSelector(selectToken);
+
+    axios.defaults.baseURL = 'https://tasks-backed.onrender.com/api/';
+    axios.defaults.headers.common.token = `Bearer ${token}`
 
     const togglePasswordVisibility = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
+
+    const handleAvatarChange = (e) => {
+        setSelectedAvatar(e.target.files[0]);
+        Notify.info("File added");
+    }
+
+    const handleSubmit = async (e) => { 
+        e.preventDefault();
+
+        if (e.target.name.value.trim()) {
+            await axios.patch("/users/name", { name: e.target.name.value.trim() });
+            Notify.success("Name changed");
+        }
+
+        if (e.target.email.value.trim()) {
+            await axios.patch("/users/email", { email: e.target.email.value.trim() });
+            Notify.success("Email changed");
+        }
+
+        if (e.target.password.value.trim()) {
+            await axios.patch("/users/password", { password: e.target.password.value.trim() });
+            Notify.success("Password changed");
+        }
+
+        if (selectedAvatar) { 
+            const formData = new FormData();
+            formData.append("avatar", selectedAvatar);
+            await axios.patch("/users/avatars", formData);
+            Notify.success("Avatar changed");
+        }
+    }
     
     return (
-        <EditProfileForm>
+        <EditProfileForm onSubmit={handleSubmit} encType="multipart/form-data">
             <EditProfileTitle>Edit profile</EditProfileTitle>
             <EditCloseBtn type="button" onClick={()=>{modalClose()}}>
                 <svg width="18" height="18" fill="red">
@@ -39,16 +77,16 @@ const EditProfile = ({modalClose}) => {
             </EditCloseBtn>
             <EditProfileImg src={avatarURL} alt="user_icon" width={68} height={68} />
             <FileWrapper>
-                <Foto type="file">
+                <Foto type="file" name="avatar" accept="image/*,.png,.jpg,.gif,.web" onChange={handleAvatarChange}>
                 </Foto>
                 <EditFoto width="10" height="10" stroke="black" >
                     <use href = {sprite+'#icon-plus'}></use>
                 </EditFoto>
             </FileWrapper>
-            <EditProfileInput type="text" placeholder={userName}></EditProfileInput>
-            <EditProfileInput type="email" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" placeholder={userEmail}></EditProfileInput>
+            <EditProfileInput type="text" name="name" placeholder={userName}></EditProfileInput>
+            <EditProfileInput type="email" name="email" pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" placeholder={userEmail}></EditProfileInput> 
             <PasswordWrapper>
-                <EditProfileInput type={showPassword ? 'text' : 'password'} placeholder="Password" minLength="8" maxLength="64"></EditProfileInput>
+                <EditProfileInput type={showPassword ? 'text' : 'password'} name="password" placeholder="Password" minLength="8" maxLength="64"></EditProfileInput>
                 <ToggleShowPasword onClick={togglePasswordVisibility}>
                     {showPassword ? (
                         <BsEyeSlash
