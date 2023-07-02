@@ -17,12 +17,20 @@ import sprite from "../../../../images/sprite.svg";
 import AddCard from "../../../Modals/AddCard/AddCard";
 import CardTaskList from "../../../CardTaskList/CardTaskList";
 import { addCard } from "../../../../redux/cards/operations";
+import { changeOwner } from "../../../../redux/cards/cardsSlice";
+import { selectOwnerCards } from "../../../../redux/cards/selectors";
+import { getUserId } from "../../../../redux/auth/authSelector";
 
 function ColumnList() {
+  const ownerUser = useSelector(getUserId);
   const columns = useSelector(selectColumnsItems);
   const dispatch = useDispatch();
 
   const [modalIsOpenAddColumn, setModalIsOpenAddColumn] = useState(false);
+  const [modalIsOpenAddCard, setModalIsOpenAddCard] = useState(false);
+
+  const dispath = useDispatch();
+  const ownerColumn = useSelector(selectOwnerCards);
 
   const openModalAddColumn = () => {
     setModalIsOpenAddColumn(true);
@@ -31,19 +39,18 @@ function ColumnList() {
     setModalIsOpenAddColumn(false);
   };
 
-  const [modalIsOpenAddCard, setModalIsOpenAddCard] = useState(false);
-
-  const openModalAddCard = () => {
+  const openModalAddCard = (id) => {
     setModalIsOpenAddCard(true);
+    dispath(changeOwner(id));
   };
+
   const closeModalAddCard = () => {
     setModalIsOpenAddCard(false);
   };
 
   const onSave = (values) => {
-    const ownerUser = "12";
     const ownerDesk = "111";
-    const ownerColumn = "1111";
+
     const card = {
       ownerUser,
       ownerDesk,
@@ -67,21 +74,6 @@ function ColumnList() {
         </Modal>
       )}
 
-      {/* ========ПРИБРАТИ після відпрацювання!!!=========== */}
-      <ColumnWrap>
-        <ColumnInfo>
-          <ColumnItem key={11} item={"new card"} />
-        </ColumnInfo>
-        <CardTaskList ownerColumn={11} />
-        {/* <CardTaskList /> */}
-        <ColumnInfo>
-          <ButtonAddCard onClick={openModalAddCard}>
-            <AddCardIcon> + </AddCardIcon>Add another card
-          </ButtonAddCard>
-        </ColumnInfo>
-      </ColumnWrap>
-      {/* ===================================================== */}
-
       {columns.map((item) => (
         <ColumnWrap>
           <ColumnInfo>
@@ -89,7 +81,8 @@ function ColumnList() {
           </ColumnInfo>
           <CardTaskList />
           <ColumnInfo>
-            <ButtonAddCard onClick={openModalAddCard}>
+            {/* //КНОПКА ПРИВЯЗАНА ДО КОЛОНКИ item._id */}
+            <ButtonAddCard onClick={() => openModalAddCard(item._id)}>
               <AddCardIcon> + </AddCardIcon>Add another card
             </ButtonAddCard>
           </ColumnInfo>

@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-//axios.defaults.baseURL = "https://tasks-backed.onrender.com/api/";
-
 export const addCard = createAsyncThunk(
   "cards/addCard",
   async (card, thunkAPI) => {

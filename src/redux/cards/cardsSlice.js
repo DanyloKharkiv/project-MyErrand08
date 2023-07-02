@@ -16,8 +16,14 @@ const cardsSlice = createSlice({
 
   initialState: {
     listCards: [],
+    currentOwner: "",
     isLoading: false,
     error: null,
+  },
+  reducers: {
+    changeOwner(state, action) {
+      state.currentOwner = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -31,6 +37,7 @@ const cardsSlice = createSlice({
       .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        console.log("AP:", action.payload);
         state.listCards.push(action.payload);
       })
       .addCase(addCard.pending, handlePending)
@@ -55,3 +62,4 @@ const cardsSlice = createSlice({
 });
 
 export const cardsReducer = cardsSlice.reducer;
+export const { changeOwner } = cardsSlice.actions; // my code

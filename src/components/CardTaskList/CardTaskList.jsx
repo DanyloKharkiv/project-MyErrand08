@@ -1,33 +1,41 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { selectCards } from "../../redux/cards/selectors";
+import { selectOwnerCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
 import { fetchCards } from "../../redux/cards/operations";
 
-export default function CardTaskList({ ownerColumn }) {
-  // const dispatch = useDispatch();
+export default function CardTaskList() {
+  const dispatch = useDispatch();
+  const currentOwnerColumn = useSelector(selectOwnerCards);
 
-  // useEffect(() => {
-  //   dispatch(fetchCards(ownerColumn));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCards(currentOwnerColumn));
+  }, [dispatch, currentOwnerColumn]);
 
   const list = useSelector(selectCards);
 
+  const listCardsColumn = list.filter(
+    ({ ownerColumn }) => ownerColumn === currentOwnerColumn
+  );
+
   return (
     <>
-      {list.length === 0 ? (
+      {listCardsColumn.length === 0 ? (
         <Typography>There are no cards in the column</Typography>
       ) : (
         <List>
-          {list.map(({ _id: id, title, taskValue, priority, deadline }) => {
-            return (
-              <CardTask
-                key={id}
-                card={{ title, taskValue, priority, deadline }}
-              />
-            );
-          })}
+          {listCardsColumn.map(
+            ({ _id: id, title, taskValue, priority, deadline }) => {
+              return (
+                <CardTask
+                  key={id}
+                  card={{ title, taskValue, priority, deadline }}
+                />
+              );
+            }
+          )}
         </List>
       )}
     </>
