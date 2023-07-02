@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Wrapper, Link, Title, Text, IMG } from "./WelcomePage.Styled";
+import {
+  Box,
+  Wrapper,
+  Link,
+  Title,
+  Text,
+  IMG,
+  ImgIcon,
+} from "./WelcomePage.Styled";
 import img from "../../images/Image.png";
 import sprite from "../../images/sprite.svg";
 
@@ -11,9 +19,9 @@ const WelcomePage = () => {
     <Box>
       <IMG src={img} alt="photo" height="162" width="162" />
       <Wrapper>
-        <svg width="48" height="48">
+        <ImgIcon>
           <use href={sprite + `#icon-icon-logo`}></use>
-        </svg>
+        </ImgIcon>
         <Title>Task Pro</Title>
       </Wrapper>
       <Text>
