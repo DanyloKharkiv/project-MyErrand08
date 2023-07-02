@@ -6,15 +6,13 @@ export const Item = styled.li`
   align-items: center;
   width: 334px;
 
-
-
 padding: 18px 20px 17px 20px;
 
-  border-radius: 8px;
-  background: #121212; 
+border-radius: 8px;
+background-color: var(--addBtnBox);
 
-    height: 56px;
-color: #FFF;
+height: 56px;
+color: var(--addBtnText);
 font-size: 14px;
 font-family: Poppins;
 font-style: normal;
@@ -23,7 +21,6 @@ line-height: normal;
 
 `;
 
-export const FrmButton = styled.button`
-  
+export const FrmButton = styled.button` 
   cursor: pointer;
 `;

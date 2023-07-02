@@ -16,8 +16,8 @@ export const ColumnsListli = styled.li`
 
 export const AddBtnBox = styled.div`
   @media screen and (min-width: 320px) {
-    background-color: var(--sidebarColor);
-    color: var(--contrastColor);
+    background-color: var(--addBtnBox);
+    color: var(--addBtnText);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,9 +49,9 @@ export const AddColumnIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
-  stroke: var(--contrastColor);
-  background-color: var(--contrastColor);
+  color: var(--addBtnBox);
+  
+  background-color: var(--addBtnIcon);
   border-radius: var(--borderRadius8);
 `;
 
@@ -63,8 +63,7 @@ export const AddCardIcon = styled.span`
   align-items: center;
   justify-content: center;
   color:var(--addBtnText);
-  stroke: var(--headerColor);
-  background-color: var(--headerColor);
+  background-color: var(--addCardBtnTxt);
   border-radius: var(--borderRadius8);
 `
 
@@ -82,9 +81,10 @@ export const ButtonAddCard = styled.button`
   justify-content: center;
   align-items: center; 
   border-radius: 8px;
-  background: #BEDBB0; 
+  background: var(--accentColor); 
+  border: none;
   cursor: pointer;
-  color: #161616;
+  color: var(--addCardBtnTxt);
   font-size: 14px;
   font-family: Poppins;
   font-style: normal;

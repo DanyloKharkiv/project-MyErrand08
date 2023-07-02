@@ -7,7 +7,7 @@ const line = (color) => (
   <Box
     sx={{
       width: "100%",
-      height: "2px",
+      height: "1px",
       mx: "2px",
       backgroundColor: `${color}`,
     }}
@@ -37,7 +37,7 @@ export default function CardTask({ card }) {
         ml: "auto",
         mr: "auto",
         mb: "5px",
-        backgroundColor: "var(--sidebarColor)",
+        backgroundColor: "var(--addBtnBox)",
         borderRadius: 2,
         borderLeftWidth: "4px",
         borderLeftColor: `${"var(--lowColor)"}`,
@@ -47,7 +47,7 @@ export default function CardTask({ card }) {
         <Typography
           variant="h2"
           sx={{
-            color: "var(--whiteColor)",
+            color: "var(--addBtnText)",
             fontSize: 14,
             fontWeight: 700,
             fontFamily: "inherit",
@@ -61,7 +61,7 @@ export default function CardTask({ card }) {
             // height: "38px",
             mt: "8px",
             mb: "14px",
-            color: "var(--opacityWhite2)",
+            color: "var(--cardTxt)",
             fontSize: 12,
             fontWeight: "400",
             fontFamily: "Poppins",
@@ -77,7 +77,7 @@ export default function CardTask({ card }) {
           />
         </Typography>
 
-        {line("var(--opacityWhite2)")}
+        {line("var(--filterLines)")}
 
         <Box
           sx={{
@@ -91,7 +91,7 @@ export default function CardTask({ card }) {
         >
           <Typography
             sx={{
-              color: "var(--opacityWhite2)",
+              color: "var(--filterModalText)",
               fontFamily: "inherit",
               fontSize: 8,
               lineHeight: 1.5,
@@ -101,7 +101,7 @@ export default function CardTask({ card }) {
           </Typography>
           <Typography
             sx={{
-              color: "var(--opacityWhite2)",
+              color: "var(--filterModalText)",
               fontSize: 8,
               fontFamily: "inherit",
               lineHeight: 1.5,
@@ -142,7 +142,7 @@ export default function CardTask({ card }) {
                 {bull("var(--lowColor)")}
                 <Box
                   sx={{
-                    color: "var(--whiteColor)",
+                    color: "var(--addBtnText)",
                     fontSize: 10,
                     fontFamily: "inherit",
                     lineHeight: 1.5,
@@ -189,7 +189,7 @@ export default function CardTask({ card }) {
                 width="16"
                 height="16"
                 fill="none"
-                stroke="var(--opacityWhite2)"
+                stroke="var(--filterModalText)"
               >
                 <use href={sprite + `#icon-Icon-bell`}></use>
               </svg>
@@ -200,7 +200,7 @@ export default function CardTask({ card }) {
                   width="20"
                   height="20"
                   fill="none"
-                  stroke="var(--opacityWhite2)"
+                  stroke="var(--filterModalText)"
                 >
                   <use href={sprite + `#icon-arrow-circle-broken-right`}></use>
                 </svg>
@@ -213,7 +213,7 @@ export default function CardTask({ card }) {
                   width="20"
                   height="20"
                   fill="none"
-                  stroke="var(--opacityWhite2)"
+                  stroke="var(--filterModalText)"
                 >
                   <use href={sprite + `#icon-Icon-pencil`}></use>
                 </svg>
@@ -226,7 +226,7 @@ export default function CardTask({ card }) {
                   width="20"
                   height="20"
                   fill="none"
-                  stroke="var(--opacityWhite2)"
+                  stroke="var(--filterModalText)"
                 >
                   <use href={sprite + `#icon-trash-04`}></use>
                 </svg>

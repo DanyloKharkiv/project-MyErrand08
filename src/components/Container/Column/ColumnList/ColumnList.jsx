@@ -48,7 +48,11 @@ function ColumnList () {
 
                     <ColumnInfo>
                         <ButtonAddCard onClick={openModalAddCard}>
-                            <AddCardIcon> + </AddCardIcon>Add another card
+                            <AddCardIcon> 
+                            <svg width="20" height="20" stroke="var(--plusOnBtn)">
+                                <use href={sprite + `#icon-plus`}></use>
+                                </svg>
+                                 </AddCardIcon>Add another card
                         </ButtonAddCard>
                         </ColumnInfo>
                 </ColumnWrap>
