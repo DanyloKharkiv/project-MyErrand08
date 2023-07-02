@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const EditProfileForm = styled.form`
+    position: absolute;
+    top: 20px;
+    right: 20px;
     padding: 24px;
     height: 440px;
     border-width: 1px;
     border-color: #BEDBB080;
     border-style: solid;
     border-radius: 8px;
+    background-color: #151515;
+    z-index: 1;
     box-shadow: 0px 4px 16px 0px #1616160D;
 
     @media screen and (min-width: 375px) {
@@ -31,6 +36,45 @@ export const EditProfileImg = styled.img`
     margin-bottom: 25px;
 `;
 
+export const FileWrapper = styled.div`
+    position: absolute;
+    left: 50%;
+    top: 130px;
+    transform: translate(-50%, 0);
+    background-color: #BEDBB0;
+    width: 24px;
+    height:24px;
+    border-radius: 8px;
+`;
+
+export const Foto = styled.input`
+    width: 24px;
+    height: 24px;
+    background-color: #BEDBB0;
+    border-style: none;
+    border-radius: 8px;
+    opacity: 0;
+    `;
+
+export const EditFoto = styled.svg`
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    `;
+
+export const EditCloseBtn = styled.button`
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    `;
+
     export const EditProfileInput = styled.input`
     padding: 14px 18px;
     margin-bottom: 14px;
@@ -38,7 +82,7 @@ export const EditProfileImg = styled.img`
     height: 49px;
     border: 1px solid #bedbb0;
     border-radius: 8px;
-    background-color: var(--blackColor);
+    background-color: rgba(0,0,0,0);
     color: #ffffff;
     font-family: var(--poppinsFont);
     font-size: var(--fontSize14);
@@ -48,6 +92,17 @@ export const EditProfileImg = styled.img`
     &::placeholder {
         font-size: var(--fontSize14);
     }
+    `;
+
+    export const PasswordWrapper = styled.div`
+    position: relative;
+    `;
+
+    export const ToggleShowPasword = styled.span`
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    height: 18px;
     `;
 
     export const BtnEditProfile = styled.button`

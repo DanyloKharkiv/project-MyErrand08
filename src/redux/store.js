@@ -23,9 +23,17 @@ const authPersistConfig = {
   whitelist: ['accessToken', 'refreshToken'],
 };
 
+const themePersistConfig = {
+  key: 'theme',
+  storage,
+  whitelist: ['themeColor'],
+};
+
+const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
+
 export const store = configureStore({
   reducer: {
-    theme: themeReducer,
+    theme: persistedThemeReducer,
     filter: filterReducer,
     desks: desksReducer,
     auth: persistReducer(authPersistConfig, authReducer),

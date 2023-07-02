@@ -5,12 +5,13 @@ export const CreateBoardBtnElement = styled.div`
   margin-right: 24px;
   padding-top: 14px;
   padding-bottom: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--boarder);
+  border-bottom: 1px solid var(--boarder);
   display: flex;
   justify-content: space-between;
   align-items: center;
   // height: 70px; 
+  font-weight: var(--fontWeight500);
 `;
 
 export const CreateBoardBtnText = styled.p`
