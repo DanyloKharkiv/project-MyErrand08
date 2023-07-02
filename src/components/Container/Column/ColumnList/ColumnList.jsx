@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+//------------------------------------------------------------
+import { useDispatch, useSelector } from "react-redux";
 import { selectColumnsItems } from "../../../../redux/column/columnSlice";
 import ColumnItem from "../ColumnItem/ColumnItem";
 import {
@@ -21,34 +22,42 @@ import { changeOwner } from "../../../../redux/cards/cardsSlice";
 import { selectOwnerCards } from "../../../../redux/cards/selectors";
 import { getUserId } from "../../../../redux/auth/authSelector";
 
-function ColumnList() {
-  const ownerUser = useSelector(getUserId);
-  const columns = useSelector(selectColumnsItems);
+import { useEffect } from "react";
+import { fetchColumns } from "../../../../redux/column/columnOperation";
+
+function ColumnList({ idDesk }) {
   const dispatch = useDispatch();
+  const columns = useSelector(selectColumnsItems);
 
   const [modalIsOpenAddColumn, setModalIsOpenAddColumn] = useState(false);
-  const [modalIsOpenAddCard, setModalIsOpenAddCard] = useState(false);
-
-  const dispath = useDispatch();
-  const ownerColumn = useSelector(selectOwnerCards);
-
   const openModalAddColumn = () => {
     setModalIsOpenAddColumn(true);
   };
+
   const closeModalAddColumn = () => {
     setModalIsOpenAddColumn(false);
   };
 
+  const [modalIsOpenAddCard, setModalIsOpenAddCard] = useState(false);
+
   const openModalAddCard = (id) => {
     setModalIsOpenAddCard(true);
-    dispath(changeOwner(id));
+    dispatch(changeOwner(id));
   };
 
   const closeModalAddCard = () => {
     setModalIsOpenAddCard(false);
   };
 
+  useEffect(() => {
+    dispatch(fetchColumns(idDesk));
+  }, [dispatch]);
+
+  const ownerColumn = useSelector(selectOwnerCards); //sveta code
+  const ownerUser = useSelector(getUserId); //sveta code
+
   const onSave = (values) => {
+    //sveta code
     const ownerDesk = "111";
 
     const card = {
@@ -70,32 +79,41 @@ function ColumnList() {
 
       {modalIsOpenAddCard && (
         <Modal close={closeModalAddCard}>
-          <AddCard onSave={onSave} close={closeModalAddCard} />
+          <AddCard onSave={onSave} close={closeModalAddCard} /> //тут зміни
         </Modal>
       )}
 
       {columns.map((item) => (
         <ColumnWrap>
-          <ColumnInfo>
-            <ColumnItem key={item._id} item={item} />
-          </ColumnInfo>
-          <CardTaskList />
-          <ColumnInfo>
-            {/* //КНОПКА ПРИВЯЗАНА ДО КОЛОНКИ item._id */}
-            <ButtonAddCard onClick={() => openModalAddCard(item._id)}>
-              <AddCardIcon> + </AddCardIcon>Add another card
-            </ButtonAddCard>
-          </ColumnInfo>
+          <div>
+            <ColumnInfo>
+              <ColumnItem key={item._id} item={item} />
+            </ColumnInfo>
+
+            <CardTaskList />
+          </div>
+          <div>
+            <ColumnInfo>
+              {/* //КНОПКА ПРИВЯЗАНА ДО КОЛОНКИ item._id */}
+              <ButtonAddCard onClick={() => openModalAddCard(item._id)}>
+                <AddCardIcon> + </AddCardIcon>Add another card
+              </ButtonAddCard>
+            </ColumnInfo>
+          </div>
         </ColumnWrap>
       ))}
 
       <ColumnsListli>
         <AddBtnBox onClick={openModalAddColumn}>
           <AddColumnIcon>
-            {/* <svg width="18" height="18">
-                    <use href={`${sprite}#icon-plus`}></use>
-                  </svg> */}
-            +
+            <svg
+              width="18"
+              height="18"
+              stroke="var(--sidebarColor)"
+              fill="none"
+            >
+              <use href={sprite + `#icon-plus`}></use>
+            </svg>
           </AddColumnIcon>
           Add another column
         </AddBtnBox>

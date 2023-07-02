@@ -62,6 +62,7 @@ body {
   --primaryBoardBg: #1f1f1f;
   --addBtnBox: #121212;
   --addBtnText: #fff;
+  --addBtnIcon: #fff;
   --filterTxt: rgba(255, 255, 255, 0.8);
 
   --filterModalTitle: rgba(255, 255, 255, 1);
@@ -74,6 +75,13 @@ body {
   --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
   --calendarBackground: #1f1f1f;
+
+   /*Card*/
+  --cardTxt: rgba(255, 255, 255, 0.5);
+  --addCardBtnTxt: #161616;
+  --plusOnBtn: #fff;
+
+
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
@@ -109,6 +117,7 @@ body {
   --primaryBoardBg: #d9d9d9;
   --addBtnBox: #fff;
   --addBtnText: #161616;
+  --addBtnIcon: #161616;
   --filterTxt: rgba(22, 22, 22, 0.8);
 
   --filterModalTitle: rgba(22, 22, 22, 1);
@@ -120,6 +129,13 @@ body {
   --mediumColor: #e09cb5;
   --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
+
+  /*Card*/
+  --cardTxt: rgba(22, 22, 22, 0.7);
+  --addCardBtnTxt: #161616;
+  --plusOnBtn: #fff;
+
+
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
@@ -156,6 +172,7 @@ body {
   --primaryBoardBg: #b8bcfd;
   --addBtnBox: #fff;
   --addBtnText: #161616;
+  --addBtnIcon: #5255bc;
   --filterTxt: rgba(22, 22, 22, 0.8);
 
   --filterModalTitle: rgba(22, 22, 22, 1);
@@ -167,6 +184,13 @@ body {
   --mediumColor: #e09cb5;
   --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
+
+   /*Card*/
+  --cardTxt: rgba(22, 22, 22, 0.7);
+  --addCardBtnTxt: #fff;
+  --plusOnBtn: #161616;
+
+
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
