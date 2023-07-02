@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   padding: 24px;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--themeBgColor);
+  background-color: var(--modalBg);
   border-radius: 8px;
   position: relative;
 
@@ -32,11 +32,10 @@ export const Field = styled(FormikField)`
   margin-bottom: 14px;
   width: 100%;
   height: 49px;
-  border: 1px solid #bedbb0;
-  box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
+  border: 1px solid var(--modalInputBorder);
   border-radius: 8px;
-  background-color: var(--blackColor);
-  color: #ffffff;
+  background-color: var(--modalInputBg);
+  color: var(--modalInputTxt);
 
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
@@ -67,11 +66,11 @@ export const Textarea = styled(FormikField)`
   margin-bottom: 14px;
   width: 100%;
   height: 154px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--modalInputBorder);
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
-  background-color: var(--blackColor);
-  color: #ffffff;
+  background-color: var(--modalInputBg);
+  color: var(--modalInputTxt);
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
 
@@ -99,10 +98,10 @@ export const Textarea = styled(FormikField)`
 export const Button = styled.button`
   width: 100%;
   height: 49px;
-  background-color: #bedbb0;
+  background-color: var(--modalAccentBtnBg);
   border-radius: 8px;
   cursor: pointer;
-  color: var(--blackColor);
+  color: var(--modalAccentBtnTxt);
   font-family: var(--poppinsFont);
   font-weight: var(--fontWeight500);
   border: none;

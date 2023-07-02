@@ -54,7 +54,7 @@ const AddColumn = ({ close }) => {
         >
 
             <Form>
-                <CloseBtn onClick={handleClose}>
+                <CloseBtn onClick={handleClose} stroke="var(--modalCloseIcon)">
                     <use href = {sprite + '#icon-x'}></use>
                 </CloseBtn>
 

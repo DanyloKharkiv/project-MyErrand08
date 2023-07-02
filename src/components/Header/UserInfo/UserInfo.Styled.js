@@ -23,7 +23,6 @@ export const UserName = styled.p`
 `;
 
 export const UserAvatar = styled.img`
-  background-color: var(--headerPageColor);
   border-radius: 8px;
   cursor: pointer;
 `;

@@ -84,8 +84,8 @@ const EditProfile = ({modalClose}) => {
         <EditProfileForm onSubmit={handleSubmit} encType="multipart/form-data">
             <EditProfileTitle>Edit profile</EditProfileTitle>
             <EditCloseBtn type="button" onClick={()=>{modalClose()}}>
-                <svg width="18" height="18" fill="red">
-                    <use href = {sprite+'#icon-x'}></use>
+                <svg width="18" height="18" stroke="var(--modalCloseIcon)">
+                    <use href={sprite +'#icon-x'}></use>
                 </svg>
             </EditCloseBtn>
             <EditProfileImg src={userAvatar ? userAvatar : userTemp} alt="user_icon" width={68} height={68} />
@@ -104,11 +104,11 @@ const EditProfile = ({modalClose}) => {
                 <ToggleShowPasword onClick={togglePasswordVisibility}>
                     {showPassword ? (
                         <BsEyeSlash
-                        color="#ffffff4d"
+                        color="var(--modalSmallTitle)"
                         style={{ width: 18, height: 18 }}
                         />
                     ) : (
-                        <BsEye color="#ffffff4d" style={{ width: 18, height: 18 }} />
+                        <BsEye color="var(--modalSmallTitle)" style={{ width: 18, height: 18 }} />
                     )}
                 </ToggleShowPasword>
             </PasswordWrapper>

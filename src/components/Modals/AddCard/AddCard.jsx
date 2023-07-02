@@ -56,14 +56,14 @@ export default function AddCard({ onSave, close }) {
           textAlign: "start",
           fontWeight: "500",
           fontSize: "18px",
-          color: "var(--contrastColor)",
+          color: "var(--modalTitle)",
           fontFamily: "var(--poppinsFont)",
         }}
       >
         Add card
       </Typography>
       <SpanClose onClick={close}>
-        <svg width="18" height="18" stroke="var(--addBtnText)">
+        <svg width="18" height="18" stroke="var(--modalCloseIcon)">
           <use href={sprite + `#icon-x-close`}></use>
         </svg>
       </SpanClose>
@@ -105,7 +105,7 @@ export default function AddCard({ onSave, close }) {
                 fontWeight: "400",
                 fontSize: "12px",
                 lineHeight: 1.5,
-                color: "var(--opacityWhite2)",
+                color: "var(--modalSmallTitle)",
                 fontFamily: "var(--poppinsFont)",
               }}
             >
@@ -208,7 +208,7 @@ export default function AddCard({ onSave, close }) {
               fontWeight: "400",
               fontSize: "12px",
               lineHeight: 1.5,
-              color: "var(--opacityWhite2)",
+              color: "var(--modalSmallTitle)",
               fontFamily: "var(--poppinsFont)",
             }}
           >
@@ -219,7 +219,7 @@ export default function AddCard({ onSave, close }) {
           <Button type="submit">
             <Div>
               <Span>
-                <svg width="20" height="20" stroke="var(--addBtnText)">
+                <svg width="20" height="20" fill="var(--modalPlusIconBg)" stroke="var(--modalPlusIconColor)">
                   <use href={sprite + `#icon-plus`}></use>
                 </svg>
               </Span>
