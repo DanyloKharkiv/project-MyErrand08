@@ -53,8 +53,7 @@ const columnsSlice = createSlice({
     [deleteColumn.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      const index = state.items.findIndex(column => column.id === action.payload);
-      state.items.splice(index, 1);
+      state.items = state.items.filter(({ _id }) => _id !== action.payload);
     },
     [deleteColumn.rejected]: handleRejected,
   },
