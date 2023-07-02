@@ -8,10 +8,10 @@ export default function CardTaskList() {
   const currentOwnerColumn = useSelector(selectOwnerCards);
 
   console.log("CardTaskList");
-  console.log(currentOwnerColumn);
+  // console.log(currentOwnerColumn);
 
   const list = useSelector(selectCards);
-  console.log("List from selector", list);
+  // console.log("List from selector", list);
 
   const listCardsColumn = list.filter(
     ({ ownerColumn }) => ownerColumn === currentOwnerColumn

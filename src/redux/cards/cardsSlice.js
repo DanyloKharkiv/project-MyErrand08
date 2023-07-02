@@ -55,7 +55,7 @@ const cardsSlice = createSlice({
       .addCase(editCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // найти в listCards карту с action.payload.id
+        // найти в listCards карту с action.payload.id = id редактируемой карты
         // заменить карту на action.payload
       });
   },

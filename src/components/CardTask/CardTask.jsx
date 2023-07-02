@@ -6,7 +6,7 @@ import { useState } from "react";
 import Modal from "../Modals/Modal";
 import EditCard from "../Modals/EditCard/EditCard";
 import { useDispatch } from "react-redux";
-import { deleteCard } from "../../redux/cards/operations";
+import { editCard, deleteCard } from "../../redux/cards/operations";
 import dayjs from "dayjs";
 
 const line = (color) => (
@@ -61,6 +61,10 @@ export default function CardTask({ card }) {
 
   const handleDeleteCard = () => dispatch(deleteCard(id));
 
+  const onSaveEdit = (values) => {
+    console.log("object onSaveEdit", values);
+    dispatch(editCard({ id, ...values }));
+  };
   return (
     <Card
       variant="outlined"
@@ -255,6 +259,7 @@ export default function CardTask({ card }) {
                   <EditCard
                     title={title}
                     description={description}
+                    onSaveEdit={onSaveEdit}
                     closeForm={closeModal}
                   />
                 </Modal>

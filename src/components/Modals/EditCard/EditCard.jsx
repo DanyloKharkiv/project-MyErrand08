@@ -10,6 +10,7 @@ import FormLabel from "@mui/material/FormLabel";
 
 import Calendar from "../Calendar/Calendar";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 import {
   Wrapper,
@@ -30,13 +31,13 @@ const CardSchema = Yup.object().shape({
   dedline: Yup.string(),
 });
 
-export default function EditCard({ closeForm, ...props }) {
+export default function EditCard({ onSaveEdit, closeForm, ...props }) {
   const [selectedValue, setSelectedValue] = useState("without");
-  const [dedlineValue, setDedlineValue] = useState(null);
+  const [deadlineValue, setDeadlineValue] = useState(null);
 
   const handleChange = (event) => setSelectedValue(event.target.value);
 
-  const onChangeDedline = (newValue) => setDedlineValue(newValue);
+  const onChangeDeadline = (newValue) => setDeadlineValue(newValue);
 
   const controlProps = (item) => ({
     checked: selectedValue === item,
@@ -70,14 +71,13 @@ export default function EditCard({ closeForm, ...props }) {
           title: `${props.title}`,
           description: `${props.description}`,
           priority: "",
-          dedline: "",
+          deadline: "",
         }}
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
-          values.dedline = dedlineValue.$d;
-
-          console.log(values);
+          values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
+          onSaveEdit(values);
 
           actions.resetForm({
             title: "", //
@@ -210,7 +210,7 @@ export default function EditCard({ closeForm, ...props }) {
             Deadline
           </Typography>
 
-          <Calendar value={dedlineValue} onChange={onChangeDedline} />
+          <Calendar value={deadlineValue} onChange={onChangeDeadline} />
 
           <Button type="submit">
             <Div>
