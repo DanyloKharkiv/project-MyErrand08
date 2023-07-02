@@ -29,21 +29,19 @@ function ColumnItem({ item }) {
             <div>
                 <FrmButton onClick={() => {
                     openModalEditColumn();
-                    // dispatch(teColumn(item._id));
-                    Notiflix.Notify.info(`Opened Column ${item._id} ${item.title} modal window`);
+                    }
                 }
-            }
                 aria-label="Edit">
                     <svg width="16" height="16" stroke="var(--opacityWhite2)" fill='none'>
                         <use href={sprite + `#icon-Icon-pencil`}></use>
                     </svg>
                 </FrmButton>
 
-            <FrmButton onClick={() => {
+                <FrmButton onClick={() => {
                     dispatch(deleteColumn(item._id));
                     Notiflix.Notify.info(`Column ${item._id} ${item.title} succesfully deleted`);
+                    }
                 }
-            }
                 aria-label="Delete">
                     <svg width="16" height="16" stroke="var(--opacityWhite2)" fill='none'>
                         <use href={sprite + `#icon-trash-04`}></use>

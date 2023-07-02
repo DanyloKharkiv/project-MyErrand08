@@ -12,6 +12,7 @@ export const ColumnsListli = styled.li`
   height: 30px;
   padding: 5px;
   font-size: 16px;
+  margin-top: 13px;
 `;
 
 export const AddBtnBox = styled.div`
