@@ -1,5 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { addDesk, deleteDesk, fetchDesks, setActiveDeskId } from "./deskOperations";
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  addDesk,
+  deleteDesk,
+  fetchDesks,
+  setActiveDeskId,
+  changeActiveDeskById,
+} from './deskOperations';
 
 const initialState = {
   desks: {
@@ -7,6 +13,10 @@ const initialState = {
     isLoading: false,
     error: null,
     activeDeskId: null,
+    changeDeskId: null,
+    changeDeskTitle: null,
+    changeDeskIcon: null,
+    changeDeskBG: null,
   },
 };
 
@@ -24,47 +34,53 @@ const desksSlice = createSlice({
   initialState,
   extraReducers: builder => {
     builder
-        
-      
-      
-      
 
-          .addCase(fetchDesks.pending, handlePending)
+      .addCase(fetchDesks.pending, handlePending)
 
-          .addCase(fetchDesks.fulfilled, (state, action) => {
-              state.desks.items = action.payload;
-              state.desks.isLoading = false;
-              state.error = null;
-          })
-    
-          .addCase(fetchDesks.rejected, handleRejected)
-
-          .addCase(addDesk.rejected, handleRejected)
-
-          .addCase(addDesk.pending, handlePending)
-
-          .addCase(addDesk.fulfilled, (state, action) => {
-              state.desks.isLoading = false;
-              state.desks.error = null;
-              state.desks.items.push(action.payload);
-          })
-          .addCase(deleteDesk.fulfilled, (state, action) => {
-            state.desks.isLoading = false;
-            state.desks.error = null;
-            state.desks.activeDeskId = null;
-            state.desks.items = state.desks.items.filter(({ _id }) => _id !== action.payload);
+      .addCase(fetchDesks.fulfilled, (state, action) => {
+        state.desks.items = action.payload;
+        state.desks.isLoading = false;
+        state.error = null;
       })
-          .addCase(deleteDesk.pending, handlePending)
-          .addCase(deleteDesk.rejected, handleRejected)
-          
-          .addCase(setActiveDeskId.fulfilled, (state, action) => {
-            state.desks.isLoading = false;
-            state.desks.error = null;
-            state.desks.activeDeskId = action.payload;
-          })
-          .addCase(setActiveDeskId.pending, handlePending)
-          .addCase(setActiveDeskId.rejected, handleRejected)
-      
+
+      .addCase(fetchDesks.rejected, handleRejected)
+
+      .addCase(addDesk.rejected, handleRejected)
+
+      .addCase(addDesk.pending, handlePending)
+
+      .addCase(addDesk.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.items.push(action.payload);
+      })
+      .addCase(deleteDesk.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.activeDeskId = null;
+        state.desks.items = state.desks.items.filter(({ _id }) => _id !== action.payload);
+      })
+      .addCase(deleteDesk.pending, handlePending)
+      .addCase(deleteDesk.rejected, handleRejected)
+
+      .addCase(setActiveDeskId.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.activeDeskId = action.payload;
+      })
+      .addCase(setActiveDeskId.pending, handlePending)
+      .addCase(setActiveDeskId.rejected, handleRejected)
+
+      .addCase(changeActiveDeskById.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.changeDeskId = action.payload._id;
+        state.desks.changeDeskTitle = action.payload.title;
+        state.desks.changeDeskIcon = action.payload.icon;
+        state.desks.changeDeskBG = action.payload.background;
+      })
+      .addCase(changeActiveDeskById.pending, handlePending)
+      .addCase(changeActiveDeskById.rejected, handleRejected);
   },
 });
 

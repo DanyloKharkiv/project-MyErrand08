@@ -1,5 +1,5 @@
-import { createSelector } from "reselect";
-import { selectBackImg } from "../filter/filterSelectors";
+import { createSelector } from 'reselect';
+import { selectBackImg } from '../filter/filterSelectors';
 
 export const selectDesks = state => state.desks.desks.items;
 
@@ -9,13 +9,19 @@ export const selectError = state => state.desks.desks.error;
 
 export const selectActiveDeskId = state => state.desks.desks.activeDeskId;
 
+export const selectChangeDeskId = state => state.desks.desks.changeDeskId;
+
+export const selectChangeDeskTitle = state => state.desks.desks.changeDeskTitle;
+
+export const selectChangeDeskIcon = state => state.desks.desks.changeDeskIcon;
+
+export const selectChangeDeskBg = state => state.desks.desks.changeDeskBG;
+
 export const selectVisibleDesks = createSelector(
   [selectDesks, selectBackImg],
   (desks, filterValue) => {
-      const visibleDesks = desks.filter(desk =>
-          desk.background.includes(filterValue)
-      )
-      
+    const visibleDesks = desks.filter(desk => desk.background.includes(filterValue));
+
     return visibleDesks;
   }
 );
