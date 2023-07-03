@@ -8,6 +8,7 @@ export default function Calendar({ value, onChange }) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       {/* <DemoContainer components={["DatePicker"]}> */}
+
       <DatePicker
         defaultValue={dayjs()}
         views={["year", "month", "day"]}
@@ -17,8 +18,10 @@ export default function Calendar({ value, onChange }) {
         sx={{
           fontSize: "10px",
           marginBottom: "14px",
+          color: "tomato",
         }}
       />
+
       {/* </DemoContainer> */}
     </LocalizationProvider>
   );
@@ -46,6 +49,5 @@ export default function Calendar({ value, onChange }) {
 //     />
 //   );
 // };
-
 
 // export default Calendar;
