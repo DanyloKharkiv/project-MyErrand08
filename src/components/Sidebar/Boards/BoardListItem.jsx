@@ -1,7 +1,8 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { deleteDesk, setActiveDeskId } from "../../../redux/desk/deskOperations";
 import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from "./Boards.Styled";
 import sprite from '../../../images/sprite.svg'
+import { selectActiveDeskId } from "../../../redux/desk/deskSelectors";
 
 export const DesksListItem = ({ _id, icon, title }) => {
 
@@ -10,15 +11,17 @@ export const DesksListItem = ({ _id, icon, title }) => {
             dispatch(deleteDesk(deskId));
   }
   
-
-  
   const handleClickActiveDeskId = (deskId) => {
     dispatch(setActiveDeskId(deskId));
   };
 
+  const idDesk = useSelector(selectActiveDeskId);
+
+  const isActive = (_id === idDesk) ? "active" : "";
+  
   return (
       
-        <BoardsItem>
+    <BoardsItem isActive>
             <ProjectsBox onClick={()=>handleClickActiveDeskId(_id)}>
                 <ProjectSVG
                 width="18"
