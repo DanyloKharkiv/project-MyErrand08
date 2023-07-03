@@ -12,6 +12,7 @@ import Columns from "../../components/Container/Column/Columns";
 import { selectActiveDeskId } from "../../redux/desk/deskSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getDeskById } from "../../redux/desk/deskOperations";
+import { DefaultScreen } from "../../components/DefaultScreen/DefaultScreen";
 import { useEffect } from "react";
 
 export const ScreensPage = () => {
