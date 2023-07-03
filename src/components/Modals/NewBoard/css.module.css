@@ -88,11 +88,11 @@
     border-radius: 8px;
 }
 .svgOff{
-    fill: var(--filterModalText);
+    stroke: var(--filterModalText);
     cursor: pointer;
 }
 .svgOn{
-    fill: var(--filterModalTitle);
+    stroke: var(--filterModalTitle);
     cursor: pointer;
 }
 .imgOn{
@@ -113,4 +113,5 @@
         right: 14px;
         position: absolute;
         cursor: pointer;
+        stroke: var(--filterModalTitle);
 }
