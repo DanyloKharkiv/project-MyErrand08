@@ -3,9 +3,11 @@ import { selectCards } from "../../redux/cards/selectors";
 import { selectOwnerCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
+import { selectRadio } from "../../redux/filter/filterSelectors";
 
 export default function CardTaskList() {
   const currentOwnerColumn = useSelector(selectOwnerCards);
+  const filterValue = useSelector(selectRadio);
 
   console.log("CardTaskList");
   // console.log(currentOwnerColumn);
@@ -14,7 +16,7 @@ export default function CardTaskList() {
   console.log("List from selector", list);
 
   const listCardsColumn = list.filter(
-    ({ ownerColumn }) => ownerColumn === currentOwnerColumn
+    ({ ownerColumn, priority }) => ownerColumn === currentOwnerColumn && priority.includes(filterValue)
   );
 
   return (
