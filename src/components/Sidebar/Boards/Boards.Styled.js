@@ -39,9 +39,15 @@ export const BoardsItem = styled.li`
   /* opacity: 0.5; */
   font-size: 14px;
   font-weight: 500;
+  
   &:focus{
     background-color: var(--prOfBg)
   };
+
+  &:active{
+    background-color: var(--prOfBg)
+  };
+
   // &:first-child {
   //   background-color: var(--prOfBg);
   // }
