@@ -62,7 +62,6 @@ export const LoginForm = () => {
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
       <FormikStyle
         initialValues={initialValues}
         validationSchema={schema}
