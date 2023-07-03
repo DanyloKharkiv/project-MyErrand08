@@ -23,4 +23,6 @@ line-height: normal;
 
 export const FrmButton = styled.button` 
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 `;

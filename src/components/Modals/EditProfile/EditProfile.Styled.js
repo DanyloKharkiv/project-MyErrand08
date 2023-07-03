@@ -10,7 +10,7 @@ export const EditProfileForm = styled.form`
     border-color: #BEDBB080;
     border-style: solid;
     border-radius: 8px;
-    background-color: #151515;
+    background-color: var(--modalBg);
     z-index: 1;
     box-shadow: 0px 4px 16px 0px #1616160D;
 
@@ -24,7 +24,7 @@ export const EditProfileForm = styled.form`
     `;
 
 export const EditProfileTitle = styled.h2`
-    color: #ffffff; 
+    color: var(--modalTitle); 
     font-size: 18px;
     margin-bottom: 24px;
     `;
@@ -41,7 +41,7 @@ export const FileWrapper = styled.div`
     left: 50%;
     top: 130px;
     transform: translate(-50%, 0);
-    background-color: #BEDBB0;
+    background-color: var(--modalEditPlusFoto);
     width: 24px;
     height:24px;
     border-radius: 8px;
@@ -70,9 +70,8 @@ export const EditCloseBtn = styled.button`
     width: 30px;
     height: 30px;
     border-style: none;
-    border-radius: 8px;
+    background-color: transparent;
     cursor: pointer;
-    background-color: rgba(0,0,0,0);
     `;
 
     export const EditProfileInput = styled.input`
@@ -80,10 +79,10 @@ export const EditCloseBtn = styled.button`
     margin-bottom: 14px;
     width: 100%;
     height: 49px;
-    border: 1px solid #bedbb0;
+    border: 1px solid var(--modalInputBorder);
     border-radius: 8px;
-    background-color: rgba(0,0,0,0);
-    color: #ffffff;
+    background-color: var(--modalInputBg);
+    color: var(--modalInputTxt);
     font-family: var(--poppinsFont);
     font-size: var(--fontSize14);
 
@@ -103,6 +102,7 @@ export const EditCloseBtn = styled.button`
     top: 16px;
     right: 18px;
     height: 18px;
+    cursor: pointer;
     `;
 
     export const BtnEditProfile = styled.button`
@@ -110,10 +110,10 @@ export const EditCloseBtn = styled.button`
     height: 49px;
     margin-top: 10px;
     margin-bottom: 24px;
-    background-color: #bedbb0;
+    background-color: var(--modalAccentBtnBg);
     border-radius: 8px;
     cursor: pointer;
-    color: var(--blackColor);
+    color: var(--modalAccentBtnTxt);
     font-family: var(--poppinsFont);
     font-weight: var(--fontWeight500);
     border: none;

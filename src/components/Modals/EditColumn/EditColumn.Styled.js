@@ -7,7 +7,7 @@ export const Form = styled(FormikForm)`
   position: relative;
   box-sizing: content-box;
   padding: 24px;
-  background-color:var(--themeBgColor);
+  background-color:var(--modalBg);
   width: 340px;
   height: 200px;
   border-radius: 8px;
@@ -20,7 +20,7 @@ export const Form = styled(FormikForm)`
 export const FormField = styled.label`
   display: flex;
   flex-direction: column;
-  color: #FFF;
+  color: var(--modalTitle);
   font-size: 18px;
   font-family: Poppins;
   font-style: normal;
@@ -33,11 +33,11 @@ export const FieldInput = styled.input`
 margin-top: 24px;
 padding: 14px 18px 14px 18px;
 align-items: center; 
-color: #FFF;
+color: var(--modalInputTxt);
 border-radius: 8px;
-border: 1px solid #BEDBB0;
+border: 1px solid var(--modalInputBorder);
 opacity: 0.4000000059604645;
-background: #1F1F1F;
+background: var(--modalInputBg);
 box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08); 
 `;
 
@@ -53,15 +53,17 @@ export const FrmButton = styled.button`
   justify-content: center;
   align-items: center; 
   border-radius: 8px;
-  background: #BEDBB0; 
+  background: var(--modalAccentBtnBg); 
   cursor: pointer;
-color: #161616;
+color: var(--modalAccentBtnTxt);
 font-size: 14px;
 font-family: Poppins;
 font-style: normal;
 font-weight: 500;
 line-height: normal;
 letter-spacing: -0.28px; 
+border: none;
+height: 49px;
 `;
 
 export const CloseBtn = styled.svg`

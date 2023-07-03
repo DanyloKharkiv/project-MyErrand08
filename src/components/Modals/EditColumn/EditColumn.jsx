@@ -50,7 +50,7 @@ const EditColumn = ({ ColumnTitle, ColumnId, close }) => {
         >
 
             <Form>
-                <CloseBtn onClick={handleClose}>
+                <CloseBtn onClick={handleClose} stroke="var(--modalCloseIcon)">
                     <use href = {sprite + '#icon-x'}></use>
                 </CloseBtn>
 
