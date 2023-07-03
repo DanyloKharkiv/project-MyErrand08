@@ -1,46 +1,73 @@
-# Getting Started with Create React App and Redux
+## MyErrand Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+MyErrand is an advanced task management web application built using the latest technologies. Our frontend is developed using React and various other libraries, working in harmony to provide an exceptional user experience.
 
-## Available Scripts
+The application enables authorized users to create and manage tasks efficiently. Users can categorize tasks into boards and columns, update them as necessary, and even remove them. Additionally, it offers the option to select a custom background for the board and filter tasks based on user preferences.
 
-In the project directory, you can run:
+Tasks are represented as cards and can be seamlessly moved from one column to another, reflecting their progress. In case users encounter any difficulties, they can easily reach out to our support team through the provided form.
 
-### `npm start`
+# Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Task Management: Create, update, and delete tasks effortlessly.
+- Boards and Columns: Organize tasks into boards and columns for better visual tracking of progress.
+- Custom Board Background: Personalize the appearance of your board with various background options.
+- Task Filtering: Quickly find specific tasks by applying filters.
+- Drag and Drop: Easily move tasks between columns to reflect their current status.
+- Support: Access an in-app form to send messages to our support team for inquiries or assistance.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Technologies Utilized
 
-### `npm test`
+- React
+- Redux with Redux Toolkit for state management
+- Axios for making API calls
+- Bootstrap for responsive design
+- Formik for handling forms
+- Yup for form validation
+- Styled Components for component-level styling
+- React Router for routing
+- React-toastify for displaying notifications
+- Additionally, other libraries such as date-fns, dayjs, react-datepicker, and react-icons were used for additional functionality.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Installation
 
-### `npm run build`
+To set up and run the project locally, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone this repository and navigate to the project directory in your terminal.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install all the necessary dependencies listed in package.json by running the following command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm install
+```
 
-### `npm run eject`
+After the installation, start the local server and open the application in your default browser using the following command:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you want to run the project in development mode with hot-reloads, use the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm run dev
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Deployment
 
-## Learn More
+To build the application for production, execute the following command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once the build process is complete, you can deploy the application by running:
+
+```bash
+npm run deploy
+```
+
+This command will deploy the app using gh-pages.
+
+# Contribution
+
+Contributions, issues, and feature requests are welcome. Please refer to the issues page if you are interested in contributing.
