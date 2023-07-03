@@ -41,18 +41,14 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
-    setIsLoading(true);
     try {
       dispatch(logIn(values));
       navigate('/home');
       resetForm();
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
 
