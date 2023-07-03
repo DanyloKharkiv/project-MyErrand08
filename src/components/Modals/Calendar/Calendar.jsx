@@ -20,34 +20,27 @@ export default function Calendar({ value, onChange }) {
   );
 }
 
+// import React from 'react';
 // import DatePicker from 'react-datepicker';
 // import 'react-datepicker/dist/react-datepicker.css';
-// import CustomInput from './CalendarInput';
-// import { Container, DateDeadline } from './Calendar.Styled';
+// import { parseISO } from 'date-fns';
 
-// function CustomDatePicker({ startDeadline, setStartDeadline }) {
-//   const options = {
-//     weekday: 'short',
-//     month: 'short',
-//     day: 'numeric',
+// const Calendar = ({ prop, click, setFieldValue }) => {
+//   const handleDateChange = (selectedDate) => {
+//     click(selectedDate);
+//     setFieldValue('deadline', selectedDate);
 //   };
 
-//   return (
-//     <Container>
-//       <DatePicker
-//         selected={startDeadline}
-//         onChange={date => {
-//           setStartDeadline(date);
-//         }}
-//         customInput={<CustomInput />}
-//         dateFormat={'dd/MM/yyyy'}
-//         minDate={new Date()}
-//       />
-//       <DateDeadline>
-//         {startDeadline.toLocaleDateString('en-US', options)}
-//       </DateDeadline>
-//     </Container>
-//   );
-// }
+//   const date = new Date(prop);
 
-// export default CustomDatePicker;
+//   return (
+//     <DatePicker
+//       selected={date}
+//       minDate={new Date()}
+//       calendarStartDay={1}
+//       onChange={handleDateChange}
+//     />
+//   );
+// };
+
+// export default Calendar;

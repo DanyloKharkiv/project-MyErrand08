@@ -8,7 +8,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
-import Calendar from "../Calendar/Calendar";
+// import { formattedDateForBtn } from '../Calendar/services';
+import Calendar from '../Calendar/Calendar.jsx';
+import 'react-datepicker/dist/react-datepicker.css';
+import '../Calendar/calendar.css';
 import { useState } from "react";
 
 import {
@@ -29,6 +32,7 @@ const CardSchema = Yup.object().shape({
   priority: Yup.string(),
   dedline: Yup.string(),
 });
+
 
 export default function AddCard() {
   const [selectedValue, setSelectedValue] = useState("without");
