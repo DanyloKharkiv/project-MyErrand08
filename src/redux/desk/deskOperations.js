@@ -8,8 +8,20 @@ export const fetchDesks = createAsyncThunk(
 
   async thunkApi => {
     try {
-        const response = await axios.get('/desk');
-        console.log(response.data)
+      const response = await axios.get('/desk');
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getDeskById = createAsyncThunk(
+  'desks/getDeskById',
+
+  async (deskId, thunkApi) => {
+    try {
+      const response = await axios.get(`/desk/${deskId}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
