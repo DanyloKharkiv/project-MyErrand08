@@ -97,7 +97,16 @@ function ColumnList({ idDesk }) {
             <ColumnInfo>
               {/* //КНОПКА ПРИВЯЗАНА ДО КОЛОНКИ item._id */}
               <ButtonAddCard onClick={() => openModalAddCard(item._id)}>
-                <AddCardIcon> + </AddCardIcon>Add another card
+                <AddCardIcon> 
+                <svg
+              width="18"
+              height="18"
+              stroke="var(--modalPlusIconColor)"
+              fill="none"
+            >
+              <use href={sprite + `#icon-plus`}></use>
+            </svg>
+                  </AddCardIcon>Add another card
               </ButtonAddCard>
             </ColumnInfo>
           </div>
@@ -110,7 +119,7 @@ function ColumnList({ idDesk }) {
             <svg
               width="18"
               height="18"
-              stroke="var(--sidebarColor)"
+              stroke="var(--addColumnPlus)"
               fill="none"
             >
               <use href={sprite + `#icon-plus`}></use>

@@ -50,7 +50,7 @@ function ColumnItem({ item }) {
           }}
           aria-label="Edit"
         >
-          <svg width="16" height="16" stroke="var(--opacityWhite2)" fill="none">
+          <svg width="16" height="16" stroke="var(--pencilIcon)" fill="none">
             <use href={sprite + `#icon-Icon-pencil`}></use>
           </svg>
         </FrmButton>
@@ -64,7 +64,7 @@ function ColumnItem({ item }) {
           }}
           aria-label="Delete"
         >
-          <svg width="16" height="16" stroke="var(--opacityWhite2)" fill="none">
+          <svg width="16" height="16" stroke="var(--pencilIcon)" fill="none">
             <use href={sprite + `#icon-trash-04`}></use>
           </svg>
         </FrmButton>

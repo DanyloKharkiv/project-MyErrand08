@@ -52,6 +52,7 @@ export const ProjectsBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  cursor: pointer;
 `;
 
 
@@ -65,7 +66,7 @@ export const BtnsSVGBox = styled.div`
 
 export const BtnsSVG = styled.button`
   margin-left: 8px;
-  background-color: var(--prOfBg);
+  background-color: var(--sidebarColor);
   border: none;
   padding: 0;
 `;

@@ -5,11 +5,8 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-
   --transition: 0.4s;
-
   --poppinsFont: "Poppins";
-
   --borderRadius8: 8px;
 
   --fontSize10: 8px;
@@ -40,12 +37,16 @@ body {
   transition: color 0.5s ease, background-color 0.5s ease;
 }
 
+/*-------------------DARK-----------------*/
+
 .dark-theme {
   --accentColor: #bedbb0;
   --headerColor: #161616;
   --userNameColor: #ffffff;
+  --userIconBg: #1F1F1F;
+  --userIconMan: #151515;
 
-  /*Sidebar*/
+  /*Sidebar Dark*/
   --sidebarColor: #121212;
   --logo: #1f1f1f;
   --flash: #fff;
@@ -58,29 +59,54 @@ body {
   --logOut: #fff;
   --logOutIcon: #bedbb0;
 
-  /*Board*/
+  /*Board Dark*/
   --primaryBoardBg: #1f1f1f;
   --addBtnBox: #121212;
   --addBtnText: #fff;
   --addBtnIcon: #fff;
   --filterTxt: rgba(255, 255, 255, 0.8);
+  --addColumnPlus: #121212;
+  --pencilIcon: rgba(255, 255, 255, 0.5);
+
+  /*Modal Dark*/
+  --modalBg: #151515;
+  --modalCloseIcon: #fff;
+  --modalTitle: #FFFFFF;
+  --modalInputBg: #1F1F1F;
+  --modalInputBorder: #BEDBB0;
+  --modalInputTxt: #FFFFFF;
+  --modalFirstBgImg: #1F1F1F;
+  --modalAccentBtnBg: #BEDBB0;
+  --modalAccentBtnTxt: #161616;
+  --modalPlusIconBg: #161616;
+  --modalPlusIconColor: #fff;
+  --modalSmallTitle: rgba(255, 255, 255, 0.5);
+
+
+  /*Card Dark*/
+  --cardTxt: rgba(255, 255, 255, 0.5);
+  --addCardBtnTxt: #161616;
+  --plusOnBtn: #fff;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --highColor: rgba(190, 219, 176, 1);
+
+  /*Calendar Dark*/
+  --calendarBackground: #1f1f1f;
+  --calendarBorder: #bedbb0;
+  --navLeftBtn: #ffffffcc;
+  --calendarDayName: #ffffff80;
+  --calendarCurrentMonth: #ffffff;
+  --calendarCurrentDate: #1f1f1f;
+  --calendarPreviousMonth: #ffffff33;
+
 
   --filterModalTitle: rgba(255, 255, 255, 1);
   --filterLines: rgba(255, 255, 255, 0.1);
   --filterModalText: rgba(255, 255, 255, 0.5);
   --backgroundInput: rgba(22, 22, 22, 0.08);
   --withoutColor: rgba(255, 255, 255, 0.3);
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
-  --calendarBackground: #1f1f1f;
-
-   /*Card*/
-  --cardTxt: rgba(255, 255, 255, 0.5);
-  --addCardBtnTxt: #161616;
-  --plusOnBtn: #fff;
-
 
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
@@ -89,18 +115,19 @@ body {
   --themeBgColor: #151515;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
   --themeItem: rgba(255, 255, 255, 0.5);
-
-  --activeItemBorder: rgba(31, 31, 31, 1);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
 }
+
+/*-------------------LIGHT-----------------*/
 
 .light-theme {
   --accentColor: #bedbb0;
   --headerColor: #fcfcfc;
   --userNameColor: #161616;
+  --userIconBg: #F6F6F7;
+  --userIconMan: #FFFFFF;
 
 
-  /*Sidebar*/
+  /*Sidebar Light*/
   --sidebarColor: #ffffff;
   --logo: #1f1f1f;
   --flash: #ffffff;
@@ -113,29 +140,55 @@ body {
   --logOut: #161616;
   --logOutIcon: #bedbb0;
 
-  /*Board*/
+  /*Board Light*/
   --primaryBoardBg: #d9d9d9;
   --addBtnBox: #fff;
   --addBtnText: #161616;
   --addBtnIcon: #161616;
   --filterTxt: rgba(22, 22, 22, 0.8);
+  --addColumnPlus: #fff;
+  --pencilIcon: rgba(22, 22, 22, 0.5);
+
+  /*Modal Light*/
+  --modalBg: #FCFCFC;
+  --modalCloseIcon: #161616;
+  --modalTitle: #161616;
+  --modalInputBg: #FCFCFC;
+  --modalInputBorder: #BEDBB0;
+  --modalInputTxt: #161616;
+  --modalFirstBgImg: #F6F6F7;
+  --modalAccentBtnBg: #BEDBB0;
+  --modalAccentBtnTxt: #161616;
+  --modalPlusIconBg: #161616;
+  --modalPlusIconColor: #fff;
+  --modalSmallTitle: rgba(22, 22, 22, 0.5);
+  
+  
+
+  /*Card Light*/
+  --cardTxt: rgba(22, 22, 22, 0.7);
+  --addCardBtnTxt: #161616;
+  --plusOnBtn: #fff;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --highColor: rgba(190, 219, 176, 1);
+
+  /*Calendar Light*/
+  --calendarBackground: #ffffff;
+  --calendarBorder: #bedbb0;
+  --navLeftBtn: #161616cc;
+  --calendarDayName: #16161680;
+  --calendarCurrentMonth: #161616;
+  --calendarCurrentDate: #161616;
+  --calendarPreviousMonth: #16161633;
+
 
   --filterModalTitle: rgba(22, 22, 22, 1);
   --filterLines: rgba(22, 22, 22, 0.1);
   --filterModalText: rgba(22, 22, 22, 0.5);
   --withoutColor: rgba(22, 22, 22, 0.3);
   --backgroundInput: rgba(22, 22, 22, 0.08);
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
-
-  /*Card*/
-  --cardTxt: rgba(22, 22, 22, 0.7);
-  --addCardBtnTxt: #161616;
-  --plusOnBtn: #fff;
-
-
 
   --opacityWhite: rgba(255, 255, 255, 0.3);
   --opacityWhite2: rgba(255, 255, 255, 0.5);
@@ -143,19 +196,18 @@ body {
   --themeBgColor: #fcfcfc;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
   --themeItem: #161616;
-
-  --activeItemBorder: rgba(246, 246, 247, 1);
-  --borderBottomColor: rgba(22, 22, 22, 0.1);
 }
 
+
+/*-------------------VIOLET-----------------*/
 .violet-theme {
   --accentColor: #5255bc;
   --headerColor: #ffffff;
   --userNameColor: #161616;
+  --userIconBg: #ECEDFD;
+  --userIconMan: #FFFFFF;
 
-
-
-  /*Sidebar*/
+  /*Sidebar Violet*/
   --sidebarColor: #5255bc;
   --logo: #ecedfd;
   --flash: #5255bc;
@@ -168,27 +220,54 @@ body {
   --logOut: #fff;
   --logOutIcon: #fff;
 
-  /*Board*/
+  /*Board Violet*/
   --primaryBoardBg: #b8bcfd;
   --addBtnBox: #fff;
   --addBtnText: #161616;
   --addBtnIcon: #5255bc;
   --filterTxt: rgba(22, 22, 22, 0.8);
+  --addColumnPlus: #fff;
+  --pencilIcon: rgba(255, 255, 255, 0.5);
+
+  /*Modal Violet*/
+  --modalBg: #FCFCFC;
+  --modalCloseIcon: #161616;
+  --modalTitle: #161616;
+  --modalInputBg: #FCFCFC;
+  --modalInputBorder: #5255BC;
+  --modalInputTxt: #161616;
+  --modalFirstBgImg: #ECEDFD;
+  --modalAccentBtnBg: #5255BC;
+  --modalAccentBtnTxt: #fff;
+  --modalPlusIconBg: #fff;
+  --modalPlusIconColor: #161616;
+  --modalSmallTitle: rgba(22, 22, 22, 0.5);
+  --modalEditPlusFoto: #ECEDFD;
+
+  /*Card Violet*/
+  --cardTxt: rgba(22, 22, 22, 0.7);
+  --addCardBtnTxt: #fff;
+  --plusOnBtn: #161616;
+  --lowColor: #8fa1d0;
+  --mediumColor: #e09cb5;
+  --highColor: rgba(190, 219, 176, 1);
+     
+ /*Calendar Violet*/
+ --calendarBackground: #ffffff;
+ --calendarBorder: #5255bc;
+ --navLeftBtn: #161616cc;
+ --calendarDayName: #16161680;
+ --calendarCurrentMonth: #161616;
+ --calendarCurrentDate: #fcfcfc;
+ --calendarPreviousMonth: #16161633;     
+
 
   --filterModalTitle: rgba(22, 22, 22, 1);
   --filterLines: rgba(22, 22, 22, 0.1);
   --filterModalText: rgba(22, 22, 22, 0.5);
   --withoutColor: rgba(22, 22, 22, 0.3);
   --backgroundInput: rgba(22, 22, 22, 0.08);
-  --lowColor: #8fa1d0;
-  --mediumColor: #e09cb5;
-  --highColor: rgba(190, 219, 176, 1);
   --defaultScreenColor: #e6e6e6;
-
-   /*Card*/
-  --cardTxt: rgba(22, 22, 22, 0.7);
-  --addCardBtnTxt: #fff;
-  --plusOnBtn: #161616;
 
 
 
@@ -198,9 +277,7 @@ body {
   --themeBgColor: #fcfcfc;
   --themeBoxShadow: rgba(17, 17, 17, 0.1);
   --themeItem: #161616;
-
-  --activeItemBorder: rgba(255, 255, 255, 0.5);
-  --borderBottomColor: rgba(255, 255, 255, 0.1);
+  
 }
 
 h1,

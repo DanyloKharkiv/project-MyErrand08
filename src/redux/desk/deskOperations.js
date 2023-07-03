@@ -31,11 +31,23 @@ export const addDesk = createAsyncThunk(
 );
 
 export const deleteDesk = createAsyncThunk(
-  'contacts/deleteContact',
+  'desks/deleteContact',
 
   async (deskId, thunkApi) => {
     try {
       await axios.delete(`/desk/${deskId}`);
+      return deskId;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const setActiveDeskId = createAsyncThunk(
+  'desks/setActiveDeskId',
+
+  async (deskId, thunkApi) => {
+    try {
       return deskId;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
