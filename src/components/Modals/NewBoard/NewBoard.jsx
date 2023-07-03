@@ -12,7 +12,7 @@ const NewBoard = ({ close }) => {
     const dispatch = useDispatch();
     
     const [title, setTitle] = useState('')
-    const [icons, setIcons] = useState('');
+    const [icons, setIcons] = useState('icon_1');
     const [backImg, setBackImg] = useState('id-0');
 
     const ownerUser = useSelector(getUserId);
@@ -44,6 +44,7 @@ const NewBoard = ({ close }) => {
         setTitle('');
         setIcons('');
         setBackImg('id-0');
+        close()
     }
 
     
@@ -77,7 +78,7 @@ const NewBoard = ({ close }) => {
                     </li>
                     <li>
                         <label htmlFor="icon_3">
-                    <svg className={(icons==='icon_3')?css.svgOn:css.svgOff} width='18' height='18'  stroke="var(--filterModalText)">
+                    <svg className={(icons==='icon_3')?css.svgOn:css.svgOff} width='18' height='18' stroke="var(--filterModalText)">
                         <use href={sprite + '#icon_3'}></use>
                     </svg>
                     <input onChange={onFormChange} className={css.realRadio} type="radio" name="icons" id="icon_3" />
