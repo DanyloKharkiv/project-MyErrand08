@@ -12,7 +12,8 @@ import {
     PasswordWrapper,
     Foto,
     EditFoto,
-    FileWrapper
+    FileWrapper,
+    EditProfileSvg
 } from "./EditProfile.Styled";
 import sprite from '../../../images/sprite.svg';
 import { useState } from "react";
@@ -78,6 +79,8 @@ const EditProfile = ({modalClose}) => {
                 console.log(error);
             }
         }
+
+        modalClose();
     }
     
     return (
@@ -88,7 +91,14 @@ const EditProfile = ({modalClose}) => {
                     <use href={sprite +'#icon-x'}></use>
                 </svg>
             </EditCloseBtn>
-            <EditProfileImg src={userAvatar ? userAvatar : userTemp} alt="user_icon" width={68} height={68} />
+            {!userAvatar &&  
+                <EditProfileSvg width="68" height="68"> 
+                    <use href={sprite + `#icon-user`}></use> 
+                </EditProfileSvg>
+            } 
+            {userAvatar && 
+                <EditProfileImg src={userAvatar} alt="user_icon" width={68} height={68} />
+            }
             <FileWrapper>
                 <Foto type="file" name="avatar" accept="image/*,.png,.jpg,.gif,.web" onChange={handleAvatarChange}>
                 </Foto>

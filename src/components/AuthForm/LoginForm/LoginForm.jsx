@@ -15,7 +15,7 @@ import {
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { logIn } from '../../../redux/auth/authOperation';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
@@ -39,20 +39,14 @@ const schema = yup.object().shape({
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (values, { resetForm }) => {
-    setIsLoading(true);
     try {
       dispatch(logIn(values));
-      navigate('/home');
       resetForm();
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
     }
   };
 

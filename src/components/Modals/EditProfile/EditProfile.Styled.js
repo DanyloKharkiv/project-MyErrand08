@@ -38,6 +38,13 @@ export const EditProfileImg = styled.img`
     border-radius: 8px;
 `;
 
+export const EditProfileSvg = styled.svg`
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+`;
+
 export const FileWrapper = styled.div`
     position: absolute;
     left: 50%;

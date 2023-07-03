@@ -27,7 +27,7 @@ function App() {
     if (accessToken) {
       dispatch(currentUser());
     }
-  }, []);
+  }, [dispatch, accessToken]);
 
   return (
     !isRefreshing &&
