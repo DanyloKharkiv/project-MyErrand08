@@ -35,7 +35,7 @@ export const Field = styled(FormikField)`
   border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
-  background-color: var(--blackColor);
+  background-color: var(--activeItemBorder);
   color: #ffffff;
 
   font-family: var(--poppinsFont);
@@ -70,12 +70,16 @@ export const Textarea = styled(FormikField)`
   border: 1px solid #bedbb0;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
-  background-color: var(--blackColor);
+  background-color: var(--activeItemBorder);
   color: #ffffff;
   font-family: var(--poppinsFont);
   font-size: var(--fontSize14);
 
   outline: none;
+
+  &:active {
+    background-color: var(--blackColor);
+  }
 
   @media screen and (min-width: 375px) {
     width: 285px;

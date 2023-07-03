@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser, updateTheme, currentUser  } from './authOperation';
+import { register, logIn, logOut, refreshUser, updateTheme, currentUser, updateName, updateAvatar, updateEmail } from './authOperation';
 
 const initialState = {
   user: {
@@ -31,7 +31,6 @@ const handleIsLogIn = (state, { payload }) => {
   state.accessToken = payload.accessToken;
   state.refreshToken = payload.refreshToken;
   state.isLoggedIn = true;
-  state.user.theme = payload.theme;
 };
 
 const handleLogout = (state) => {
@@ -75,6 +74,18 @@ const handleCurrent = (state, { payload }) => {
   state.user = payload;
 };
 
+const handleUpdateName = (state, { payload }) => { 
+  state.user.name = payload.name;
+}
+
+const handleUpdateEmail= (state, { payload }) => { 
+  state.user.email = payload.email;
+}
+
+const handleUpdateAvatar = (state, { payload }) => { 
+  state.user.avatarURL = payload;
+}
+
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
@@ -88,6 +99,9 @@ export const authSlice = createSlice({
       .addCase(refreshUser.rejected, handleRefreshUserRejected)
       .addCase(currentUser.fulfilled, handleCurrent)
       .addCase(updateTheme.fulfilled, handleUpdateTheme)
+      .addCase(updateName.fulfilled, handleUpdateName)
+      .addCase(updateAvatar.fulfilled, handleUpdateAvatar)
+      .addCase(updateEmail.fulfilled, handleUpdateEmail)
       .addMatcher(isAnyOf(...fn(PENDING)), handlePending)
       .addMatcher(isAnyOf(...fn(REJECTED)), handleRejected)
       .addMatcher(isAnyOf(...fn(FULFILLED)), handleFulfilled)

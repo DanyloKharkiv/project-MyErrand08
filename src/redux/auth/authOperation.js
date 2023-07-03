@@ -105,3 +105,50 @@ export const updateTheme = createAsyncThunk(
   }
 );
 
+export const updateName = createAsyncThunk(
+  "user/setName",
+  async (newName) => {
+    try {
+      const { data } = await axios.patch("/users/name", { name: newName });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const updateEmail = createAsyncThunk(
+  "user/setEmail",
+  async (newEmail) => {
+    try {
+      const { data } = await axios.patch("/users/email", { email: newEmail });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const updatePassword = createAsyncThunk(
+  "user/setPassword",
+  async (newPassword) => {
+    try {
+      const { data } = await axios.patch("/users/password", { password: newPassword });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const updateAvatar = createAsyncThunk(
+  "user/setAvatar",
+  async (newAvatar) => {
+    try {
+      const { data } = await axios.patch("/users/avatars", newAvatar);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);

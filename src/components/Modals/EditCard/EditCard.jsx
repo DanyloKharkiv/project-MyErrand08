@@ -30,7 +30,7 @@ const CardSchema = Yup.object().shape({
   dedline: Yup.string(),
 });
 
-export default function EditCard({ props }) {
+export default function EditCard({ closeForm, ...props }) {
   const [selectedValue, setSelectedValue] = useState("without");
   const [dedlineValue, setDedlineValue] = useState(null);
 
@@ -60,7 +60,7 @@ export default function EditCard({ props }) {
       >
         Edit card
       </Typography>
-      <SpanClose>
+      <SpanClose onClick={closeForm}>
         <svg width="18" height="18" stroke="var(--addBtnText)">
           <use href={sprite + `#icon-x-close`}></use>
         </svg>
@@ -76,8 +76,15 @@ export default function EditCard({ props }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.dedline = dedlineValue.$d;
+
           console.log(values);
-          actions.resetForm();
+
+          actions.resetForm({
+            title: "", //
+            description: "", // не працює так
+            priority: "", //
+            dedline: "", //
+          });
         }}
       >
         <Form>

@@ -1,6 +1,7 @@
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs from "dayjs";
 //import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 
 export default function Calendar({ value, onChange }) {
@@ -8,6 +9,9 @@ export default function Calendar({ value, onChange }) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       {/* <DemoContainer components={["DatePicker"]}> */}
       <DatePicker
+        //defaultValue={dayjs()}
+        views={["year", "month", "day"]}
+        disablePast
         value={value}
         onChange={onChange}
         sx={{
@@ -42,5 +46,6 @@ export default function Calendar({ value, onChange }) {
 //     />
 //   );
 // };
+
 
 // export default Calendar;

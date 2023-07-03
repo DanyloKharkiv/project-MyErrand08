@@ -31,6 +31,8 @@ export const Title = styled.h1`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 400;
+  color: var(--userNameColor);
+  margin-bottom: 10px;
 `;
 
 export const Filter = styled.div`
@@ -40,7 +42,9 @@ export const Filter = styled.div`
 
 export const FilterBtn = styled.button`
   color: var(--filterTxt);
-  opacity: 0.8;
+  font-weight: var(--fontWeight500);
+  font-size: var(--fontSize14);
+  line-height: 21px;
   font-family: Poppins;
   background-color: var(--primaryBoardBg);
   border: none;

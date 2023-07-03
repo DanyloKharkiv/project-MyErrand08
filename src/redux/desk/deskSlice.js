@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addDesk, deleteDesk, fetchDesks } from "./deskOperations";
+import { addDesk, deleteDesk, fetchDesks, setActiveDeskId } from "./deskOperations";
 
 const initialState = {
   desks: {
     items: [],
     isLoading: false,
     error: null,
+    activeDeskId: null,
   },
 };
 
@@ -48,13 +49,21 @@ const desksSlice = createSlice({
               state.desks.items.push(action.payload);
           })
           .addCase(deleteDesk.fulfilled, (state, action) => {
-        state.desks.isLoading = false;
+            state.desks.isLoading = false;
             state.desks.error = null;
+            state.desks.activeDeskId = null;
             state.desks.items = state.desks.items.filter(({ _id }) => _id !== action.payload);
       })
           .addCase(deleteDesk.pending, handlePending)
           .addCase(deleteDesk.rejected, handleRejected)
           
+          .addCase(setActiveDeskId.fulfilled, (state, action) => {
+            state.desks.isLoading = false;
+            state.desks.error = null;
+            state.desks.activeDeskId = action.payload;
+          })
+          .addCase(setActiveDeskId.pending, handlePending)
+          .addCase(setActiveDeskId.rejected, handleRejected)
       
   },
 });
