@@ -40,7 +40,6 @@ const schema = yup.object().shape({
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
