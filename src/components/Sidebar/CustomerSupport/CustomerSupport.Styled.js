@@ -27,7 +27,7 @@ export const HelpBtn = styled.button`
   padding: 0;
   margin-top: 18px;
   font-size: 12px;
-  background-color: var(--needHelpBg);
+  background-color: transparent;
   border: none;
   cursor:pointer;
 `;

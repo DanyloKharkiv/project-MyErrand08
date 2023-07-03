@@ -34,6 +34,7 @@ export const DesksListItem = ({ _id, icon, title }) => {
                 width="16"
                 height="16"
                 stroke="var(--myBoards)"
+                fill="none"
               >
                 <use href={sprite + `#icon-Icon-pencil`}></use>
               </svg>
@@ -43,7 +44,7 @@ export const DesksListItem = ({ _id, icon, title }) => {
                         onClick={()=>handleDeleteDesk(_id)}
                 width="16"
                 height="16"
-                fill="var(--prOfBg)"
+                fill="none"
                 stroke="var(--myBoards)"
               >
                 <use href={sprite + `#icon-trash-04`}></use>
