@@ -21,9 +21,9 @@ export const Text = styled.p`
   line-height: 1.3;
   letter-spacing: -0.02em;
   text-align: center;
-  color: #161616;
+  color: var(--cardTxt);
 `;
 
 export const AccentText = styled.span`
-  color: #bedbb0;
+  color: var(--accentColor);
 `;
