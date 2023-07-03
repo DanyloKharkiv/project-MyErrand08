@@ -31,4 +31,5 @@ export const Btn = styled.button`
   background-color: var(--plusBg);
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 `;
