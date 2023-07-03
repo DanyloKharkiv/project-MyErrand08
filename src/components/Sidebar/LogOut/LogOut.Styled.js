@@ -6,6 +6,7 @@ export const LogoutElement = styled.div`
   /* font-family: Poppins; */
   margin-left: 24px;
   margin-top: 24px;
+  cursor: pointer;
 `;
 
 export const LogoutBtn = styled.button`
@@ -17,4 +18,5 @@ export const LogoutBtn = styled.button`
   font-size: 16px;
   margin-left: 14px;
   font-weight: 500;
+  cursor: pointer;
 `;

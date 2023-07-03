@@ -81,6 +81,7 @@ body {
   --modalPlusIconBg: #161616;
   --modalPlusIconColor: #fff;
   --modalSmallTitle: rgba(255, 255, 255, 0.5);
+  --modalEditPlusFoto: #BEDBB0;
 
 
   /*Card Dark*/
@@ -162,7 +163,7 @@ body {
   --modalPlusIconBg: #161616;
   --modalPlusIconColor: #fff;
   --modalSmallTitle: rgba(22, 22, 22, 0.5);
-  
+  --modalEditPlusFoto: #BEDBB0;
   
 
   /*Card Light*/

@@ -75,5 +75,6 @@ export const BtnsSVG = styled.button`
   background-color: var(--sidebarColor);
   border: none;
   padding: 0;
+  cursor: pointer;
 `;
 
