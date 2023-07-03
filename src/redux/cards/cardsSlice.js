@@ -37,7 +37,7 @@ const cardsSlice = createSlice({
       .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        console.log("AP:", action.payload);
+        // console.log("AP:", action.payload);
         state.listCards.push(action.payload);
       })
       .addCase(addCard.pending, handlePending)
@@ -55,11 +55,16 @@ const cardsSlice = createSlice({
       .addCase(editCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // найти в listCards карту с action.payload.id = id редактируемой карты
-        // заменить карту на action.payload
+        const { id, title, taskValue, priority, deadline } = action.payload;
+        //Immer!
+        state.listCards = state.listCards.map((card) =>
+          card._id === id
+            ? { ...card, title, taskValue, priority, deadline }
+            : card
+        );
       });
   },
 });
 
 export const cardsReducer = cardsSlice.reducer;
-export const { changeOwner } = cardsSlice.actions; // my code
+export const { changeOwner } = cardsSlice.actions;

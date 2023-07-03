@@ -45,8 +45,7 @@ const priorityColor = (priority) => {
 };
 
 export default function CardTask({ card }) {
-  const { id, title, taskValue: description, priority, deadline } = card;
-
+  const { id, title, taskValue, priority, deadline } = card;
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -105,7 +104,7 @@ export default function CardTask({ card }) {
           gutterBottom
         >
           <EllipsisText
-            text={description}
+            text={taskValue}
             length={90}
             tooltip={{
               copyOnClick: true,
@@ -197,7 +196,7 @@ export default function CardTask({ card }) {
                   mt: "4px",
                 }}
               >
-                {`${dayjs(deadline).format("MM-DD-YYYY")}`}
+                {`${dayjs(deadline).format("MM/DD/YYYY")}`}
               </Typography>
             </Box>
           </Box>
@@ -258,7 +257,7 @@ export default function CardTask({ card }) {
                 <Modal close={closeModal}>
                   <EditCard
                     title={title}
-                    description={description}
+                    taskValue={taskValue}
                     onSaveEdit={onSaveEdit}
                     closeForm={closeModal}
                   />

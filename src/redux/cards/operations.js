@@ -43,7 +43,7 @@ export const editCard = createAsyncThunk(
   "card/editCard",
   async (data, thunkAPI) => {
     try {
-      const { id, title, decsription: taskValue, priority, deadline } = data;
+      const { id, title, taskValue, priority, deadline } = data;
       await axios.patch(`/tasks/${id}`, {
         title,
         taskValue,

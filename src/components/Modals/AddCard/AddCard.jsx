@@ -82,6 +82,7 @@ export default function AddCard({ onSave, close }) {
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
           onSave(values);
           actions.resetForm();
+          close();
         }}
       >
         <Form>

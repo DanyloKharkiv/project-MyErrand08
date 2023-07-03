@@ -26,7 +26,7 @@ import {
 
 const CardSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
-  description: Yup.string(),
+  taskValue: Yup.string(),
   priority: Yup.string(),
   dedline: Yup.string(),
 });
@@ -69,7 +69,7 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
       <Formik
         initialValues={{
           title: `${props.title}`,
-          description: `${props.description}`,
+          taskValue: `${props.taskValue}`,
           priority: "",
           deadline: "",
         }}
@@ -78,20 +78,15 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
           values.priority = selectedValue;
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
           onSaveEdit(values);
-
-          actions.resetForm({
-            title: "", //
-            description: "", // не працює так
-            priority: "", //
-            dedline: "", //
-          });
+          actions.resetForm();
+          closeForm();
         }}
       >
         <Form>
           <Field type="text" name="title" />
           <ErrorMessage name="title" component="div" />
-          <Textarea name="description" component="textarea" />
-          <ErrorMessage name="description" component="div" />
+          <Textarea name="taskValue" component="textarea" />
+          <ErrorMessage name="taskValue" component="div" />
           <FormLabel id="radio-buttons-group-label">
             <Typography
               sx={{

@@ -18,14 +18,9 @@ function ColumnItem({ item }) {
 
   useEffect(() => {
     dispatch(changeOwner(id));
-    dispatch(fetchCards(id));
+    dispatch(fetchCards(id)); //sveta code
   }, [dispatch, id]);
 
-  // ================================================
-  // useEffect(() => {
-  //   dispatch(fetchCards(id));
-  // }, [dispatch, id]);
-  // ================================================
   const [modalIsOpenEditColumn, setModalIsOpenEditColumn] = useState(false);
 
   const openModalEditColumn = () => {
