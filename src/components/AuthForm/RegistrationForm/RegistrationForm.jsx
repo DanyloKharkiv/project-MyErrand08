@@ -17,7 +17,7 @@ import {
   Link,
 } from './RegistrationForm.Styled'
 
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const initialValues = {
   name: '',
@@ -40,32 +40,26 @@ const schema = yup.object().shape({
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   const handleSubmit = async (values, { resetForm }) => {
-    setIsLoading(true);
     try {
       await dispatch(register(values));
       const { email, password } = values;
       await dispatch(logIn({ email, password }));
     } catch (error) {
       console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
+    } 
 
     resetForm();
   };
 
   return (
     <>
-      {isLoading && <p>Loading...</p>}
       <Formik
         initialValues={initialValues}
         validationSchema={schema}

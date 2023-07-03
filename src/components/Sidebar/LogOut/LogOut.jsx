@@ -27,11 +27,11 @@ export const LogOut = () => {
     );
   };
   return (
-    <LogoutElement>
+    <LogoutElement onClick={handleClickLogOut}>
       <svg width="32" height="32">
         <use href={sprite + `#icon-login`}></use>
       </svg>
-      <LogoutBtn onClick={handleClickLogOut} type="button">
+      <LogoutBtn type="button">
         Log out
       </LogoutBtn>
     </LogoutElement>

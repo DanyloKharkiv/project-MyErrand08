@@ -39,9 +39,15 @@ export const BoardsItem = styled.li`
   /* opacity: 0.5; */
   font-size: 14px;
   font-weight: 500;
+  
   &:focus{
     background-color: var(--prOfBg)
   };
+
+  &:active{
+    background-color: var(--prOfBg)
+  };
+
   // &:first-child {
   //   background-color: var(--prOfBg);
   // }
@@ -69,5 +75,6 @@ export const BtnsSVG = styled.button`
   background-color: var(--sidebarColor);
   border: none;
   padding: 0;
+  cursor: pointer;
 `;
 

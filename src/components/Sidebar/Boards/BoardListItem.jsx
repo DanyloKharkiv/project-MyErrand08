@@ -7,6 +7,7 @@ import {
 import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from './Boards.Styled';
 import sprite from '../../../images/sprite.svg';
 
+
 import { useRef } from 'react';
 import EditBoardModal from '../../Modals/EditDeskModal/EditBoardModal';
 
