@@ -15,7 +15,7 @@ import {
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { logIn } from '../../../redux/auth/authOperation';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
 
