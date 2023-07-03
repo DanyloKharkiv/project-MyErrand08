@@ -5,6 +5,9 @@ import EllipsisText from "react-ellipsis-text";
 import { useState } from "react";
 import Modal from "../Modals/Modal";
 import EditCard from "../Modals/EditCard/EditCard";
+import { useDispatch } from "react-redux";
+import { editCard, deleteCard } from "../../redux/cards/operations";
+import dayjs from "dayjs";
 
 const line = (color) => (
   <Box
@@ -28,10 +31,24 @@ const bull = (color) => (
   ></Box>
 );
 
-export default function CardTask({ card }) {
-  const { title, taskValue: description, priority, deadline } = card;
+const priorityColor = (priority) => {
+  switch (priority) {
+    case "low":
+      return "var(--lowColor)";
+    case "medium":
+      return "var(--mediumColor)";
+    case "high":
+      return "var(--highColor)";
+    case "without":
+      return "var(--withoutColor)";
+  }
+};
 
+export default function CardTask({ card }) {
+  const { id, title, taskValue, priority, deadline } = card;
   const [showModal, setShowModal] = useState(false);
+
+  const dispatch = useDispatch();
 
   const openModal = () => {
     setShowModal(true);
@@ -41,6 +58,12 @@ export default function CardTask({ card }) {
     setShowModal(false);
   };
 
+  const handleDeleteCard = () => dispatch(deleteCard(id));
+
+  const onSaveEdit = (values) => {
+    console.log("object onSaveEdit", values);
+    dispatch(editCard({ id, ...values }));
+  };
   return (
     <Card
       variant="outlined"
@@ -53,7 +76,7 @@ export default function CardTask({ card }) {
         backgroundColor: "var(--sidebarColor)",
         borderRadius: 2,
         borderLeftWidth: "4px",
-        borderLeftColor: `${"var(--lowColor)"}`,
+        borderLeftColor: priorityColor(priority),
       }}
     >
       <CardContent sx={{ fontFamily: "Poppins" }}>
@@ -81,7 +104,7 @@ export default function CardTask({ card }) {
           gutterBottom
         >
           <EllipsisText
-            text={description}
+            text={taskValue}
             length={90}
             tooltip={{
               copyOnClick: true,
@@ -150,7 +173,7 @@ export default function CardTask({ card }) {
                   mt: "4px",
                 }}
               >
-                {bull("var(--lowColor)")}
+                {bull(priorityColor(priority))}
                 <Box
                   sx={{
                     color: "var(--filterModalText)",
@@ -173,7 +196,7 @@ export default function CardTask({ card }) {
                   mt: "4px",
                 }}
               >
-                {deadline}
+                {`${dayjs(deadline).format("MM/DD/YYYY")}`}
               </Typography>
             </Box>
           </Box>
@@ -234,7 +257,8 @@ export default function CardTask({ card }) {
                 <Modal close={closeModal}>
                   <EditCard
                     title={title}
-                    description={description}
+                    taskValue={taskValue}
+                    onSaveEdit={onSaveEdit}
                     closeForm={closeModal}
                   />
                 </Modal>
@@ -242,6 +266,7 @@ export default function CardTask({ card }) {
               <Button
                 size="small"
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
+                onClick={handleDeleteCard}
               >
                 <svg
                   width="20"

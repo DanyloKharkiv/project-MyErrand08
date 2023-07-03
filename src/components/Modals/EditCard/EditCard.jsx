@@ -10,6 +10,7 @@ import FormLabel from "@mui/material/FormLabel";
 
 import Calendar from "../Calendar/Calendar";
 import { useState } from "react";
+import dayjs from "dayjs";
 
 import {
   Wrapper,
@@ -25,18 +26,18 @@ import {
 
 const CardSchema = Yup.object().shape({
   title: Yup.string().required("Required"),
-  description: Yup.string(),
+  taskValue: Yup.string(),
   priority: Yup.string(),
   dedline: Yup.string(),
 });
 
-export default function EditCard({ closeForm, ...props }) {
+export default function EditCard({ onSaveEdit, closeForm, ...props }) {
   const [selectedValue, setSelectedValue] = useState("without");
-  const [dedlineValue, setDedlineValue] = useState(null);
+  const [deadlineValue, setDeadlineValue] = useState(null);
 
   const handleChange = (event) => setSelectedValue(event.target.value);
 
-  const onChangeDedline = (newValue) => setDedlineValue(newValue);
+  const onChangeDeadline = (newValue) => setDeadlineValue(newValue);
 
   const controlProps = (item) => ({
     checked: selectedValue === item,
@@ -68,30 +69,24 @@ export default function EditCard({ closeForm, ...props }) {
       <Formik
         initialValues={{
           title: `${props.title}`,
-          description: `${props.description}`,
+          taskValue: `${props.taskValue}`,
           priority: "",
-          dedline: "",
+          deadline: "",
         }}
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
-          values.dedline = dedlineValue.$d;
-
-          console.log(values);
-
-          actions.resetForm({
-            title: "", //
-            description: "", // не працює так
-            priority: "", //
-            dedline: "", //
-          });
+          values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
+          onSaveEdit(values);
+          actions.resetForm();
+          closeForm();
         }}
       >
         <Form>
           <Field type="text" name="title" />
           <ErrorMessage name="title" component="div" />
-          <Textarea name="description" component="textarea" />
-          <ErrorMessage name="description" component="div" />
+          <Textarea name="taskValue" component="textarea" />
+          <ErrorMessage name="taskValue" component="div" />
           <FormLabel id="radio-buttons-group-label">
             <Typography
               sx={{
@@ -210,7 +205,7 @@ export default function EditCard({ closeForm, ...props }) {
             Deadline
           </Typography>
 
-          <Calendar value={dedlineValue} onChange={onChangeDedline} />
+          <Calendar value={deadlineValue} onChange={onChangeDeadline} />
 
           <Button type="submit">
             <Div>

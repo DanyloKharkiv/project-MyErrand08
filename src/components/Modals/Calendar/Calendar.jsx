@@ -9,7 +9,7 @@ export default function Calendar({ value, onChange }) {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       {/* <DemoContainer components={["DatePicker"]}> */}
       <DatePicker
-        //defaultValue={dayjs()}
+        defaultValue={dayjs()}
         views={["year", "month", "day"]}
         disablePast
         value={value}

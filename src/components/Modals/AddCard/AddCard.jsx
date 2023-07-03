@@ -1,6 +1,7 @@
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Typography } from "@mui/material";
+import dayjs from "dayjs";
 
 import sprite from "../../../images/sprite.svg";
 
@@ -84,13 +85,11 @@ export default function AddCard() {
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
-          // values.deadline = `${deadlineValue.$D}-${deadlineValue.$M + 1}-${
-          //   deadlineValue.$y
-          // }`;
-          //values.deadline = `${deadlineValue.$d}`;
-          values.deadline = "12-12-1212";
+          //values.deadline = "02-07-2023"; // "12-12-1212";
+          values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
           onSave(values);
           actions.resetForm();
+          close();
         }}
       >
         <Form>
@@ -187,10 +186,10 @@ export default function AddCard() {
             />
 
             <FormControlLabel
-              value="without"
+              value="without priority"
               control={
                 <Radio
-                  {...controlProps("without")}
+                  {...controlProps("without priority")}
                   sx={{
                     color: "var(--withoutColor)",
                     padding: 0,

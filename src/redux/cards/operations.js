@@ -31,8 +31,8 @@ export const deleteCard = createAsyncThunk(
   "card/deleteCard",
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/tasks/${id}`);
-      return response.data;
+      await axios.delete(`/tasks/${id}`);
+      return id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
@@ -41,10 +41,16 @@ export const deleteCard = createAsyncThunk(
 
 export const editCard = createAsyncThunk(
   "card/editCard",
-  async (id, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(`/tasks/${id}`);
-      return response.data;
+      const { id, title, taskValue, priority, deadline } = data;
+      await axios.patch(`/tasks/${id}`, {
+        title,
+        taskValue,
+        priority,
+        deadline,
+      });
+      return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
