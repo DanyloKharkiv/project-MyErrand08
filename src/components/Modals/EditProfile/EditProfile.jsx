@@ -94,10 +94,6 @@ const EditProfile = ({modalClose}) => {
                     <use href={sprite +'#icon-x'}></use>
                 </svg>
             </EditCloseBtn>
-            <DropzoneBox
-                    selectedAvatar={selectedAvatar}
-                    setUploadImg={setUploadImg}
-                  />
             {!userAvatar &&  
                 <EditProfileSvg width="68" height="68"> 
                     <use href={sprite + `#icon-user`}></use> 
@@ -106,6 +102,7 @@ const EditProfile = ({modalClose}) => {
             {userAvatar && 
                 <EditProfileImg src={userAvatar} alt="user_icon" width={68} height={68} />
             }
+            
             <FileWrapper>
                 <Foto type="file" name="avatar" accept="image/*,.png,.jpg,.gif,.web" onChange={handleAvatarChange}>
                 </Foto>
