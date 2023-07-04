@@ -7,19 +7,8 @@ import { useState } from "react";
 import Modal from "../../../Modals/Modal";
 import EditColumn from "../../../Modals/EditColumn/EditColumn";
 
-import { useEffect } from "react";
-import { changeOwner } from "../../../../redux/cards/cardsSlice";
-import { fetchCards } from "../../../../redux/cards/operations";
-
 function ColumnItem({ item }) {
   const dispatch = useDispatch();
-
-  const { _id: id } = item;
-
-  useEffect(() => {
-    dispatch(changeOwner(id));
-    dispatch(fetchCards(id)); //sveta code
-  }, [dispatch, id]);
 
   const [modalIsOpenEditColumn, setModalIsOpenEditColumn] = useState(false);
 
@@ -31,7 +20,7 @@ function ColumnItem({ item }) {
   };
 
   return (
-    <Item key={item._id}>
+    <Item>
       <div>{item.title}</div>
 
       {modalIsOpenEditColumn && (

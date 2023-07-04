@@ -1,10 +1,21 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const ColumnsListUl = styled.ul`
   display: flex;
-`
+`;
 
-export const ColumnsListli = styled.li`
+// export const ColumnsListli = styled.li`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   width: 300px;
+//   height: 30px;
+//   padding: 5px;
+//   font-size: 16px;
+//   margin-top: 13px;
+// `;
+
+export const ColumnsListli = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,7 +62,7 @@ export const AddColumnIcon = styled.span`
   align-items: center;
   justify-content: center;
   color: var(--addBtnBox);
-  
+
   background-color: var(--addBtnIcon);
   border-radius: var(--borderRadius8);
 `;
@@ -63,16 +74,16 @@ export const AddCardIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  color:var(--addBtnText);
+  color: var(--addBtnText);
   background-color: var(--addCardBtnTxt);
   border-radius: var(--borderRadius8);
-`
+`;
 
 export const ColumnWrap = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 
 export const ButtonAddCard = styled.button`
   display: flex;
@@ -80,9 +91,9 @@ export const ButtonAddCard = styled.button`
   margin: 48px 0;
   padding: 10px 0px 11px 0px;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   border-radius: 8px;
-  background: var(--accentColor); 
+  background: var(--accentColor);
   border: none;
   cursor: pointer;
   color: var(--addCardBtnTxt);
@@ -98,5 +109,4 @@ export const ButtonAddCard = styled.button`
 
 export const ColumnInfo = styled.li`
   color: #fff;
-`
-
+`;
