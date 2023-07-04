@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
-
 export const BoardsElement = styled.div`
   /* padding-top: 24px; */
   padding-right: 0px;
   // padding-bottom: 40px;
 `;
-
 
 export const BoardsTitle = styled.h2`
   padding-left: 24px;
@@ -17,49 +15,53 @@ export const BoardsTitle = styled.h2`
   color: var(--myBoards);
 `;
 
-
 export const BoardsList = styled.ul`
   margin-top: 4px;
   /* border: 1px solid var(--boarder); */
-  padding-top:40px;
-  padding-bottom:40px;
-  height:206px;
-  overflow-block: scroll;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  height: 206px;
+  /* overflow-block: scroll; */
+  overflow-y: auto;
+  @media screen and (max-width: 1440px) {
+    height: 138px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
 `;
-
 
 export const BoardsItem = styled.li`
   display: flex;
-  height:61px;
+  height: 61px;
   align-items: center;
   justify-content: space-between;
   color: var(--contrastColor);
-  /* border: 1px solid white; */
+
   padding: 20px 24px 20px 24px;
-  /* opacity: 0.5; */
+
   font-size: 14px;
   font-weight: 500;
-  cursor: pointer;
-  
-  &:focus{
-    background-color: var(--prOfBg)
-  };
 
-  &:active{
-    background-color: var(--prOfBg)
-  };
+  cursor: pointer;
+
+
+  &:focus {
+    background-color: var(--prOfBg);
+  }
+
+  &:active {
+    background-color: var(--prOfBg);
+  }
 
   background-color: ${({ isSelected }) =>
     isSelected ? 'var(--prOfBg)' : 'transparent'};
 `;
-
 
 export const ProjectsBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
-
 
 export const ProjectSVG = styled.svg`
   margin-right: 8px;
@@ -77,4 +79,3 @@ export const BtnsSVG = styled.button`
   padding: 0;
   cursor: pointer;
 `;
-
