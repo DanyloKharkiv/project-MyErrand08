@@ -1,28 +1,43 @@
 import { useSelector } from "react-redux";
 import { selectCards } from "../../redux/cards/selectors";
-import { selectOwnerCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
-import { selectRadio } from "../../redux/filter/filterSelectors";
+import { fetchCards } from "../../redux/cards/operations";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+// import { selectRadio } from "../../redux/filter/filterSelectors";
 
-export default function CardTaskList() {
-  const currentOwnerColumn = useSelector(selectOwnerCards);
-  const filterValue = useSelector(selectRadio);
+export default function CardTaskList({ currentColumn }) {
+  const dispatch = useDispatch();
 
-  console.log("CardTaskList");
-  // console.log(currentOwnerColumn);
+  // const filterValue = useSelector(selectRadio);
+
+  useEffect(() => {
+    dispatch(fetchCards(currentColumn));
+  }, [dispatch, currentColumn]);
+  // }, []);
+
+  // console.log("currentColumn:", currentColumn);
 
   const list = useSelector(selectCards);
-  console.log("List from selector", list);
 
   const listCardsColumn = list.filter(
-    ({ ownerColumn, priority }) => ownerColumn === currentOwnerColumn && priority.includes(filterValue)
+    ({ ownerColumn }) => ownerColumn === currentColumn
+    // ({ ownerColumn, priority }) => ownerColumn === currentColumn && priority.includes(filterValue)
   );
 
   return (
     <>
       {listCardsColumn.length === 0 ? (
-        <Typography>There are no cards in the column</Typography>
+        <Typography
+          sx={{
+            fontFamily: "Poppins",
+            textAlign: "center",
+            mt: "10px",
+          }}
+        >
+          There are no cards in the column
+        </Typography>
       ) : (
         <List>
           {listCardsColumn.map(

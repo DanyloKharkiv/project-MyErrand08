@@ -17,6 +17,7 @@ const EditBoard = ({ close }) => {
   const deskId = useSelector(selectChangeDeskId);
   const oldDeskTitle = useSelector(selectChangeDeskTitle);
 
+
   const [title, setTitle] = useState('');
   const [icons, setIcons] = useState('');
   const [backImg, setBackImg] = useState('');

@@ -3,7 +3,6 @@ import { Header } from "../../components/Header/Header";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { ScreensPage } from "../ScreensPage/ScreensPage";
 import { Section, Main } from "./HomePage.Styled";
-import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 
 const HomePage = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);

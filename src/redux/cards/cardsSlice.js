@@ -24,20 +24,22 @@ const cardsSlice = createSlice({
     changeOwner(state, action) {
       state.currentOwner = action.payload;
     },
+    initialListCards(state, _) {
+      state.listCards = [];
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.listCards = action.payload;
+        if (action.payload.length) state.listCards.push(...action.payload);
       })
       .addCase(fetchCards.pending, handlePending)
       .addCase(fetchCards.rejected, handleRejected)
       .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // console.log("AP:", action.payload);
         state.listCards.push(action.payload);
       })
       .addCase(addCard.pending, handlePending)
@@ -68,3 +70,4 @@ const cardsSlice = createSlice({
 
 export const cardsReducer = cardsSlice.reducer;
 export const { changeOwner } = cardsSlice.actions;
+export const { initialListCards } = cardsSlice.actions;

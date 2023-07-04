@@ -4,7 +4,7 @@ export const Section = styled.div`
   font-family: Poppins;
   display: flex;
   height: 770px;
-  max-width: 1440px;
+  max-width: 100%;
   /* padding: 0; */
   margin: 0 auto;
   box-sizing: border-box;
