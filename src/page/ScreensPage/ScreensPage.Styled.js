@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
   background-color: var(--primaryBoardBg);
-  height: 709px;
+  height: 702px;
 `;
 export const SectionHeader = styled.div`
   display: flex;
@@ -50,7 +50,7 @@ export const FilterBtn = styled.button`
   border: none;
   padding: 0;
   margin-left: 8px;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export const AddBtnText = styled.p`
