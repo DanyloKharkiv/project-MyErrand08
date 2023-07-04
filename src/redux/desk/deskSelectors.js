@@ -13,10 +13,6 @@ export const selectChangeDeskId = state => state.desks.desks.changeDeskId;
 
 export const selectChangeDeskTitle = state => state.desks.desks.changeDeskTitle;
 
-export const selectChangeDeskIcon = state => state.desks.desks.changeDeskIcon;
-
-export const selectChangeDeskBg = state => state.desks.desks.changeDeskBG;
-
 export const selectVisibleDesks = createSelector(
   [selectDesks, selectBackImg],
   (desks, filterValue) => {

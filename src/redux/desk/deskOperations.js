@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix';
 
 axios.defaults.baseURL = 'https://tasks-backed.onrender.com/api/';
 
@@ -50,7 +51,39 @@ export const changeDeskNameById = createAsyncThunk(
       const response = await axios.patch(`/desk/${newTitle._id}/title`, {
         title: newTitle.title,
       });
+      Notify.success('The desk title was changed succesfully!');
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
 
+export const changeDeskIconById = createAsyncThunk(
+  'desks/changeDeskIconById',
+
+  async (newIcon, thunkApi) => {
+    try {
+      const response = await axios.patch(`/desk/${newIcon._id}/icon`, {
+        icon: newIcon.icon,
+      });
+      Notify.success('The desk icon was changed succesfully!');
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeDeskBGById = createAsyncThunk(
+  'desks/changeDeskBGById',
+
+  async (newbackImg, thunkApi) => {
+    try {
+      const response = await axios.patch(`/desk/${newbackImg._id}/background`, {
+        background: newbackImg.background,
+      });
+      Notify.success('The desk background was changed succesfully!');
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

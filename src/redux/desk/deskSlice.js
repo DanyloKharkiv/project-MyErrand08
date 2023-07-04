@@ -5,6 +5,9 @@ import {
   fetchDesks,
   setActiveDeskId,
   changeActiveDeskById,
+  changeDeskNameById,
+  changeDeskIconById,
+  changeDeskBGById,
 } from './deskOperations';
 
 const initialState = {
@@ -80,7 +83,31 @@ const desksSlice = createSlice({
         state.desks.changeDeskBG = action.payload.background;
       })
       .addCase(changeActiveDeskById.pending, handlePending)
-      .addCase(changeActiveDeskById.rejected, handleRejected);
+      .addCase(changeActiveDeskById.rejected, handleRejected)
+
+      .addCase(changeDeskNameById.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.changeDeskTitle = action.payload.title;
+      })
+      .addCase(changeDeskNameById.pending, handlePending)
+      .addCase(changeDeskNameById.rejected, handleRejected)
+
+      .addCase(changeDeskIconById.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.changeDeskIcon = action.payload.icon;
+      })
+      .addCase(changeDeskIconById.pending, handlePending)
+      .addCase(changeDeskIconById.rejected, handleRejected)
+
+      .addCase(changeDeskBGById.fulfilled, (state, action) => {
+        state.desks.isLoading = false;
+        state.desks.error = null;
+        state.desks.changeDeskBG = action.payload.background;
+      })
+      .addCase(changeDeskBGById.pending, handlePending)
+      .addCase(changeDeskBGById.rejected, handleRejected);
   },
 });
 

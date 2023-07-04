@@ -3,27 +3,23 @@ import sprite from '../../../images/sprite.svg';
 import { useState } from 'react';
 import backimg from '../../../json/icon.json';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeDeskNameById } from '../../../redux/desk/deskOperations';
-import { getUserId } from '../../../redux/auth/authSelector';
 import {
-  selectChangeDeskId,
-  selectChangeDeskTitle,
-  selectChangeDeskIcon,
-  selectChangeDeskBg,
-} from '../../../redux/desk/deskSelectors';
+  changeDeskNameById,
+  changeDeskIconById,
+  changeDeskBGById,
+} from '../../../redux/desk/deskOperations';
+
+import { selectChangeDeskId, selectChangeDeskTitle } from '../../../redux/desk/deskSelectors';
 
 const EditBoard = ({ close }) => {
   const dispatch = useDispatch();
 
-  const ownerUser = useSelector(getUserId);
   const deskId = useSelector(selectChangeDeskId);
   const oldDeskTitle = useSelector(selectChangeDeskTitle);
-  const oldDeskIcon = useSelector(selectChangeDeskIcon);
-  const oldDeskBG = useSelector(selectChangeDeskBg);
 
   const [title, setTitle] = useState('');
-  const [icons, setIcons] = useState('icon-1');
-  const [backImg, setBackImg] = useState('id-3');
+  const [icons, setIcons] = useState('');
+  const [backImg, setBackImg] = useState('');
 
   const handleClose = () => {
     close();
@@ -47,24 +43,25 @@ const EditBoard = ({ close }) => {
   };
   const onFormSubmit = e => {
     e.preventDefault();
-    const newDesk = {
-      _id: deskId,
-      title: title,
-      ownerUser: ownerUser,
-      icon: icons,
-      background: backImg,
-    };
 
-    if (title !== '' && title !== oldDeskTitle) {
+    if (title !== '') {
       const newTitle = { _id: deskId, title: title };
       dispatch(changeDeskNameById(newTitle));
     }
 
-    // dispatch(changeDesk(newDesk));
+    if (icons !== '') {
+      const newIcon = { _id: deskId, icon: icons };
+      dispatch(changeDeskIconById(newIcon));
+    }
+
+    if (backImg !== '') {
+      const newbackImg = { _id: deskId, background: backImg };
+      dispatch(changeDeskBGById(newbackImg));
+    }
 
     setTitle('');
     setIcons('');
-    setBackImg('id-0');
+    setBackImg('');
     close();
   };
 
@@ -73,7 +70,7 @@ const EditBoard = ({ close }) => {
       <svg onClick={handleClose} className={css.closeBtn} width="18" height="18">
         <use href={sprite + '#icon-x'}></use>
       </svg>
-      <h3 className={css.title}>Edit Board</h3>
+      <h3 className={css.title}>Enter a new board name:</h3>
       <form onSubmit={onFormSubmit}>
         <input
           onChange={onFormChange}
@@ -84,7 +81,7 @@ const EditBoard = ({ close }) => {
           id="title"
           placeholder={oldDeskTitle}
         />
-        <h3 className={css.iconsTitle}>Icons</h3>
+        <h3 className={css.iconsTitle}>Choose an icon:</h3>
         <ul className={css.inputList}>
           <li>
             <label htmlFor="icon_1">
@@ -240,7 +237,7 @@ const EditBoard = ({ close }) => {
             </label>
           </li>
         </ul>
-        <h3 className={css.iconsTitle}>Background</h3>
+        <h3 className={css.iconsTitle}>Choose a background:</h3>
         <ul className={css.backgroundList}>
           {backimg.map(({ url, id }) => (
             <li className={css.backgroundListItem} key={id}>
