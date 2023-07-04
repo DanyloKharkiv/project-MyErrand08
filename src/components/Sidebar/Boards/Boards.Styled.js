@@ -42,6 +42,9 @@ export const BoardsItem = styled.li`
   font-size: 14px;
   font-weight: 500;
 
+  cursor: pointer;
+
+
   &:focus {
     background-color: var(--prOfBg);
   }
@@ -50,16 +53,14 @@ export const BoardsItem = styled.li`
     background-color: var(--prOfBg);
   }
 
-  // &:first-child {
-  //   background-color: var(--prOfBg);
-  // }
+  background-color: ${({ isSelected }) =>
+    isSelected ? 'var(--prOfBg)' : 'transparent'};
 `;
 
 export const ProjectsBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  cursor: pointer;
 `;
 
 export const ProjectSVG = styled.svg`
@@ -72,7 +73,8 @@ export const BtnsSVGBox = styled.div`
 
 export const BtnsSVG = styled.button`
   margin-left: 8px;
-  background-color: var(--sidebarColor);
+  background-color: ${({ isSelected }) =>
+    isSelected ? 'var(--prOfBg)' : 'transparent'};
   border: none;
   padding: 0;
   cursor: pointer;

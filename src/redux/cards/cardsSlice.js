@@ -30,14 +30,14 @@ const cardsSlice = createSlice({
       .addCase(fetchCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.listCards = action.payload;
+        // console.log("APfetch:", action.payload);
+        if (action.payload.length) state.listCards.push(...action.payload);
       })
       .addCase(fetchCards.pending, handlePending)
       .addCase(fetchCards.rejected, handleRejected)
       .addCase(addCard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // console.log("AP:", action.payload);
         state.listCards.push(action.payload);
       })
       .addCase(addCard.pending, handlePending)
