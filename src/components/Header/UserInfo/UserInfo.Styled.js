@@ -25,4 +25,5 @@ export const UserName = styled.p`
 export const UserAvatar = styled.div`
   border-radius: 8px;
   cursor: pointer;
+  height: 32px;
 `;
