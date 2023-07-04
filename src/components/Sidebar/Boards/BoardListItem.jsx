@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   changeActiveDeskById,
   deleteDesk,
@@ -10,6 +10,8 @@ import sprite from '../../../images/sprite.svg';
 
 import { useRef } from 'react';
 import EditBoardModal from '../../Modals/EditDeskModal/EditBoardModal';
+import { useSelect } from '@mui/base';
+import { selectActiveDeskId } from '../../../redux/desk/deskSelectors';
 
 export const DesksListItem = ({ _id, icon, title, background }) => {
   const dispatch = useDispatch();
@@ -34,16 +36,18 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
     }
   };
 
+  const activeDeskId = useSelector (selectActiveDeskId);
+
   return (
-    <BoardsItem>
-      <ProjectsBox onClick={() => handleClickActiveDeskId(_id)}>
+    <BoardsItem isSelected={activeDeskId === _id} key={_id} onClick={() => handleClickActiveDeskId(_id)}>
+      <ProjectsBox>
         <ProjectSVG width="18" height="18" stroke="var(--contrastColor)">
           <use href={sprite + `#${icon}`}></use>
         </ProjectSVG>
         <span>{title}</span>
       </ProjectsBox>
       <BtnsSVGBox>
-        <BtnsSVG>
+        <BtnsSVG isSelected={activeDeskId === _id}>
           <svg
             onClick={() => {
               handleClickChangeDeskById(_id, title, icon, background);
