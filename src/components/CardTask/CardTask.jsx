@@ -208,7 +208,7 @@ export default function CardTask({ card }) {
               alignItems: "center",
             }}
           >
-            <Box
+            {/* <Box
               sx={{
                 width: "20px",
                 height: "20px",
@@ -217,17 +217,26 @@ export default function CardTask({ card }) {
                 backgroundColor: "var(--gradientFonColor)",
                 boxShadow: " 0 0 5px 3px  #bedbb0",
                 textAlign: "center",
+                position: "relative",
+              }}
+            > */}
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="var(--filterModalText)"
+              style={{
+                boxShadow: " 0 0 6px 4px  #bedbb0",
+                borderRadius: "50%",
+                //  backgroundColor: "var(--gradientFonColor)",
+                //   position: "absolute",
+                //   top: "50%",
+                //   left: "50%",
               }}
             >
-              <svg
-                width="16"
-                height="16"
-                fill="none"
-                stroke="var(--filterModalText)"
-              >
-                <use href={sprite + `#icon-Icon-bell`}></use>
-              </svg>
-            </Box>
+              <use href={sprite + `#icon-Icon-bell`}></use>
+            </svg>
+            {/* </Box> */}
             <CardActions sx={{ pt: 0, pb: 0, pr: 0 }}>
               <Button sx={{ minWidth: "18px", borderRadius: "50%" }}>
                 <svg
