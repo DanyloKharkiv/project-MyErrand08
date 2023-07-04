@@ -4,6 +4,8 @@ export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
   background-color: var(--primaryBoardBg);
   height: 702px;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 export const SectionHeader = styled.div`
   display: flex;
