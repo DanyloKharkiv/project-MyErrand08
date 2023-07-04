@@ -1,20 +1,25 @@
 import { useSelector } from "react-redux";
 import { selectCards } from "../../redux/cards/selectors";
-import { selectOwnerCards } from "../../redux/cards/selectors";
 import { List, Typography } from "@mui/material";
 import CardTask from "../CardTask/CardTask";
+import { fetchCards } from "../../redux/cards/operations";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
-export default function CardTaskList() {
-  const currentOwnerColumn = useSelector(selectOwnerCards);
+export default function CardTaskList({ currentColumn }) {
+  const dispatch = useDispatch();
 
-  console.log("CardTaskList");
-  // console.log(currentOwnerColumn);
+  useEffect(() => {
+    dispatch(fetchCards(currentColumn));
+  }, [dispatch, currentColumn]);
+
+  // console.log("currentColumn:", currentColumn);
 
   const list = useSelector(selectCards);
-  console.log("List from selector", list);
+  //console.log("List from selector", list);
 
   const listCardsColumn = list.filter(
-    ({ ownerColumn }) => ownerColumn === currentOwnerColumn
+    ({ ownerColumn }) => ownerColumn === currentColumn
   );
 
   return (

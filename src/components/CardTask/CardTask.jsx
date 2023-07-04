@@ -41,6 +41,8 @@ const priorityColor = (priority) => {
       return "var(--highColor)";
     case "without":
       return "var(--withoutColor)";
+    default:
+      return "var(--withoutColor)";
   }
 };
 
@@ -61,7 +63,6 @@ export default function CardTask({ card }) {
   const handleDeleteCard = () => dispatch(deleteCard(id));
 
   const onSaveEdit = (values) => {
-    console.log("object onSaveEdit", values);
     dispatch(editCard({ id, ...values }));
   };
   return (
