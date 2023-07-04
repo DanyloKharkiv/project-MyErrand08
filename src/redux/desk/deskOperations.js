@@ -8,8 +8,20 @@ export const fetchDesks = createAsyncThunk(
 
   async thunkApi => {
     try {
-        const response = await axios.get('/desk');
-        console.log(response.data)
+      const response = await axios.get('/desk');
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getDeskById = createAsyncThunk(
+  'desks/getDeskById',
+
+  async (deskId, thunkApi) => {
+    try {
+      const response = await axios.get(`/desk/${deskId}`);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -23,6 +35,22 @@ export const addDesk = createAsyncThunk(
   async (desk, thunkApi) => {
     try {
       const response = await axios.post('/desk', desk);
+      return response.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeDeskNameById = createAsyncThunk(
+  'desks/changeDeskNameById',
+
+  async (newTitle, thunkApi) => {
+    try {
+      const response = await axios.patch(`/desk/${newTitle._id}/title`, {
+        title: newTitle.title,
+      });
+
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
@@ -49,6 +77,18 @@ export const setActiveDeskId = createAsyncThunk(
   async (deskId, thunkApi) => {
     try {
       return deskId;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const changeActiveDeskById = createAsyncThunk(
+  'desks/changeActiveDeskById',
+
+  async (params, thunkApi) => {
+    try {
+      return params;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }

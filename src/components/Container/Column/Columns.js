@@ -8,6 +8,7 @@ import {
 //import { fetchColumns } from "../../../redux/column/columnOperation";
 import ColumnList from "./ColumnList/ColumnList";
 import { ColumnsUl } from "./Columns.Styled";
+import { Loader } from "../../Loader/Loader";
 
 export const Columns = ({ idDesk }) => {
   //const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const Columns = ({ idDesk }) => {
 
   return (
     <>
-      {isLoading && !error && <b>Loading...</b>}
+      {isLoading && !error && <Loader />}
 
       <ColumnsUl>
         <ColumnList idDesk={idDesk} />

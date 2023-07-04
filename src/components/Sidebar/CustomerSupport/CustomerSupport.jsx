@@ -27,7 +27,7 @@ export const CustomerSupport = () => {
         support resources or reach out to our customer support team.
       </Text>
       <HelpBtn onClick={openHelpModal}>
-        <svg width="20" height="20" stroke="var(--contrastColor)" fill="var(--needHelpBg)">
+        <svg width="20" height="20" stroke="var(--contrastColor)" fill="none">
           <use href={sprite + `#icon-help-circle`}></use>
         </svg>
         <HelpText>Need Help?</HelpText>

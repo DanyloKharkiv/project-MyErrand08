@@ -102,6 +102,9 @@ export const ButtonAddCard = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  :hover {
+    color: var(--accentColor);
+  }
 `;
 
 export const ColumnInfo = styled.li`

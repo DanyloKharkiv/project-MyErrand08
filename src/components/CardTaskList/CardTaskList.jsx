@@ -5,9 +5,12 @@ import CardTask from "../CardTask/CardTask";
 import { fetchCards } from "../../redux/cards/operations";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { selectRadio } from "../../redux/filter/filterSelectors";
 
 export default function CardTaskList({ currentColumn }) {
   const dispatch = useDispatch();
+
+  const filterValue = useSelector(selectRadio);
 
   useEffect(() => {
     dispatch(fetchCards(currentColumn));
@@ -20,6 +23,7 @@ export default function CardTaskList({ currentColumn }) {
 
   const listCardsColumn = list.filter(
     ({ ownerColumn }) => ownerColumn === currentColumn
+    // ({ ownerColumn, priority }) => ownerColumn === currentColumn && priority.includes(filterValue)
   );
 
   return (

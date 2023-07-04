@@ -34,6 +34,15 @@ export const EditProfileImg = styled.img`
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
+    cursor: pointer;
+    border-radius: 8px;
+`;
+
+export const EditProfileSvg = styled.svg`
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
 `;
 
 export const FileWrapper = styled.div`
@@ -55,6 +64,18 @@ export const Foto = styled.input`
     border-radius: 8px;
     opacity: 0;
     `;
+
+   /** export const EditFotoBtn = styled.div`
+    width: 24px;
+    height: 24px;
+    background-color: var(--modalEditPlusFoto);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    `;
+    */ 
 
 export const EditFoto = styled.svg`
     position: absolute;

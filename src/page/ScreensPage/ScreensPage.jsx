@@ -9,8 +9,9 @@ import sprite from "../../images/sprite.svg";
 import { useRef } from "react";
 import FilterModal from '../../components/Modals/Filters/FilterModal'
 import Columns from "../../components/Container/Column/Columns";
-import { selectActiveDeskId } from "../../redux/desk/deskSelectors";
+import { selectActiveDeskId, selectDesks } from "../../redux/desk/deskSelectors";
 import { useSelector } from "react-redux";
+import { DefaultScreen } from "../../components/DefaultScreen/DefaultScreen";
 
 export const ScreensPage = () => {
 
@@ -24,10 +25,23 @@ export const ScreensPage = () => {
 
   const idDesk = useSelector(selectActiveDeskId);
 
+  const allDesks = useSelector(selectDesks);
+
+
+
   return (
     <ScreensPageElement>
       <SectionHeader>
-        <Title>Project office { idDesk}</Title>
+        <Title>
+          {idDesk && <div>
+            {
+              allDesks.map((desk) => (
+                (desk._id === idDesk) ? desk.title : ""
+              ))
+            }
+          </div>
+          }
+        </Title>
         <Filter>
           <svg
             width="16"
@@ -41,10 +55,9 @@ export const ScreensPage = () => {
         </Filter>
       </SectionHeader>
 
-      
-{/* {dashboards && dashboards.length > 0 ? <ProjectOffice /> : <DefaultScreen />}  */}
-
-      <Columns idDesk={ idDesk } />
+      {allDesks.length === 0 && <DefaultScreen />}
+      {allDesks.length > 0 && !idDesk && <p>Please, select a Board!</p>}
+      {idDesk && <Columns idDesk={idDesk} />}
 
       <FilterModal ref={filterModalRef} />
     </ScreensPageElement>

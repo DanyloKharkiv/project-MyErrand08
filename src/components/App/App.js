@@ -11,6 +11,7 @@ import {
   selectToken,
 } from "../../redux/auth/authSelector";
 import { ScreensPage } from "../../page/ScreensPage/ScreensPage";
+import { Loader } from "../Loader/Loader";
 
 const WelcomePage = lazy(() => import("../../page/WelcomePage/WelcomePage"));
 const AuthPage = lazy(() => import("../../page/AuthPage/AuthPage"));
@@ -26,13 +27,13 @@ function App() {
     if (accessToken) {
       dispatch(currentUser());
     }
-  }, []);
+  }, [dispatch, accessToken]);
 
   return (
     !isRefreshing &&
     !isLoading && (
       <>
-        <Suspense>
+        <Suspense fallback = {<Loader/>}>
           <Routes>
             <Route
               path="/home"
@@ -64,6 +65,7 @@ function App() {
             />
           </Routes>
         </Suspense>
+        {isLoading && <Loader/>}
       </>
     )
   );
