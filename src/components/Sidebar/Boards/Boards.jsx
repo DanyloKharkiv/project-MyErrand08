@@ -3,13 +3,13 @@ import {
   BoardsElement,
   BoardsTitle,
   // BoardsList,
-  BoardsItem,
-  ProjectsBox,
-  ProjectSVG,
-  BtnsSVGBox,
-  BtnsSVG,
+  // BoardsItem,
+  // ProjectsBox,
+  // ProjectSVG,
+  // BtnsSVGBox,
+  // BtnsSVG,
 } from "./Boards.Styled";
-import sprite from "../../../images/sprite.svg";
+// import sprite from "../../../images/sprite.svg";
 import BoardsList from "./BoardList";
 
 export const Boards = () => {

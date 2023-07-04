@@ -10,7 +10,7 @@ import sprite from '../../../images/sprite.svg';
 
 import { useRef } from 'react';
 import EditBoardModal from '../../Modals/EditDeskModal/EditBoardModal';
-import { useSelect } from '@mui/base';
+// import { useSelect } from '@mui/base';
 import { selectActiveDeskId } from '../../../redux/desk/deskSelectors';
 
 export const DesksListItem = ({ _id, icon, title, background }) => {

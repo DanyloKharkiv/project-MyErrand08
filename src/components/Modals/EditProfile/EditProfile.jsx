@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAvatar, getName, getUserEmail } from "../../../redux/auth/authSelector";
-import userTemp from "../../../images/temp_avatar.png";
+// import userTemp from "../../../images/temp_avatar.png";
 import {
     EditProfileForm,
     EditProfileInput,
