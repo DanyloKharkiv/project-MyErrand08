@@ -21,6 +21,7 @@ import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import axios from "axios";
 import { Notify } from "notiflix";
 import { updateAvatar, updateEmail, updateName } from "../../../redux/auth/authOperation";
+import {DropzoneBox} from '../../DropZone/DropZone'
 
 const EditProfile = ({modalClose}) => {
     const userAvatar = useSelector(getAvatar);
@@ -28,6 +29,8 @@ const EditProfile = ({modalClose}) => {
     const userEmail = useSelector(getUserEmail);
     const [showPassword, setShowPassword] = useState(false);
     const [selectedAvatar, setSelectedAvatar] = useState(null);
+    // const [isShowEditor, setIsShowEditor] = useState(false);
+    const [uploadImg, setUploadImg] = useState(null);
     const dispatch = useDispatch();
 
     const togglePasswordVisibility = () => {
@@ -91,6 +94,10 @@ const EditProfile = ({modalClose}) => {
                     <use href={sprite +'#icon-x'}></use>
                 </svg>
             </EditCloseBtn>
+            <DropzoneBox
+                    selectedAvatar={selectedAvatar}
+                    setUploadImg={setUploadImg}
+                  />
             {!userAvatar &&  
                 <EditProfileSvg width="68" height="68"> 
                     <use href={sprite + `#icon-user`}></use> 
