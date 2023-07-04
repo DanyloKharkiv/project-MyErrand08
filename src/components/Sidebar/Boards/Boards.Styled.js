@@ -20,7 +20,7 @@ export const BoardsList = styled.ul`
   /* border: 1px solid var(--boarder); */
   padding-top: 40px;
   padding-bottom: 40px;
-  height: 206px;
+  /* height: 206px; */
   /* overflow-block: scroll; */
   overflow-y: auto;
   @media screen and (max-width: 1440px) {
@@ -44,7 +44,6 @@ export const BoardsItem = styled.li`
 
   cursor: pointer;
 
-
   &:focus {
     background-color: var(--prOfBg);
   }
@@ -54,7 +53,7 @@ export const BoardsItem = styled.li`
   }
 
   background-color: ${({ isSelected }) =>
-    isSelected ? 'var(--prOfBg)' : 'transparent'};
+    isSelected ? "var(--prOfBg)" : "transparent"};
 `;
 
 export const ProjectsBox = styled.div`
@@ -74,7 +73,7 @@ export const BtnsSVGBox = styled.div`
 export const BtnsSVG = styled.button`
   margin-left: 8px;
   background-color: ${({ isSelected }) =>
-    isSelected ? 'var(--prOfBg)' : 'transparent'};
+    isSelected ? "var(--prOfBg)" : "transparent"};
   border: none;
   padding: 0;
   cursor: pointer;

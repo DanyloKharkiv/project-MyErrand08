@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  /* max-height: 100%; */
   background-color: var(--sidebarColor);
   color: var(--contrastColor);
   min-width: 260px;

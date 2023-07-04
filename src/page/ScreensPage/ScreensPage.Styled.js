@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
   background-color: var(--primaryBoardBg);
-  height: 702px;
+  height: 100%;
 `;
 export const SectionHeader = styled.div`
   display: flex;

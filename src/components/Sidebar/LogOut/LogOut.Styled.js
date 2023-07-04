@@ -4,8 +4,9 @@ export const LogoutElement = styled.div`
   display: flex;
   align-items: center;
   /* font-family: Poppins; */
-  margin-left: 24px;
-  margin-top: 24px;
+  padding-left: 24px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   cursor: pointer;
 `;
 
