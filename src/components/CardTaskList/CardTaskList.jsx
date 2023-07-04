@@ -15,11 +15,11 @@ export default function CardTaskList({ currentColumn }) {
   useEffect(() => {
     dispatch(fetchCards(currentColumn));
   }, [dispatch, currentColumn]);
+  // }, []);
 
   // console.log("currentColumn:", currentColumn);
 
   const list = useSelector(selectCards);
-  //console.log("List from selector", list);
 
   const listCardsColumn = list.filter(
     ({ ownerColumn }) => ownerColumn === currentColumn
@@ -29,7 +29,15 @@ export default function CardTaskList({ currentColumn }) {
   return (
     <>
       {listCardsColumn.length === 0 ? (
-        <Typography>There are no cards in the column</Typography>
+        <Typography
+          sx={{
+            fontFamily: "Poppins",
+            textAlign: "center",
+            mt: "10px",
+          }}
+        >
+          There are no cards in the column
+        </Typography>
       ) : (
         <List>
           {listCardsColumn.map(
