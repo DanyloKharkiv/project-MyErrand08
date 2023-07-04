@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   changeActiveDeskById,
   deleteDesk,
@@ -6,7 +6,6 @@ import {
 } from '../../../redux/desk/deskOperations';
 import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from './Boards.Styled';
 import sprite from '../../../images/sprite.svg';
-
 
 import { useRef } from 'react';
 import EditBoardModal from '../../Modals/EditDeskModal/EditBoardModal';
