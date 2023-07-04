@@ -4,22 +4,22 @@ import { useState } from 'react';
 import backimg from '../../../json/icon.json';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeDeskNameById } from '../../../redux/desk/deskOperations';
-import { getUserId } from '../../../redux/auth/authSelector';
+// import { getUserId } from '../../../redux/auth/authSelector';
 import {
   selectChangeDeskId,
   selectChangeDeskTitle,
-  selectChangeDeskIcon,
-  selectChangeDeskBg,
+  // selectChangeDeskIcon,
+  // selectChangeDeskBg,
 } from '../../../redux/desk/deskSelectors';
 
 const EditBoard = ({ close }) => {
   const dispatch = useDispatch();
 
-  const ownerUser = useSelector(getUserId);
+  // const ownerUser = useSelector(getUserId);
   const deskId = useSelector(selectChangeDeskId);
   const oldDeskTitle = useSelector(selectChangeDeskTitle);
-  const oldDeskIcon = useSelector(selectChangeDeskIcon);
-  const oldDeskBG = useSelector(selectChangeDeskBg);
+  // const oldDeskIcon = useSelector(selectChangeDeskIcon);
+  // const oldDeskBG = useSelector(selectChangeDeskBg);
 
   const [title, setTitle] = useState('');
   const [icons, setIcons] = useState('icon-1');
@@ -47,13 +47,13 @@ const EditBoard = ({ close }) => {
   };
   const onFormSubmit = e => {
     e.preventDefault();
-    const newDesk = {
-      _id: deskId,
-      title: title,
-      ownerUser: ownerUser,
-      icon: icons,
-      background: backImg,
-    };
+    // const newDesk = {
+    //   _id: deskId,
+    //   title: title,
+    //   ownerUser: ownerUser,
+    //   icon: icons,
+    //   background: backImg,
+    // };
 
     if (title !== '' && title !== oldDeskTitle) {
       const newTitle = { _id: deskId, title: title };
