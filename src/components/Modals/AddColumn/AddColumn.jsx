@@ -10,6 +10,7 @@ import {
   FieldInput,
   FrmButton,
   CloseBtn,
+  ScrollBlock,
 } from "./AddColumn.Styled";
 import { selectColumnsItems } from "../../../redux/column/columnSlice";
 import { addColumn } from "../../../redux/column/columnOperation";
@@ -17,6 +18,15 @@ import { addColumn } from "../../../redux/column/columnOperation";
 import sprite from "../../../images/sprite.svg";
 import { getUserId } from "../../../redux/auth/authSelector";
 import { selectActiveDeskId } from "../../../redux/desk/deskSelectors";
+
+const options = {
+  scrollbars: {
+    scrollbars: { autoHide: 'scroll' },
+    overflow: {
+      x: 'hidden',
+    },
+  },
+};
 
 const nameRegex =
   /^[a-zA-Zа-яА-Я 0-9]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/;
@@ -62,6 +72,7 @@ const AddColumn = ({ close }) => {
         handleClose();
       }}
     >
+      <ScrollBlock defer element="div" options={options}>
       <Form>
         <CloseBtn onClick={handleClose} stroke="var(--modalCloseIcon)">
           <use href={sprite + "#icon-x"}></use>
@@ -76,8 +87,9 @@ const AddColumn = ({ close }) => {
           </Field>
           <ErrorMessage name="title" component="span" />
         </FormField>
-        <FrmButton type="submit">Add</FrmButton>
-      </Form>
+          <FrmButton type="submit">Add</FrmButton>
+        </Form>
+        </ScrollBlock>
     </Formik>
   );
 };
