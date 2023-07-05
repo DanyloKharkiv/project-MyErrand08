@@ -50,7 +50,7 @@ export const FilterBtn = styled.button`
   font-size: var(--fontSize14);
   line-height: 21px;
   font-family: Poppins;
-  background-color: var(--primaryBoardBg);
+  background-color: transparent;
   border: none;
   padding: 0;
   margin-left: 8px;
