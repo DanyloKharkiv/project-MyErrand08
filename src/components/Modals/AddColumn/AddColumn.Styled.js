@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import { Form as FormikForm, ErrorMessage as FormikError } from 'formik';
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
+
+export const ScrollBlock = styled(OverlayScrollbarsComponent)`
+  margin: 20px 0px;
+  margin-right: -15px;
+`;
 
 export const Form = styled(FormikForm)`
   display: flex;
@@ -76,4 +82,4 @@ stroke: var(--modalCloseIcon);
 fill: red;
 z-index: 9999;
 cursor: pointer;
-`
+`;
