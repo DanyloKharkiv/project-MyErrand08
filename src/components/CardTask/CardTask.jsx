@@ -121,7 +121,7 @@ export default function CardTask({ card }) {
             display: "flex",
             justifyContent: "start",
             alignItems: "center",
-            gap: "20px",
+            gap: "30px",
             mt: "10px",
           }}
         >
@@ -183,7 +183,7 @@ export default function CardTask({ card }) {
                     lineHeight: 1.5,
                   }}
                 >
-                  {priority}
+                  {priority == "without priority" ? "without" : priority}
                 </Box>
               </Box>
             </Box>
