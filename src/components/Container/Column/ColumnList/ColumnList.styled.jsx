@@ -71,7 +71,7 @@ export const AddCardIcon = styled.span`
 export const ColumnWrap = styled.ul`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 `;
 
 export const ButtonAddCard = styled.button`
@@ -91,9 +91,9 @@ export const ButtonAddCard = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  :hover {
+  /* :hover {
     color: var(--accentColor);
-  }
+  } */
 `;
 
 export const ColumnInfo = styled.li`

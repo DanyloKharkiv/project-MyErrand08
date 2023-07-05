@@ -3,7 +3,9 @@ import styled from "styled-components";
 export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
   background-color: var(--primaryBoardBg);
-  height: 702px;
+
+  height: calc(100vh - 68px);
+  /* height: 100vh; */
   background-repeat: no-repeat;
   background-size: cover;
 `;
