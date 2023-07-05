@@ -17,12 +17,12 @@ export const BoardsTitle = styled.h2`
 
 export const BoardsList = styled.ul`
   margin-top: 4px;
+  margin-bottom: 10px;
   /* border: 1px solid var(--boarder); */
-  padding-top: 40px;
-  padding-bottom: 40px;
+
   height: 206px;
   /* overflow-block: scroll; */
-  overflow-y: auto;
+
   @media screen and (max-width: 1440px) {
     height: 138px;
     padding-top: 12px;
