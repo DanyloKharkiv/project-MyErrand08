@@ -30,7 +30,7 @@ const DesksList = () => {
     useScrollbar(desksWrapper, hasScroll);
 
     return (
-        <BoardsList style={{ marginTop: '1rem', height: hasScroll ? '140px' : 'auto', minHeight: '140px' }} ref={desksWrapper}>
+        <BoardsList ref={desksWrapper}>
             {visibleDesks.length > 0 ? (
         visibleDesks.map(desk => (
           <DesksListItem key={desk._id} {...desk}/>
