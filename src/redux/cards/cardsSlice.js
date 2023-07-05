@@ -10,7 +10,6 @@ const handleRejected = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
   Notiflix.Notify.failure(`Помилка! Картка не створена. ${action.payload}`);
-  console.log("ERROR");
 };
 
 const cardsSlice = createSlice({

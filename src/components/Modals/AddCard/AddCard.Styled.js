@@ -5,7 +5,7 @@ import { ErrorMessage as FormikError } from "formik";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 522px;
+  height: 530px;
   padding: 24px;
   justify-content: center;
   flex-direction: column;
