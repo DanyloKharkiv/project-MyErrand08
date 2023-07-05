@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Text = styled.span`
   margin-right: 8px;
@@ -22,8 +22,15 @@ export const UserName = styled.p`
   }
 `;
 
-export const UserAvatar = styled.div`
+export const UserAvatarBox = styled.div`
   border-radius: 8px;
   cursor: pointer;
   height: 32px;
+  width: 32px;
+  overflow: hidden;
+`;
+
+export const UserAvatar = styled.img`
+  height: 32px;
+  width: 32px;
 `;
