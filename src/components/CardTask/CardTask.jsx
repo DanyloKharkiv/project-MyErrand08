@@ -2,12 +2,13 @@ import { Card, CardContent, CardActions } from "@mui/material";
 import { Button, Box, Typography } from "@mui/material";
 import sprite from "../../images/sprite.svg";
 import EllipsisText from "react-ellipsis-text";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../Modals/Modal";
 import EditCard from "../Modals/EditCard/EditCard";
 import { useDispatch } from "react-redux";
 import { editCard, deleteCard } from "../../redux/cards/operations";
 import dayjs from "dayjs";
+import PopoverCard from "./PopoverCard";
 
 const line = (color) => (
   <Box
@@ -19,6 +20,7 @@ const line = (color) => (
     }}
   ></Box>
 );
+
 const bull = (color) => (
   <Box
     sx={{
@@ -49,6 +51,7 @@ const priorityColor = (priority) => {
 export default function CardTask({ card }) {
   const { id, title, taskValue, priority, deadline } = card;
   const [showModal, setShowModal] = useState(false);
+  const [showRemDedline, setShowRemDedline] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -65,6 +68,23 @@ export default function CardTask({ card }) {
   const onSaveEdit = (values) => {
     dispatch(editCard({ id, ...values }));
   };
+
+  useEffect(() => {
+    const today = dayjs().format("MM/DD/YYYY");
+    const dedlineDay = `${dayjs(deadline).format("MM/DD/YYYY")}`;
+    if (today === dedlineDay) setShowRemDedline(true);
+  }, [deadline]);
+  //--------------------------------------------------------------------
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  //--------------------------------------------------------------------
   return (
     <Card
       variant="outlined"
@@ -76,6 +96,7 @@ export default function CardTask({ card }) {
         mb: "5px",
         backgroundColor: "var(--sidebarColor)",
         borderRadius: 2,
+
         borderLeftWidth: "4px",
         borderLeftColor: priorityColor(priority),
       }}
@@ -121,7 +142,7 @@ export default function CardTask({ card }) {
             display: "flex",
             justifyContent: "start",
             alignItems: "center",
-            gap: "20px",
+            gap: "30px",
             mt: "10px",
           }}
         >
@@ -183,7 +204,7 @@ export default function CardTask({ card }) {
                     lineHeight: 1.5,
                   }}
                 >
-                  {priority}
+                  {priority === "without priority" ? "without" : priority}
                 </Box>
               </Box>
             </Box>
@@ -208,37 +229,27 @@ export default function CardTask({ card }) {
               alignItems: "center",
             }}
           >
-            {/* <Box
-              sx={{
-                width: "20px",
-                height: "20px",
-                mr: "8px",
-                borderRadius: "50%",
-                backgroundColor: "var(--gradientFonColor)",
-                boxShadow: " 0 0 5px 3px  #bedbb0",
-                textAlign: "center",
-                position: "relative",
-              }}
-            > */}
-            <svg
-              width="16"
-              height="16"
-              fill="none"
-              stroke="var(--filterModalText)"
-              style={{
-                boxShadow: " 0 0 6px 4px  #bedbb0",
-                borderRadius: "50%",
-                //  backgroundColor: "var(--gradientFonColor)",
-                //   position: "absolute",
-                //   top: "50%",
-                //   left: "50%",
-              }}
-            >
-              <use href={sprite + `#icon-Icon-bell`}></use>
-            </svg>
-            {/* </Box> */}
+            {showRemDedline && (
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="var(--filterModalText)"
+                style={{
+                  boxShadow: " 0 0 6px 4px  #bedbb0",
+                  borderRadius: "50%",
+                  marginRight: "8px",
+                }}
+              >
+                <use href={sprite + `#icon-Icon-bell`}></use>
+              </svg>
+            )}
+
             <CardActions sx={{ pt: 0, pb: 0, pr: 0 }}>
-              <Button sx={{ minWidth: "18px", borderRadius: "50%" }}>
+              <Button
+                onClick={handleClick}
+                sx={{ minWidth: "18px", borderRadius: "50%" }}
+              >
                 <svg
                   width="20"
                   height="20"
@@ -248,6 +259,9 @@ export default function CardTask({ card }) {
                   <use href={sprite + `#icon-arrow-circle-broken-right`}></use>
                 </svg>
               </Button>
+
+              <PopoverCard anchorEl={anchorEl} onClose={handleClose} />
+
               <Button
                 size="small"
                 sx={{ minWidth: "18px", borderRadius: "50%" }}

@@ -4,17 +4,6 @@ export const ColumnsListUl = styled.ul`
   display: flex;
 `;
 
-// export const ColumnsListli = styled.li`
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   width: 300px;
-//   height: 30px;
-//   padding: 5px;
-//   font-size: 16px;
-//   margin-top: 13px;
-// `;
-
 export const ColumnsListli = styled.div`
   display: flex;
   justify-content: space-between;

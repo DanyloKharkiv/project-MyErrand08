@@ -78,7 +78,6 @@ export default function AddCard({ onSave, close }) {
         validationSchema={CardSchema}
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
-          //values.deadline = "02-07-2023"; // "12-12-1212";
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
           onSave(values);
           actions.resetForm();
@@ -94,7 +93,7 @@ export default function AddCard({ onSave, close }) {
             placeholder="Desctiption"
           />
           <ErrorMessage name="taskValue" component="div" />
-          {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+
           <FormLabel id="radio-buttons-group-label">
             {" "}
             <Typography
@@ -199,7 +198,7 @@ export default function AddCard({ onSave, close }) {
               }
             />
           </RadioGroup>
-          {/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+
           <Typography
             sx={{
               marginBottom: "4px",
@@ -215,6 +214,7 @@ export default function AddCard({ onSave, close }) {
           </Typography>
 
           <Calendar value={deadlineValue} onChange={onChangeDedline} />
+
           <Button type="submit">
             <Div>
               <Span>
