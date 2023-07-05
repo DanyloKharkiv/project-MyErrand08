@@ -55,7 +55,7 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
         </ProjectSVG>
         <span>{title}</span>
       </ProjectsBox>
-      <BtnsSVGBox>
+      <BtnsSVGBox isSelected={activeDeskId === _id}>
         <BtnsSVG isSelected={activeDeskId === _id}>
           <svg
             onClick={() => {
@@ -66,17 +66,18 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
             width="16"
             height="16"
             stroke="var(--myBoards)"
-            fill="var(--sidebarColor)"
+            fill="transparent"
+            // fill="var(--sidebarColor)"
           >
             <use href={sprite + `#icon-Icon-pencil`}></use>
           </svg>
         </BtnsSVG>
-        <BtnsSVG>
+        <BtnsSVG isSelected={activeDeskId === _id}>
           <svg
             onClick={() => handleDeleteDesk(_id)}
             width="16"
             height="16"
-            fill="var(--sidebarColor)"
+            fill="transparent"
             stroke="var(--myBoards)"
           >
             <use href={sprite + `#icon-trash-04`}></use>
