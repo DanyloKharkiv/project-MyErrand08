@@ -7,10 +7,14 @@ import { Section } from "./SideBar.Styled";
 export const Sidebar = () => {
   return (
     <Section>
-      <Logo />
-      <Boards />
-      <CustomerSupport />
-      <LogOut />
+      <div>
+        <Logo />
+        <Boards />
+      </div>
+      <div>
+        <CustomerSupport />
+        <LogOut />
+      </div>
     </Section>
   );
 };

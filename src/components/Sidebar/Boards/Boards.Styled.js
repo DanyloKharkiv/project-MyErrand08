@@ -16,6 +16,7 @@ export const BoardsTitle = styled.h2`
 `;
 
 export const BoardsList = styled.ul`
+  height: calc(100vh - 600px);
   margin-top: 4px;
   /* border: 1px solid var(--boarder); */
   padding-top: 40px;
@@ -24,7 +25,8 @@ export const BoardsList = styled.ul`
   /* overflow-block: scroll; */
   overflow-y: auto;
   @media screen and (max-width: 1440px) {
-    height: 138px;
+    height: calc(100vh - 680px);
+    /* height: 138px; */
     padding-top: 12px;
     padding-bottom: 12px;
   }
@@ -54,6 +56,9 @@ export const BoardsItem = styled.li`
 
   background-color: ${({ isSelected }) =>
     isSelected ? "var(--prOfBg)" : "transparent"};
+
+  border-right: ${({ isSelected }) =>
+    isSelected ? "4px solid var(--activeBorder)" : "none"};
 `;
 
 export const ProjectsBox = styled.div`

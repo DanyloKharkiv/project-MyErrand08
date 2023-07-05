@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
+  justify-content: space-between;
   /* max-height: 100%; */
   background-color: var(--sidebarColor);
   color: var(--contrastColor);
@@ -15,8 +15,8 @@ export const Section = styled.section`
     width: 225px;
   }
   @media screen and (max-width: 1440px) {
-    /* height: 100vh; */
-    height: 702px;
+    height: calc(100vh - 68px);
+    /* height: 702px; */
     width: 260px;
     overflow: auto;
     position: fixed;

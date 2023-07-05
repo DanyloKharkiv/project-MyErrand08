@@ -1,25 +1,31 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeActiveDeskById,
   deleteDesk,
   setActiveDeskId,
-} from '../../../redux/desk/deskOperations';
-import { BoardsItem, BtnsSVG, BtnsSVGBox, ProjectSVG, ProjectsBox } from './Boards.Styled';
-import sprite from '../../../images/sprite.svg';
+} from "../../../redux/desk/deskOperations";
+import {
+  BoardsItem,
+  BtnsSVG,
+  BtnsSVGBox,
+  ProjectSVG,
+  ProjectsBox,
+} from "./Boards.Styled";
+import sprite from "../../../images/sprite.svg";
 
-import { useRef } from 'react';
-import EditBoardModal from '../../Modals/EditDeskModal/EditBoardModal';
+import { useRef } from "react";
+import EditBoardModal from "../../Modals/EditDeskModal/EditBoardModal";
 // import { useSelect } from '@mui/base';
-import { selectActiveDeskId } from '../../../redux/desk/deskSelectors';
+import { selectActiveDeskId } from "../../../redux/desk/deskSelectors";
 
 export const DesksListItem = ({ _id, icon, title, background }) => {
   const dispatch = useDispatch();
 
-  const handleDeleteDesk = deskId => {
+  const handleDeleteDesk = (deskId) => {
     dispatch(deleteDesk(deskId));
   };
 
-  const handleClickActiveDeskId = deskId => {
+  const handleClickActiveDeskId = (deskId) => {
     dispatch(setActiveDeskId(deskId));
   };
 
@@ -35,10 +41,14 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
     }
   };
 
-  const activeDeskId = useSelector (selectActiveDeskId);
+  const activeDeskId = useSelector(selectActiveDeskId);
 
   return (
-    <BoardsItem isSelected={activeDeskId === _id} key={_id} onClick={() => handleClickActiveDeskId(_id)}>
+    <BoardsItem
+      isSelected={activeDeskId === _id}
+      key={_id}
+      onClick={() => handleClickActiveDeskId(_id)}
+    >
       <ProjectsBox>
         <ProjectSVG width="18" height="18" stroke="var(--contrastColor)">
           <use href={sprite + `#${icon}`}></use>
@@ -56,6 +66,7 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
             width="16"
             height="16"
             stroke="var(--myBoards)"
+            fill="var(--sidebarColor)"
           >
             <use href={sprite + `#icon-Icon-pencil`}></use>
           </svg>
@@ -65,7 +76,7 @@ export const DesksListItem = ({ _id, icon, title, background }) => {
             onClick={() => handleDeleteDesk(_id)}
             width="16"
             height="16"
-            fill="var(--prOfBg)"
+            fill="var(--sidebarColor)"
             stroke="var(--myBoards)"
           >
             <use href={sprite + `#icon-trash-04`}></use>
