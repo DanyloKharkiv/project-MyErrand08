@@ -76,3 +76,25 @@ export const CloseBtn = styled.svg`
     z-index: 9999;
     cursor: pointer;
 `
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  margin: 4px;
+  background-color: var(--addBtnBox);
+`;
+
+export const Div = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  font-size: 18px;
+  color: var(--addBtnBox);
+`;

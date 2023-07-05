@@ -160,6 +160,7 @@ export const SpanClose = styled.span`
   position: absolute;
   top: 12px;
   left: calc(100% - 24px);
+  cursor: pointer;
 `;
 
 export const FieldRadio = styled(FormikField)`

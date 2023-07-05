@@ -65,17 +65,6 @@ export const Foto = styled.input`
   opacity: 0;
 `;
 
-/** export const EditFotoBtn = styled.div`
-    width: 24px;
-    height: 24px;
-    background-color: var(--modalEditPlusFoto);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 8px;
-    `;
-    */
 
 export const EditFoto = styled.svg`
   position: absolute;

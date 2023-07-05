@@ -260,7 +260,16 @@ const EditBoard = ({ close }) => {
             </li>
           ))}
         </ul>
-        <button className={css.btn}>Edit</button>
+        <button className={css.btn}>
+        <div  className={css.div}>
+                    <div  className={css.span}>
+                        <svg width="20" height="20" stroke="var(--addBtnText)">
+                  <use href={sprite + `#icon-plus`}></use>
+                </svg>
+                </div>
+          Edit
+          </div>
+          </button>
       </form>
     </div>
   );
