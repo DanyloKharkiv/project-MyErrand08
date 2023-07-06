@@ -22,10 +22,11 @@ export const Columns = ({ idDesk }) => {
   return (
     <>
       {isLoading && !error && <Loader />}
-
-      <ColumnsUl>
-        <ColumnList idDesk={idDesk} />
-      </ColumnsUl>
+      <div>
+        <ColumnsUl>
+          <ColumnList idDesk={idDesk} />
+        </ColumnsUl>
+      </div>
     </>
   );
 };

@@ -1,55 +1,56 @@
-import css from '../NewBoard/css.module.css'
-import sprite from '../../../images/sprite.svg'
-import { useState } from 'react'
-import backimg from '../../../json/icon.json';
-import { useDispatch, useSelector } from 'react-redux';
-import { addDesk } from '../../../redux/desk/deskOperations';
-import { getUserId } from '../../../redux/auth/authSelector';
-
+import css from "../NewBoard/css.module.css";
+import sprite from "../../../images/sprite.svg";
+import { useState } from "react";
+import backimg from "../../../json/icon.json";
+import { useDispatch, useSelector } from "react-redux";
+import { addDesk } from "../../../redux/desk/deskOperations";
+import { getUserId } from "../../../redux/auth/authSelector";
 
 const NewBoard = ({ close }) => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    
-    const [title, setTitle] = useState('')
-    const [icons, setIcons] = useState('icon_1');
-    const [backImg, setBackImg] = useState('id-0');
+  const [title, setTitle] = useState("");
+  const [icons, setIcons] = useState("icon_1");
+  const [backImg, setBackImg] = useState("id-0");
 
-    const ownerUser = useSelector(getUserId);
+  const ownerUser = useSelector(getUserId);
 
-    const handleClose = () => {
-        close()
-    }
-    const onFormChange = e => {
+  const handleClose = () => {
+    close();
+  };
+  const onFormChange = (e) => {
     const { name, value, id } = e.target;
     switch (name) {
-      case 'title':
+      case "title":
         setTitle(value);
         break;
-      case 'icons':
+      case "icons":
         setIcons(id);
-            break;
-      case 'backgrounds':
+        break;
+      case "backgrounds":
         setBackImg(id);
         break;
       default:
-        throw new Error('There has been a mistake. Try again, please.');
+        throw new Error("There has been a mistake. Try again, please.");
     }
+  };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    const newDesk = {
+      title: title,
+      ownerUser: ownerUser,
+      icon: icons,
+      background: backImg,
     };
-    const onFormSubmit = e => {
-        e.preventDefault();
-        const newDesk = { title: title, ownerUser:ownerUser, icon:icons, background: backImg };
-        dispatch(addDesk(newDesk));
+    dispatch(addDesk(newDesk));
 
-        setTitle('');
-        setIcons('');
-        setBackImg('id-0');
-        close()
-    }
+    setTitle("");
+    setIcons("");
+    setBackImg("id-0");
+    close();
+  };
 
-    
-
-    return (
+  return (
         <div className={css.modal}>
             <svg onClick={handleClose} className={css.closeBtn} width="18" height="18">
         <use  href = {sprite + '#icon-x'}></use>
@@ -153,4 +154,3 @@ const NewBoard = ({ close }) => {
 }
 
 export default NewBoard;
-
