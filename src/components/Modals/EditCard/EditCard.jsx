@@ -77,6 +77,7 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
+          console.log("Editcard", values.deadline);
           onSaveEdit(values);
           actions.resetForm();
           closeForm();

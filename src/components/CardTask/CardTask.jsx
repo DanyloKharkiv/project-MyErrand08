@@ -66,13 +66,14 @@ export default function CardTask({ card }) {
   const handleDeleteCard = () => dispatch(deleteCard(id));
 
   const onSaveEdit = (values) => {
+    console.log("edit card", values);
     dispatch(editCard({ id, ...values }));
   };
 
   useEffect(() => {
     const today = dayjs().format("MM/DD/YYYY");
     const dedlineDay = `${dayjs(deadline).format("MM/DD/YYYY")}`;
-    if (today === dedlineDay) setShowRemDedline(true);
+    today === dedlineDay ? setShowRemDedline(true) : setShowRemDedline(false);
   }, [deadline]);
   //--------------------------------------------------------------------
   const [anchorEl, setAnchorEl] = useState(null);
