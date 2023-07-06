@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/project-MyErrand08/static/css/main.fff81982.css",
-    "main.js": "/project-MyErrand08/static/js/main.ccd5ef3e.js",
+    "main.js": "/project-MyErrand08/static/js/main.9e934bfd.js",
     "static/js/794.17d799d2.chunk.js": "/project-MyErrand08/static/js/794.17d799d2.chunk.js",
     "static/js/392.0151d8e5.chunk.js": "/project-MyErrand08/static/js/392.0151d8e5.chunk.js",
-    "static/css/746.766e30e2.chunk.css": "/project-MyErrand08/static/css/746.766e30e2.chunk.css",
-    "static/js/746.d17ce430.chunk.js": "/project-MyErrand08/static/js/746.d17ce430.chunk.js",
+    "static/css/10.d7775632.chunk.css": "/project-MyErrand08/static/css/10.d7775632.chunk.css",
+    "static/js/10.3d23914f.chunk.js": "/project-MyErrand08/static/js/10.3d23914f.chunk.js",
     "static/js/126.95018a46.chunk.js": "/project-MyErrand08/static/js/126.95018a46.chunk.js",
     "static/js/868.aee3532a.chunk.js": "/project-MyErrand08/static/js/868.aee3532a.chunk.js",
     "static/media/sprite.svg": "/project-MyErrand08/static/media/sprite.d29769b93117a092de9320d0298b5e54.svg",
     "index.html": "/project-MyErrand08/index.html",
     "main.fff81982.css.map": "/project-MyErrand08/static/css/main.fff81982.css.map",
-    "main.ccd5ef3e.js.map": "/project-MyErrand08/static/js/main.ccd5ef3e.js.map",
+    "main.9e934bfd.js.map": "/project-MyErrand08/static/js/main.9e934bfd.js.map",
     "794.17d799d2.chunk.js.map": "/project-MyErrand08/static/js/794.17d799d2.chunk.js.map",
     "392.0151d8e5.chunk.js.map": "/project-MyErrand08/static/js/392.0151d8e5.chunk.js.map",
-    "746.766e30e2.chunk.css.map": "/project-MyErrand08/static/css/746.766e30e2.chunk.css.map",
-    "746.d17ce430.chunk.js.map": "/project-MyErrand08/static/js/746.d17ce430.chunk.js.map",
+    "10.d7775632.chunk.css.map": "/project-MyErrand08/static/css/10.d7775632.chunk.css.map",
+    "10.3d23914f.chunk.js.map": "/project-MyErrand08/static/js/10.3d23914f.chunk.js.map",
     "126.95018a46.chunk.js.map": "/project-MyErrand08/static/js/126.95018a46.chunk.js.map",
     "868.aee3532a.chunk.js.map": "/project-MyErrand08/static/js/868.aee3532a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fff81982.css",
-    "static/js/main.ccd5ef3e.js"
+    "static/js/main.9e934bfd.js"
   ]
 }
