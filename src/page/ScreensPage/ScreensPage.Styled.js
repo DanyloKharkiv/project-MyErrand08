@@ -7,6 +7,7 @@ export const ScreensPageElement = styled.section`
   //margin-left:  ${(props) => (props.isSidebarOpen ? '260px' : '0')};
   background-repeat: no-repeat;
   background-size: cover;
+  overflow-x: scroll;
 `;
 export const SectionHeader = styled.div`
   display: flex;

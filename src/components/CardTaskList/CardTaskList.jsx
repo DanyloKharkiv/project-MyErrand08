@@ -7,7 +7,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { selectRadio } from "../../redux/filter/filterSelectors";
 import { CardList } from "../../components/CardTaskList/CardTaskList.styled";
+import { selectDesks } from "../../redux/desk/deskSelectors";
 export default function CardTaskList({ currentColumn }) {
+ 
   const dispatch = useDispatch();
 
   const filterValue = useSelector(selectRadio);
