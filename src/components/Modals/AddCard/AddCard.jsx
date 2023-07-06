@@ -79,7 +79,6 @@ export default function AddCard({ onSave, close }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
-          console.log("Addcard", values.deadline);
           onSave(values);
           actions.resetForm();
           close();
@@ -96,7 +95,6 @@ export default function AddCard({ onSave, close }) {
           <ErrorMessage name="taskValue" component="div" />
 
           <FormLabel id="radio-buttons-group-label">
-            {" "}
             <Typography
               sx={{
                 marginBottom: "4px",
@@ -104,7 +102,7 @@ export default function AddCard({ onSave, close }) {
                 fontWeight: "400",
                 fontSize: "12px",
                 lineHeight: 1.5,
-                color: "var(--opacityWhite2)",
+                color: "var(--cardTxt)",
                 fontFamily: "var(--poppinsFont)",
               }}
             >
@@ -207,7 +205,7 @@ export default function AddCard({ onSave, close }) {
               fontWeight: "400",
               fontSize: "12px",
               lineHeight: 1.5,
-              color: "var(--opacityWhite2)",
+              color: "--cardTxt",
               fontFamily: "var(--poppinsFont)",
             }}
           >

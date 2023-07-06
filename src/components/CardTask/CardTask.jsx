@@ -66,7 +66,6 @@ export default function CardTask({ card }) {
   const handleDeleteCard = () => dispatch(deleteCard(id));
 
   const onSaveEdit = (values) => {
-    console.log("edit card", values);
     dispatch(editCard({ id, ...values }));
   };
 
@@ -119,7 +118,7 @@ export default function CardTask({ card }) {
           sx={{
             mt: "8px",
             mb: "14px",
-            color: "var(--opacityWhite2)",
+            color: "var(--cardTxt)",
             fontSize: 12,
             fontWeight: "400",
             fontFamily: "Poppins",
@@ -135,7 +134,7 @@ export default function CardTask({ card }) {
           />
         </Typography>
 
-        {line("var(--opacityWhite2)")}
+        {line("var(--cardTxt)")}
 
         <Box
           sx={{
@@ -149,7 +148,7 @@ export default function CardTask({ card }) {
         >
           <Typography
             sx={{
-              color: "var(--opacityWhite2)",
+              color: "var(--cardTxt)",
               fontFamily: "inherit",
               fontSize: 8,
               lineHeight: 1.5,
@@ -159,7 +158,7 @@ export default function CardTask({ card }) {
           </Typography>
           <Typography
             sx={{
-              color: "var(--opacityWhite2)",
+              color: "var(--cardTxt)",
               fontSize: 8,
               fontFamily: "inherit",
               lineHeight: 1.5,
@@ -199,7 +198,7 @@ export default function CardTask({ card }) {
                 {bull(priorityColor(priority))}
                 <Box
                   sx={{
-                    color: "var(--filterModalText)",
+                    color: "var(--cardTxt)",
                     fontSize: 10,
                     fontFamily: "inherit",
                     lineHeight: 1.5,
@@ -212,7 +211,7 @@ export default function CardTask({ card }) {
             <Box>
               <Typography
                 sx={{
-                  color: "var(--filterModalText)",
+                  color: "var(--cardTxt)",
                   fontSize: 10,
                   fontFamily: "inherit",
                   lineHeight: 1.5,
@@ -235,7 +234,7 @@ export default function CardTask({ card }) {
                 width="16"
                 height="16"
                 fill="none"
-                stroke="var(--filterModalText)"
+                stroke="var(--cardTxt)"
                 style={{
                   boxShadow: " 0 0 6px 4px  #bedbb0",
                   borderRadius: "50%",
@@ -251,12 +250,7 @@ export default function CardTask({ card }) {
                 onClick={handleClick}
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
               >
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="var(--opacityWhite2)"
-                >
+                <svg width="20" height="20" fill="none" stroke="var(--cardTxt)">
                   <use href={sprite + `#icon-arrow-circle-broken-right`}></use>
                 </svg>
               </Button>
@@ -268,12 +262,7 @@ export default function CardTask({ card }) {
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
                 onClick={openModal}
               >
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="var(--opacityWhite2)"
-                >
+                <svg width="20" height="20" fill="none" stroke="var(--cardTxt)">
                   <use href={sprite + `#icon-Icon-pencil`}></use>
                 </svg>
               </Button>
@@ -293,12 +282,7 @@ export default function CardTask({ card }) {
                 sx={{ minWidth: "18px", borderRadius: "50%" }}
                 onClick={handleDeleteCard}
               >
-                <svg
-                  width="20"
-                  height="20"
-                  fill="none"
-                  stroke="var(--opacityWhite2)"
-                >
+                <svg width="20" height="20" fill="none" stroke="var(--cardTxt)">
                   <use href={sprite + `#icon-trash-04`}></use>
                 </svg>
               </Button>

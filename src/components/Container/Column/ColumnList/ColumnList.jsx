@@ -41,7 +41,6 @@ function ColumnList({ idDesk }) {
 
   const openModalAddCard = (id) => {
     setModalIsOpenAddCard(true);
-    //console.log("id col из модалки:", id);
     dispatch(changeOwner(id));
   };
 
@@ -65,7 +64,7 @@ function ColumnList({ idDesk }) {
       ownerColumn,
       ...values,
     };
-    console.log("add card", values);
+
     dispatch(addCard(card));
   };
 

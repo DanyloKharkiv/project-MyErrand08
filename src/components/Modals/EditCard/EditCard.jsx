@@ -77,7 +77,7 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
-          console.log("Editcard", values.deadline);
+
           onSaveEdit(values);
           actions.resetForm();
           closeForm();
@@ -96,7 +96,7 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
                 fontWeight: "400",
                 fontSize: "12px",
                 lineHeight: 1.5,
-                color: "var(--opacityWhite2)",
+                color: "var(--cardTxt)",
                 fontFamily: "var(--poppinsFont)",
               }}
             >
@@ -199,7 +199,7 @@ export default function EditCard({ onSaveEdit, closeForm, ...props }) {
               fontWeight: "400",
               fontSize: "12px",
               lineHeight: 1.5,
-              color: "var(--opacityWhite2)",
+              color: "var(--cardTxt)",
               fontFamily: "var(--poppinsFont)",
             }}
           >
