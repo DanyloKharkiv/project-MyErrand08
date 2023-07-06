@@ -3,7 +3,7 @@ import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Formik, Field } from 'formik';
-import { Form, FormField, ErrorMessage, FieldInput, FrmButton, CloseBtn } from './EditColumn.Styled';
+import { Form, FormField, ErrorMessage, FieldInput, FrmButton, CloseBtn, IconWrapper, Div } from './EditColumn.Styled';
 import { selectColumnsItems } from '../../../redux/column/columnSlice';
 // import { addColumn } from '../../../redux/column/columnOperation';
 
@@ -63,7 +63,16 @@ const EditColumn = ({ ColumnTitle, ColumnId, close }) => {
                     </Field>
                     <ErrorMessage name="title" component="span" />
                 </FormField>
-                <FrmButton type="submit">Edit</FrmButton>
+                <FrmButton type="submit">
+                <Div>
+              <IconWrapper>
+                <svg width="20" height="20" stroke="var(--addBtnText)">
+                  <use href={sprite + `#icon-plus`}></use>
+                </svg>
+              </IconWrapper>
+              Edit
+            </Div>
+                    </FrmButton>
             </Form>
     
         </Formik>

@@ -24,12 +24,8 @@ export const BoardsList = styled.ul`
 
   /* height: 206px; */
   /* overflow-block: scroll; */
-<<<<<<< Updated upstream
   /* overflow-y: auto; */
-=======
 
-  overflow-y: auto;
->>>>>>> Stashed changes
   @media screen and (max-width: 1440px) {
     height: calc(100vh - 680px);
     /* height: 138px; */
@@ -79,12 +75,12 @@ export const ProjectSVG = styled.svg`
 
 export const BtnsSVGBox = styled.div`
   display: flex;
+  display: ${({ isSelected }) => (isSelected ? "block" : "none")};
 `;
 
 export const BtnsSVG = styled.button`
   margin-left: 8px;
-  background-color: ${({ isSelected }) =>
-    isSelected ? "var(--prOfBg)" : "transparent"};
+  background-color: transparent;
   border: none;
   padding: 0;
   cursor: pointer;

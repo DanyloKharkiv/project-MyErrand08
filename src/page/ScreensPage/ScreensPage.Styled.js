@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const ScreensPageElement = styled.section`
   padding: 10px 24px 36px 24px;
   background-color: var(--primaryBoardBg);
-
   height: calc(100vh - 68px);
-  /* height: 100vh; */
+  //margin-left:  ${(props) => (props.isSidebarOpen ? '260px' : '0')};
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -50,7 +49,7 @@ export const FilterBtn = styled.button`
   font-size: var(--fontSize14);
   line-height: 21px;
   font-family: Poppins;
-  background-color: var(--primaryBoardBg);
+  background-color: transparent;
   border: none;
   padding: 0;
   margin-left: 8px;

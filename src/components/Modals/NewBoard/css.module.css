@@ -86,7 +86,21 @@
     width: 100%;
     height: 49px;
     border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--modalAccentBtnBg);
+    color: var(--modalAccentBtnTxt);
+  font-family: var(--poppinsFont);
+  font-weight: var(--fontWeight500);
+  border: none;
+  transition: var(--transition);
+  
 }
+
+.btn:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
 .svgOff{
     stroke: var(--filterModalText);
     cursor: pointer;
@@ -114,4 +128,24 @@
         position: absolute;
         cursor: pointer;
         stroke: var(--filterModalTitle);
+}
+.div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--poppinsFont);
+    font-weight: var(--fontWeight500);
+    font-size: 18px;
+    color: var(--addBtnBox);
+}
+.span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 5px;
+    margin: 4px;
+    background-color: var(--addBtnBox);
 }
