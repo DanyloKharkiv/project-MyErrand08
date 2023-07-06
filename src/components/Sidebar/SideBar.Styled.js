@@ -4,6 +4,7 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100vh;
   /* max-height: 100%; */
   background-color: var(--sidebarColor);
   color: var(--contrastColor);

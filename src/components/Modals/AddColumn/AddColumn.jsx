@@ -11,6 +11,8 @@ import {
   FrmButton,
   CloseBtn,
   ScrollBlock,
+  IconWrapper,
+  Div
 } from "./AddColumn.Styled";
 import { selectColumnsItems } from "../../../redux/column/columnSlice";
 import { addColumn } from "../../../redux/column/columnOperation";
@@ -87,7 +89,16 @@ const AddColumn = ({ close }) => {
           </Field>
           <ErrorMessage name="title" component="span" />
         </FormField>
-          <FrmButton type="submit">Add</FrmButton>
+          <FrmButton type="submit">
+            <Div>
+              <IconWrapper>
+                <svg width="20" height="20" stroke="var(--addBtnText)">
+                  <use href={sprite + `#icon-plus`}></use>
+                </svg>
+              </IconWrapper>
+              Add
+            </Div>
+            </FrmButton>
         </Form>
         </ScrollBlock>
     </Formik>
