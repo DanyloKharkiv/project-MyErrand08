@@ -22,7 +22,7 @@ const DesksList = () => {
   
     useEffect(() => {
         dispatch(fetchDesks())
-    }, [dispatch]);
+    }, [dispatch, desks]);
   
   
     // const { isMobile } = useMatchMedia();

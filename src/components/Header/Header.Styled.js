@@ -14,4 +14,5 @@ export const HeaderSection = styled.header`
   /* max-width: 100%; */
   /* height: 68px; */
   background-color: var(--headerColor);
+}
 `;
