@@ -24,7 +24,7 @@ export const BoardsList = styled.ul`
 
   /* height: 206px; */
   /* overflow-block: scroll; */
-  /* overflow-y: auto; */
+  overflow-y: auto;
 
   @media screen and (max-width: 1440px) {
     height: calc(100vh - 680px);
