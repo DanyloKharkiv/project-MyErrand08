@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/project-MyErrand08/static/css/main.73bb3de9.css",
-    "main.js": "/project-MyErrand08/static/js/main.a0bf4406.js",
+    "main.js": "/project-MyErrand08/static/js/main.1690076c.js",
     "static/js/794.17d799d2.chunk.js": "/project-MyErrand08/static/js/794.17d799d2.chunk.js",
     "static/js/392.0151d8e5.chunk.js": "/project-MyErrand08/static/js/392.0151d8e5.chunk.js",
     "static/css/10.f7912678.chunk.css": "/project-MyErrand08/static/css/10.f7912678.chunk.css",
-    "static/js/10.a8117c94.chunk.js": "/project-MyErrand08/static/js/10.a8117c94.chunk.js",
+    "static/js/10.152095c6.chunk.js": "/project-MyErrand08/static/js/10.152095c6.chunk.js",
     "static/js/126.95018a46.chunk.js": "/project-MyErrand08/static/js/126.95018a46.chunk.js",
     "static/js/868.aee3532a.chunk.js": "/project-MyErrand08/static/js/868.aee3532a.chunk.js",
     "static/media/sprite.svg": "/project-MyErrand08/static/media/sprite.de60c1c7d918266acfe28de10813e096.svg",
     "index.html": "/project-MyErrand08/index.html",
     "main.73bb3de9.css.map": "/project-MyErrand08/static/css/main.73bb3de9.css.map",
-    "main.a0bf4406.js.map": "/project-MyErrand08/static/js/main.a0bf4406.js.map",
+    "main.1690076c.js.map": "/project-MyErrand08/static/js/main.1690076c.js.map",
     "794.17d799d2.chunk.js.map": "/project-MyErrand08/static/js/794.17d799d2.chunk.js.map",
     "392.0151d8e5.chunk.js.map": "/project-MyErrand08/static/js/392.0151d8e5.chunk.js.map",
     "10.f7912678.chunk.css.map": "/project-MyErrand08/static/css/10.f7912678.chunk.css.map",
-    "10.a8117c94.chunk.js.map": "/project-MyErrand08/static/js/10.a8117c94.chunk.js.map",
+    "10.152095c6.chunk.js.map": "/project-MyErrand08/static/js/10.152095c6.chunk.js.map",
     "126.95018a46.chunk.js.map": "/project-MyErrand08/static/js/126.95018a46.chunk.js.map",
     "868.aee3532a.chunk.js.map": "/project-MyErrand08/static/js/868.aee3532a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73bb3de9.css",
-    "static/js/main.a0bf4406.js"
+    "static/js/main.1690076c.js"
   ]
 }
