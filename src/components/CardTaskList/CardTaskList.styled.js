@@ -5,4 +5,6 @@ export const CardList = styled.div`
   /* border: 1px solid red; */
   overflow-y: auto;
   scrollbar-width: thin;
+  padding-right: 4px;
+  width: 338px;
 `;

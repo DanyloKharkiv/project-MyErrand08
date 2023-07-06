@@ -77,7 +77,7 @@ export const ColumnWrap = styled.li`
 export const ButtonAddCard = styled.button`
   display: flex;
   min-width: 100%;
-  /* margin: 6px 0; */
+  margin: 6px 0;
   padding: 10px 0px 11px 0px;
   justify-content: center;
   align-items: center;
