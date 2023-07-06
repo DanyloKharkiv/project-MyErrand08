@@ -65,7 +65,7 @@ function ColumnList({ idDesk }) {
       ownerColumn,
       ...values,
     };
-
+    console.log("add card", values);
     dispatch(addCard(card));
   };
 

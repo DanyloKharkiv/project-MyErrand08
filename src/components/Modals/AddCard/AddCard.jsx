@@ -79,6 +79,7 @@ export default function AddCard({ onSave, close }) {
         onSubmit={(values, actions) => {
           values.priority = selectedValue;
           values.deadline = `${dayjs(deadlineValue).format("MM-DD-YYYY")}`;
+          console.log("Addcard", values.deadline);
           onSave(values);
           actions.resetForm();
           close();
