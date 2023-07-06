@@ -68,7 +68,7 @@ export const AddCardIcon = styled.span`
   border-radius: var(--borderRadius8);
 `;
 
-export const ColumnWrap = styled.ul`
+export const ColumnWrap = styled.li`
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -77,7 +77,7 @@ export const ColumnWrap = styled.ul`
 export const ButtonAddCard = styled.button`
   display: flex;
   min-width: 100%;
-  margin: 48px 0;
+  /* margin: 6px 0; */
   padding: 10px 0px 11px 0px;
   justify-content: center;
   align-items: center;
@@ -96,6 +96,6 @@ export const ButtonAddCard = styled.button`
   } */
 `;
 
-export const ColumnInfo = styled.li`
+export const ColumnInfo = styled.div`
   color: #fff;
 `;

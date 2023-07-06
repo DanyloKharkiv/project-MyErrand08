@@ -21,9 +21,15 @@ export const BoardsList = styled.ul`
   /* border: 1px solid var(--boarder); */
   padding-top: 40px;
   padding-bottom: 40px;
+
   /* height: 206px; */
   /* overflow-block: scroll; */
+<<<<<<< Updated upstream
   /* overflow-y: auto; */
+=======
+
+  overflow-y: auto;
+>>>>>>> Stashed changes
   @media screen and (max-width: 1440px) {
     height: calc(100vh - 680px);
     /* height: 138px; */

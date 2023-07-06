@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-
-
 export const ColumnsUl = styled.ul`
   display: flex;
   gap: 34px;
@@ -20,4 +18,3 @@ export const ColumnsUl = styled.ul`
     height: calc(100vh - 228px);
   }
 `;
-

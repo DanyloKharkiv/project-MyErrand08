@@ -6,7 +6,7 @@ import { fetchCards } from "../../redux/cards/operations";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { selectRadio } from "../../redux/filter/filterSelectors";
-
+import { CardList } from "../../components/CardTaskList/CardTaskList.styled";
 export default function CardTaskList({ currentColumn }) {
   const dispatch = useDispatch();
 
@@ -37,18 +37,20 @@ export default function CardTaskList({ currentColumn }) {
           There are no cards in the column
         </Typography>
       ) : (
-        <List>
-          {listCardsColumn.map(
-            ({ _id: id, title, taskValue, priority, deadline }) => {
-              return (
-                <CardTask
-                  key={id}
-                  card={{ id, title, taskValue, priority, deadline }}
-                />
-              );
-            }
-          )}
-        </List>
+        <CardList>
+          <List>
+            {listCardsColumn.map(
+              ({ _id: id, title, taskValue, priority, deadline }) => {
+                return (
+                  <CardTask
+                    key={id}
+                    card={{ id, title, taskValue, priority, deadline }}
+                  />
+                );
+              }
+            )}
+          </List>
+        </CardList>
       )}
     </>
   );
